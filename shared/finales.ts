@@ -93,11 +93,11 @@ const entries: readonly Entry[] = [
   ],
   [
     "zavarce",
-    "Pelotón Yummy",
+    "Operativo Municipal",
     "transport",
-    "Siete motos Yummy atraviesan la arena en una formación escalonada. Cada moto tiene su propio contacto, se puede bloquear o esquivar y sigue rodando después del impacto.",
-    "Pelotón Yummy",
-    "¡Pedido en camino!",
+    "Una cuadrilla motorizada atraviesa la arena en formación escalonada. Cada vehículo tiene su propio contacto y se puede bloquear o esquivar.",
+    "Operativo Municipal",
+    "¡Operativo en marcha!",
     "engine",
   ],
   [
