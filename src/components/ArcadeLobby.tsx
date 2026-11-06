@@ -254,7 +254,7 @@ export function ArcadeLobby(props: Props) {
             [
               ["practice", "Contra CPU", "gamepad"],
               ["local", "Dos jugadores", "heart"],
-              ["online", "En línea", "bolt"],
+              ["online", "Modo historia", "star"],
             ] as const
           ).map(([value, label, icon]) => (
             <button
@@ -267,7 +267,9 @@ export function ArcadeLobby(props: Props) {
               title={
                 value === "local"
                   ? "Dos jugadores en el mismo dispositivo"
-                  : undefined
+                  : value === "online"
+                    ? "Modo historia y campaña riojana (Próximamente)"
+                    : undefined
               }
               className={mode === value ? "selected" : ""}
               onClick={() => props.onMode(value)}
@@ -286,7 +288,7 @@ export function ArcadeLobby(props: Props) {
         </button>
       </div>
 
-      {((network.error && mode === "online") || network.opponentLeft) && (
+      {network.opponentLeft && (
         <div className="notice-banner" role="status">
           <Globe2 size={16} />
           <span>
@@ -708,45 +710,31 @@ export function ArcadeLobby(props: Props) {
           )}
           {mode === "online" && (
             <div className="ready-online-status">
-              <span
-                className={`live-dot ${network.connected ? "connected" : ""}`}
-              />
-              <span>
-                {network.room
-                  ? `${network.room.players.length}/2 JUGADORES EN LA SALA`
-                  : "INVITA A UN COMPA"}
-              </span>
-              {network.room && (
-                <button onClick={props.onInvite}>
-                  Invitar <Copy size={12} />
-                </button>
-              )}
+              <PixelIcon kind="star" size={14} />
+              <span>MODO HISTORIA · PRÓXIMAMENTE</span>
             </div>
           )}
           <button
             className="arcade-start primary-button fight-button"
-            disabled={mode === "online" && !network.connected}
-            onPointerEnter={network.room ? undefined : props.onStartIntent}
-            onPointerDown={network.room ? undefined : props.onStartIntent}
-            onFocus={network.room ? undefined : props.onStartIntent}
-            onClick={
-              network.room
-                ? () => props.onReady(!ownRoomPlayer?.ready)
-                : props.onStart
+            disabled={mode === "online"}
+            title={
+              mode === "online"
+                ? "Modo historia en desarrollo para la Game Jam"
+                : undefined
             }
+            onPointerEnter={mode === "online" ? undefined : props.onStartIntent}
+            onPointerDown={mode === "online" ? undefined : props.onStartIntent}
+            onFocus={mode === "online" ? undefined : props.onStartIntent}
+            onClick={mode === "online" ? undefined : props.onStart}
           >
             <PixelIcon
-              kind={mode === "online" ? "bolt" : "gamepad"}
+              kind={mode === "online" ? "star" : "gamepad"}
               size={20}
             />
             <span>
-              {network.room
-                ? ownRoomPlayer?.ready
-                  ? "¡LISTO!"
-                  : "¡ESTOY LISTO!"
-                : mode === "online"
-                  ? "BUSCAR SALAS"
-                  : "¡A DARLE!"}
+              {mode === "online"
+                ? "HISTORIA (PRÓXIMAMENTE)"
+                : "¡A DARLE!"}
             </span>
             <PixelIcon kind="arrow" size={20} />
           </button>

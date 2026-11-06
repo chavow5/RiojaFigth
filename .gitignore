@@ -8,7 +8,8 @@ playwright-report/
 !.env.example
 .DS_Store
 
-# Private creator storage and local artwork workspaces.
+# Local raw game jam assets
+/AA ARCHIVOS JAM/
 /data/
 /assets/*
 !/assets/icon.svg
