@@ -31,12 +31,12 @@
     "id": "vallenilla",
     "sprite": "vallenilla-v5",
     "category": "founders",
-    "name": "Pedro Vallenilla",
-    "shortName": "Pedro",
-    "title": "El ritmo de las cuotas",
+    "name": "Josué Portugal",
+    "shortName": "Portugal",
+    "title": "Guía del Famatina",
     "role": "CONTROL",
-    "color": "#e6ed7a",
-    "description": "Frente despejada, barba corta y camisa de cuadros. Lanza tres cajas de Cashea y convoca dos mascotas para cobrar la cuota atrasada.",
+    "color": "#e63946",
+    "description": "Guía andino y explorador del cerro Famatina. Equipado con bastones de trekking y paso firme en la roca, invoca a los cardones riojanos para defender la cordillera.",
     "speed": 4.6,
     "damage": 1.01,
     "armor": 0.96,
@@ -46,47 +46,23 @@
       4
     ],
     "ability": "installments",
-    "special": "Tres cuotas",
+    "special": "Ataque del Cardón",
     "combos": [
-      "Cuota inicial",
-      "Cuota atrasada",
-      "Límite aprobado"
-    ]
-  },
-  {
-    "id": "javier",
-    "sprite": "javier-v43",
-    "name": "Javier Hala Madrid",
-    "shortName": "Javier",
-    "title": "El remate maracucho",
-    "role": "IMPREDECIBLE",
-    "color": "#ff96bd",
-    "description": "Sin barba, copete alto, sonrisa amplia y camiseta azul marino. Sus cejas y reacciones de cámara se convierten en fintas, giros y un remate maracucho.",
-    "speed": 5.3,
-    "damage": 0.97,
-    "armor": 1.03,
-    "stats": [
-      3,
-      4,
-      3
+      "Marcha Andina",
+      "Golpe de Bastón",
+      "Espina Brava"
     ],
-    "ability": "spin",
-    "special": "Reacción maracucha",
-    "combos": [
-      "Finta de ceja",
-      "Réplica al instante",
-      "Remate de mialma"
-    ]
+    "portraitLift": 0.02
   },
   {
     "id": "capriles",
     "sprite": "capriles-v39",
-    "name": "Capriles Radonski",
-    "shortName": "Capriles",
-    "title": "A toda marcha",
+    "name": "Felipe Álvarez",
+    "shortName": "Álvarez",
+    "title": "Diputado Nacional",
     "role": "VELOCIDAD",
     "color": "#80b8ff",
-    "description": "Corre la cancha completa. Su sprint tricolor atraviesa la arena y castiga a quien se quede quieto.",
+    "description": "Dirigente y referente de la oposición riojana. Con paso ágil y postura firme, debate y contraataca sin dar tregua en la arena.",
     "speed": 6.2,
     "damage": 0.88,
     "armor": 1.02,
@@ -96,112 +72,13 @@
       3
     ],
     "ability": "sprint",
-    "special": "Sprint tricolor",
+    "special": "Sprint de Debate",
     "combos": [
-      "¡Qué manguangua, ah!",
-      "Hay un camino",
-      "Meta tricolor"
-    ]
-  },
-  {
-    "id": "renny",
-    "sprite": "renny-v3",
-    "name": "Renny Ottolina",
-    "shortName": "Renny",
-    "title": "El número uno",
-    "role": "PRECISIÓN",
-    "color": "#ffc76a",
-    "description": "Traje, corbata y presencia de televisión. Sus dos pulsos de transmisión controlan el espacio a distinto ritmo.",
-    "speed": 4.5,
-    "damage": 1,
-    "armor": 0.97,
-    "stats": [
-      3,
-      3,
-      4
+      "Interpelación",
+      "Paso Firme",
+      "Contraataque"
     ],
-    "ability": "broadcast",
-    "special": "En cadena",
-    "combos": [
-      "Doble anuncio",
-      "Buenas noches",
-      "El número uno"
-    ]
-  },
-  {
-    "id": "gomez",
-    "sprite": "gomez-v3",
-    "name": "Juan Vicente Gómez",
-    "shortName": "Gómez",
-    "title": "El general de archivo",
-    "role": "PODER",
-    "color": "#c9ae78",
-    "description": "Uniforme histórico, bigote y andar pesado. Un golpe contra el suelo sacude a los rivales que permanezcan cerca.",
-    "speed": 3.5,
-    "damage": 1.2,
-    "armor": 0.86,
-    "stats": [
-      5,
-      2,
-      5
-    ],
-    "ability": "command",
-    "special": "Paso del general",
-    "combos": [
-      "Paso firme",
-      "Orden cerrada",
-      "Golpe de mando"
-    ]
-  },
-  {
-    "id": "simon",
-    "sprite": "simon-v3",
-    "name": "Simón Díaz",
-    "shortName": "Tío Simón",
-    "title": "El cantor del llano",
-    "role": "DISTANCIA",
-    "color": "#e0a55f",
-    "description": "Sombrero y camisa de faena. Un abanico de tres notas viaja por trayectorias distintas y cubre los saltos del rival.",
-    "speed": 4.1,
-    "damage": 0.95,
-    "armor": 0.97,
-    "stats": [
-      3,
-      3,
-      4
-    ],
-    "ability": "cuatro",
-    "special": "Acorde llanero",
-    "combos": [
-      "Primer acorde",
-      "Contrapunteo",
-      "Tonada de la arena"
-    ]
-  },
-  {
-    "id": "conde",
-    "sprite": "conde-v3",
-    "name": "Er Conde del Guácharo",
-    "shortName": "El Conde",
-    "title": "El remate oriental",
-    "role": "EMBESTIDA",
-    "color": "#8bd3ac",
-    "description": "Sombrero y movimientos teatrales. Su embestida corta tiene un arranque pesado y mucho empuje al conectar.",
-    "speed": 4.2,
-    "damage": 1.1,
-    "armor": 0.9,
-    "stats": [
-      4,
-      3,
-      4
-    ],
-    "ability": "whirl",
-    "special": "Remate oriental",
-    "combos": [
-      "Chiste corto",
-      "Doble remate",
-      "La función completa"
-    ]
+    "portraitLift": 0.02
   },
   {
     "id": "emilio",
@@ -226,31 +103,6 @@
       "Chachazo",
       "Emisión Extraordinaria",
       "Federalismo Extremo"
-    ]
-  },
-  {
-    "id": "maite",
-    "sprite": "maite-v3",
-    "name": "Maite Delgado",
-    "shortName": "Maite",
-    "title": "La anfitriona",
-    "role": "CONTROL",
-    "color": "#f19bca",
-    "description": "Vestido de gala y porte de presentadora. Marca el suelo frente a ella y enciende un foco que interrumpe la aproximación.",
-    "speed": 4.7,
-    "damage": 0.94,
-    "armor": 0.99,
-    "stats": [
-      3,
-      4,
-      4
-    ],
-    "ability": "spotlight",
-    "special": "Luz de escenario",
-    "combos": [
-      "Primera entrada",
-      "Cambio de cámara",
-      "Gran final"
     ]
   }
 ]

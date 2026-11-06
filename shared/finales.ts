@@ -102,11 +102,11 @@ const entries: readonly Entry[] = [
   ],
   [
     "vallenilla",
-    "Cobro en equipo",
+    "Ataque del Cardón",
     "technology",
-    "Pedro convoca dos mascotas blancas de Cashea. Caminan hasta el rival y alternan seis puñetazos de alcance local; el rival puede alejarse, saltar o bloquear cada golpe.",
-    "Dos mascotas Cashea",
-    "Cuota atrasada",
+    "Josué alza sus bastones y convoca al Cardón del Famatina, que avanza implacable sobre el rival con sus brazos espinosos.",
+    "Cardón del Famatina",
+    "¡El Famatina no se toca!",
     "hack",
   ],
   [
@@ -120,11 +120,11 @@ const entries: readonly Entry[] = [
   ],
   [
     "capriles",
-    "Cafecito interminable",
+    "Cafecito de debate",
     "conversation",
-    "Sienta al rival a su lado en una mesa con dos sillas. Entre sorbos dice «¡Qué manguangua!» y habla de la leche acaparada mientras le quita vida con cada pausa.",
+    "Sienta al rival a su lado en una mesa con dos sillas. Entre sorbos de café sostiene una charla sincera y atenta mientras le quita vida al rival.",
     "Mesa, dos sillas y café",
-    "¡Qué manguangua!",
+    "Una charla sincera...",
     "coffee",
   ],
   [

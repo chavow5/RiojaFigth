@@ -2,59 +2,68 @@
   "vallenilla": {
     "file": "vallenilla-cashea-attack-v1",
     "frames": {
-      "box": {
-        "x": 20,
-        "y": 116,
-        "width": 472,
-        "height": 376,
-        "anchorX": 236,
-        "anchorY": 370.7595818815331,
-        "bodyHeight": 362.89895470383277
+      "ready": {
+        "x": 61,
+        "y": 24,
+        "width": 445,
+        "height": 465,
+        "anchorX": 223,
+        "anchorY": 465,
+        "bodyHeight": 465
       },
       "summon": {
-        "x": 532,
-        "y": 28,
-        "width": 472,
-        "height": 464,
-        "anchorX": 236,
-        "anchorY": 459.8938053097345,
-        "bodyHeight": 455.78761061946904
+        "x": 557,
+        "y": 24,
+        "width": 458,
+        "height": 465,
+        "anchorX": 229,
+        "anchorY": 465,
+        "bodyHeight": 465
       },
       "guard": {
-        "x": 1085,
-        "y": 20,
-        "width": 389,
-        "height": 472,
-        "anchorX": 194.5,
-        "anchorY": 463.0460704607046,
-        "bodyHeight": 459.20867208672087
+        "x": 1083,
+        "y": 24,
+        "width": 438,
+        "height": 465,
+        "anchorX": 219,
+        "anchorY": 465,
+        "bodyHeight": 465
       },
       "jab": {
-        "x": 20,
-        "y": 578,
-        "width": 472,
-        "height": 426,
-        "anchorX": 236,
-        "anchorY": 404.6406685236769,
-        "bodyHeight": 398.7075208913649
+        "x": 44,
+        "y": 538,
+        "width": 451,
+        "height": 460,
+        "anchorX": 226,
+        "anchorY": 460,
+        "bodyHeight": 460
       },
       "hook": {
-        "x": 532,
-        "y": 598,
-        "width": 472,
-        "height": 406,
-        "anchorX": 236,
-        "anchorY": 395.73595505617976,
-        "bodyHeight": 390.03370786516854
+        "x": 545,
+        "y": 560,
+        "width": 451,
+        "height": 444,
+        "anchorX": 226,
+        "anchorY": 444,
+        "bodyHeight": 444
       },
       "uppercut": {
-        "x": 1094,
-        "y": 532,
-        "width": 371,
-        "height": 472,
-        "anchorX": 185.5,
-        "anchorY": 468.32207792207794,
-        "bodyHeight": 463.41818181818184
+        "x": 1060,
+        "y": 533,
+        "width": 449,
+        "height": 465,
+        "anchorX": 225,
+        "anchorY": 465,
+        "bodyHeight": 465
+      },
+      "box": {
+        "x": 545,
+        "y": 560,
+        "width": 451,
+        "height": 444,
+        "anchorX": 226,
+        "anchorY": 444,
+        "bodyHeight": 444
       }
     }
   },

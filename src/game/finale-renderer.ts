@@ -12,6 +12,7 @@ import {
 import perroAssets from "../../shared/perro-mujeriego-assets.json";
 import perroChoreography from "../../shared/perro-mujeriego-choreography.json";
 import { drawSprite, type SpriteAsset } from "./assets";
+import { drawAttackArt } from "./attack-art";
 import { finaleArenaLayout, type FinaleArenaLayout } from "./finale-layout";
 import type { FinalePose } from "./finales/types";
 
@@ -1071,8 +1072,8 @@ function coffee(scene: Scene) {
     tick < 57
       ? scene.profile.caption
       : tick < 108
-        ? ["Maduro tiene la leche", "acaparada"]
-        : ["y yo se la voy a sacar", "de donde sea."],
+        ? ["y siempre listos", "para escuchar..."]
+        : ["¡a cada vecino!"],
     524,
     191,
     276,
@@ -1219,16 +1220,21 @@ function hack(scene: Scene) {
     body(scene, rival, 785, 515, 290, -1, pulse ? "recoil" : "stand");
     prop(scene, 540, 355, actor === "lele" ? 268 : 330, 280);
     if (actor === "vallenilla") {
-      for (let n = 0; n < 3; n++) {
-        const y = 340 + n * 54,
-          slide = Math.sin((tick - n * 14) / 32) * 20 * scene.motion;
-        const card = scene.layout.point(650 + slide, y + 22);
-        ctx.fillStyle = ["#ef6c6c", "#78b7e1", "#edc477"][n];
-        ctx.beginPath();
-        ctx.roundRect(card.x - 44, card.y - 22, 88, 44, 7);
-        ctx.fill();
-        text(ctx, `${n + 1}/3`, card.x, card.y + 8, 23, "#19253a");
-      }
+      const progress = clamp((tick - 10) / 90);
+      const cardonX = 420 + progress * 290;
+      const cardonPose = Math.floor(tick / 8) % 2 === 0 ? "hook" : "uppercut";
+      const pos = scene.layout.point(cardonX, 515);
+      drawAttackArt(
+        ctx,
+        scene.props,
+        "vallenilla",
+        cardonPose,
+        pos.x,
+        pos.y,
+        240,
+        1,
+      );
+      bubble(scene, "¡El Famatina no se toca!", 330, 190, 240);
     } else if (actor === "enrique") {
       for (let n = 0; n < 5; n++)
         line(ctx, [460, 293 + n * 25, 603, 293 + n * 25], "#d8e5ba50", 2);

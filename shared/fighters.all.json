@@ -31,12 +31,12 @@
     "id": "vallenilla",
     "sprite": "vallenilla-v5",
     "category": "founders",
-    "name": "Pedro Vallenilla",
-    "shortName": "Pedro",
-    "title": "El ritmo de las cuotas",
+    "name": "Josué Portugal",
+    "shortName": "Portugal",
+    "title": "Guía del Famatina",
     "role": "CONTROL",
-    "color": "#e6ed7a",
-    "description": "Frente despejada, barba corta y camisa de cuadros. Lanza tres cajas de Cashea y convoca dos mascotas para cobrar la cuota atrasada.",
+    "color": "#e63946",
+    "description": "Guía andino y explorador del cerro Famatina. Equipado con bastones de trekking y paso firme en la roca, invoca a los cardones riojanos para defender la cordillera.",
     "speed": 4.6,
     "damage": 1.01,
     "armor": 0.96,
@@ -46,12 +46,13 @@
       4
     ],
     "ability": "installments",
-    "special": "Tres cuotas",
+    "special": "Ataque del Cardón",
     "combos": [
-      "Cuota inicial",
-      "Cuota atrasada",
-      "Límite aprobado"
-    ]
+      "Marcha Andina",
+      "Golpe de Bastón",
+      "Espina Brava"
+    ],
+    "portraitLift": 0.02
   },
   {
     "id": "javier",
@@ -81,12 +82,12 @@
   {
     "id": "capriles",
     "sprite": "capriles-v39",
-    "name": "Capriles Radonski",
-    "shortName": "Capriles",
-    "title": "A toda marcha",
+    "name": "Felipe Álvarez",
+    "shortName": "Álvarez",
+    "title": "Diputado Nacional",
     "role": "VELOCIDAD",
     "color": "#80b8ff",
-    "description": "Corre la cancha completa. Su sprint tricolor atraviesa la arena y castiga a quien se quede quieto.",
+    "description": "Dirigente y referente de la oposición riojana. Con paso ágil y postura firme, debate y contraataca sin dar tregua en la arena.",
     "speed": 6.2,
     "damage": 0.88,
     "armor": 1.02,
@@ -96,12 +97,13 @@
       3
     ],
     "ability": "sprint",
-    "special": "Sprint tricolor",
+    "special": "Sprint de Debate",
     "combos": [
-      "¡Qué manguangua, ah!",
-      "Hay un camino",
-      "Meta tricolor"
-    ]
+      "Interpelación",
+      "Paso Firme",
+      "Contraataque"
+    ],
+    "portraitLift": 0.02
   },
   {
     "id": "renny",

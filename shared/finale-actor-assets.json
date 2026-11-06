@@ -1,27 +1,5 @@
 {
   "seated": {
-    "zavarce": {
-      "file": "finales-seated-v1-1",
-      "frame": {
-        "x": 104,
-        "y": 42,
-        "width": 304,
-        "height": 440
-      },
-      "bodyHeight": 440,
-      "anchorX": 125.18192535838291
-    },
-    "vallenilla": {
-      "file": "finales-seated-v1-1",
-      "frame": {
-        "x": 619,
-        "y": 39,
-        "width": 298,
-        "height": 443
-      },
-      "bodyHeight": 443,
-      "anchorX": 115.98319507490268
-    },
     "javier": {
       "file": "finales-seated-main-v1",
       "frame": {
@@ -32,17 +10,6 @@
       },
       "bodyHeight": 448,
       "anchorX": 123.38707614940098
-    },
-    "capriles": {
-      "file": "finales-seated-main-v1",
-      "frame": {
-        "x": 90,
-        "y": 42,
-        "width": 331,
-        "height": 440
-      },
-      "bodyHeight": 440,
-      "anchorX": 126.30414022543822
     },
     "renny": {
       "file": "finales-seated-v1-1",
@@ -87,17 +54,6 @@
       },
       "bodyHeight": 432,
       "anchorX": 104.04461044003487
-    },
-    "emilio": {
-      "file": "finales-seated-v1-2",
-      "frame": {
-        "x": 111,
-        "y": 42,
-        "width": 289,
-        "height": 440
-      },
-      "bodyHeight": 440,
-      "anchorX": 112.81045155237504
     },
     "maite": {
       "file": "finales-seated-v1-2",
@@ -679,36 +635,36 @@
     "file": "finales-capriles-cafe",
     "frames": [
       {
-        "x": 77,
-        "y": 42,
-        "width": 357,
-        "height": 440,
+        "x": 81,
+        "y": 44,
+        "width": 352,
+        "height": 437,
         "bodyHeight": 440,
-        "anchorX": 149.12970288510098
+        "anchorX": 149
       },
       {
-        "x": 602,
-        "y": 41,
-        "width": 331,
-        "height": 441,
+        "x": 614,
+        "y": 44,
+        "width": 314,
+        "height": 437,
         "bodyHeight": 440,
-        "anchorX": 130.04788684069072
+        "anchorX": 130
       },
       {
-        "x": 85,
-        "y": 564,
-        "width": 341,
-        "height": 430,
+        "x": 99,
+        "y": 567,
+        "width": 322,
+        "height": 423,
         "bodyHeight": 440,
-        "anchorX": 135.19748892363074
+        "anchorX": 135
       },
       {
-        "x": 574,
-        "y": 562,
-        "width": 388,
-        "height": 432,
+        "x": 581,
+        "y": 567,
+        "width": 378,
+        "height": 422,
         "bodyHeight": 440,
-        "anchorX": 156.10722702022218
+        "anchorX": 156
       }
     ]
   },
