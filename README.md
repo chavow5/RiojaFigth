@@ -1,69 +1,80 @@
-[![Arena Criolla: personajes venezolanos frente a frente](public/assets/og-arena-criolla.jpg)](https://arenacriolla.com/)
+# 🥊 Rioja Fight
 
-# Arena Criolla
+> *Juego de pelea arcade en 2D ambientado en los lugares más emblemáticos y la cultura de La Rioja, Argentina.*  
+> Presentación oficial para la **Game Jam**.
 
-Un juego de pelea donde los mitos, la música, el humor y las figuras de Venezuela se encuentran en la misma arena. Juega desde el navegador, sin instalar nada ni crear una cuenta.
+---
 
-**[Jugar ahora](https://arenacriolla.com/)** · [Desarrollo local](#desarrollo-local) · [Despliegue](docs/deployment.md) · [Licencia](LICENSE)
+## 🌟 Características
 
-## Elige a tu pana y pelea
+- 🎬 **Apertura cinemática:** Video de presentación animado de *"Coche Coche"* con reproducción automática.
+- 🏛️ **Escenarios emblemáticos de La Rioja:**
+  - 🏛️ **Catedral San Nicolás de Bari** (*Plaza 25 de Mayo*) — Noche iluminada en el corazón de la capital riojana.
+  - 🏟️ **El Superdomo** (*Parque de la Ciudad*) — Combate bajo la majestuosa cúpula geodésica.
+  - 🐎 **Monumento a Facundo Quiroga** (*Parque de las Juventudes*) — Frente a la estatua del *Tigre de los Llanos* y las montañas.
+  - 🏫 **Escuela Normal / Calle Pelagio B. Luna** (*Centro Histórico*) — Atardecer tradicional por las veredas céntricas.
+- 🇦🇷 **Detalles y regionalización:** Música, estética regional, modismos y el Sol de Mayo en las pantallas de victoria.
+- 👥 **Múltiples formas de jugar:**
+  - **Contra la CPU:** Ajustá la dificultad y entrená tus combos.
+  - **2 Jugadores Local:** Compartí teclado con un amigo en la misma pantalla.
+  - **Multijugador Online:** Creá salas públicas o privadas con enlace para invitar a tus rivales a distancia en tiempo real.
+- 📱 **Soporte multiplataforma:** Controles para teclado, joystick/gamepad y pantalla táctil para dispositivos móviles.
 
-- **55 personajes** con especiales, combos y definitivas propios.
-- **9 escenarios** inspirados en Venezuela, de Caracas a Canaima y Los Roques.
-- **Tres formas de jugar:** contra la CPU, dos jugadores en el mismo equipo o partidas en línea en salas públicas y privadas.
-- **Combate con plataformas:** doble salto, bloqueo y ataques para encontrar tu estilo.
-- **Teclado, mando o pantalla táctil.** Los controles se explican dentro del juego.
+---
 
-Para jugar con alguien a distancia, crea una sala y comparte su enlace de invitación. El servidor simula el combate y mantiene la partida sincronizada.
+## 🕹️ Controles
 
-## Desarrollo local
+### Jugador 1 (Teclado)
+- **Moverse:** `A` / `D`
+- **Saltar / Doble salto:** `W`
+- **Agacharse / Bajar plataforma:** `S`
+- **Golpe Ligero:** `J`
+- **Golpe Fuerte:** `K`
+- **Ataque Especial:** `L`
+- **Bloqueo:** `U`
+- **Esquivar / Rodar:** `Shift Izq`
+- **Técnica Definitiva:** `I` *(mantener 0.3s con barra cargada)*
 
-Necesitas **Node.js 24 o posterior** y npm.
+---
 
-```sh
-git clone https://github.com/0bkevin/arena-criolla.git
-cd arena-criolla
-npm ci
-npm run dev
-```
+## 🚀 Instalación y Ejecución Local
 
-Abre [localhost:5173](http://localhost:5173). También puedes entrar desde otro dispositivo de la misma red usando la IP de tu equipo. El juego público funciona sin claves de API; las opciones del servidor están en [`.env.example`](.env.example).
+### Requisitos previos
+- **Node.js 20+** o **Node.js 22+**
+- **npm**
 
-## Cómo está construido
+### Pasos
+1. **Clonar el repositorio:**
+   ```bash
+   git clone https://github.com/chavow5/RiojaFigth.git
+   cd RiojaFigth
+   ```
 
-React y TypeScript para la interfaz, Canvas 2D para la pelea y Node.js con Express y WebSocket para el servidor. El motor de combate se comparte entre cliente y servidor.
+2. **Instalar dependencias:**
+   ```bash
+   npm install
+   ```
 
-```text
-src/       Interfaz, renderizado, controles y audio
-shared/    Motor de combate, personajes, escenarios y protocolo de red
-server/    Servidor HTTP, salas y simulación en línea
-public/    Imágenes, sonidos y fuentes
-tests/     Pruebas de combate, red, interfaz y assets
-deploy/    Contenedores, proxy y copias de seguridad
-docs/      Guías de operación y creación privada de personajes
-```
+3. **Iniciar el servidor de desarrollo:**
+   ```bash
+   npm run dev
+   ```
 
-## Validar y compilar
+4. **Jugar:**
+   Abrí tu navegador en [http://localhost:5173](http://localhost:5173).  
+   *(Podés ingresar también desde tu celular conectándote a la IP local de tu computadora en el puerto 5173).*
 
-```sh
-npm test
-npm run check:assets
-npm run build
-npm start
-```
+---
 
-Las pruebas se centran en combate, red, almacenamiento, seguridad, controles, recuperación de assets y audio. `check:assets` valida transparencia, ocho siluetas completas y geometría coincidente en los sprites públicos.
+## 🛠️ Tecnologías
 
-La CI solo ejecuta lo que cada cambio puede afectar: los tests que importan los archivos modificados, los tipos, los sprites, la auditoría de dependencias y la imagen Docker cuando corresponde. Producción no repite los tests; construye, escanea y prueba la imagen que entrega. Los detalles están en [testing.md](docs/testing.md). `scripts/security-smoke.mjs` permite comprobar una instancia local o desplegada.
+- **Frontend:** React 19, TypeScript, HTML5 Canvas 2D para renderizado a 60 FPS, CSS animado.
+- **Backend & Red:** Node.js, Express, WebSockets (`ws`) para sincronización determinista de estados y física entre jugadores.
+- **Bundler & Tooling:** Vite, Sharp para compresión de texturas y fondos, TSX.
 
-`npm start` sirve la aplicación compilada. Para configurar el dominio, el contenedor o las imágenes al compartir enlaces, consulta la [guía de despliegue](docs/deployment.md).
+---
 
-## Contribuir
+## 📜 Licencia y Créditos
 
-Crea una rama por tarea desde `origin/main`, mantén los cambios acotados y ejecuta las validaciones antes de abrir un PR. La configuración para nuevos hilos de T3 Code está documentada en la [guía de desarrollo](docs/development.md).
-
-El taller público de personajes está desactivado. El flujo privado del operador se documenta en [creación de personajes](docs/creator-codex.md) y [configuración en Oracle](docs/codex-operator-oracle.md).
-
-## Licencia
-
-Código y materiales originales bajo [GPL-3.0-only](LICENSE). Los sonidos de terceros conservan CC0 y las fuentes, SIL Open Font License. Consulta las atribuciones en [ASSET-LICENSES.txt](ASSET-LICENSES.txt).
+- Adaptación, escenarios riojanos y producción artística desarrollada para la Game Jam por **chavow5**.
+- Código base bajo licencia [GPL-3.0](LICENSE).
