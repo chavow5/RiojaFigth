@@ -255,50 +255,50 @@
     "height": 1024,
     "frames": [
       {
-        "x": 131,
-        "y": 90,
-        "width": 265,
+        "x": 126,
+        "y": 87,
+        "width": 261,
         "height": 405,
         "slotX": 0,
         "slotY": 0
       },
       {
-        "x": 647,
-        "y": 89,
-        "width": 253,
-        "height": 406,
+        "x": 638,
+        "y": 87,
+        "width": 261,
+        "height": 405,
         "slotX": 512,
         "slotY": 0
       },
       {
-        "x": 1153,
-        "y": 89,
-        "width": 268,
-        "height": 406,
+        "x": 1150,
+        "y": 87,
+        "width": 261,
+        "height": 405,
         "slotX": 1024,
         "slotY": 0
       },
       {
-        "x": 127,
-        "y": 601,
-        "width": 271,
-        "height": 406,
+        "x": 126,
+        "y": 599,
+        "width": 261,
+        "height": 405,
         "slotX": 0,
         "slotY": 512
       },
       {
         "x": 638,
-        "y": 602,
-        "width": 273,
+        "y": 599,
+        "width": 261,
         "height": 405,
         "slotX": 512,
         "slotY": 512
       },
       {
         "x": 1150,
-        "y": 601,
-        "width": 271,
-        "height": 406,
+        "y": 599,
+        "width": 261,
+        "height": 405,
         "slotX": 1024,
         "slotY": 512
       }

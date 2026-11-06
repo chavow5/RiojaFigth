@@ -10,52 +10,52 @@
           "height": 887,
           "components": [
             {
-              "minX": 53,
-              "minY": 10,
-              "maxX": 364,
-              "maxY": 436
+              "minX": 85,
+              "minY": 11,
+              "maxX": 358,
+              "maxY": 435
             },
             {
-              "minX": 497,
-              "minY": 10,
-              "maxX": 818,
-              "maxY": 436
+              "minX": 535,
+              "minY": 11,
+              "maxX": 808,
+              "maxY": 435
             },
             {
-              "minX": 945,
-              "minY": 10,
-              "maxX": 1270,
-              "maxY": 436
+              "minX": 986,
+              "minY": 11,
+              "maxX": 1259,
+              "maxY": 435
             },
             {
-              "minX": 1387,
-              "minY": 10,
-              "maxX": 1731,
-              "maxY": 436
+              "minX": 1434,
+              "minY": 11,
+              "maxX": 1707,
+              "maxY": 435
             },
             {
-              "minX": 82,
+              "minX": 77,
+              "minY": 459,
+              "maxX": 350,
+              "maxY": 883
+            },
+            {
+              "minX": 529,
+              "minY": 463,
+              "maxX": 802,
+              "maxY": 887
+            },
+            {
+              "minX": 972,
               "minY": 443,
-              "maxX": 354,
-              "maxY": 767
+              "maxX": 1245,
+              "maxY": 867
             },
             {
-              "minX": 435,
-              "minY": 453,
-              "maxX": 856,
-              "maxY": 868
-            },
-            {
-              "minX": 932,
-              "minY": 443,
-              "maxX": 1380,
-              "maxY": 871
-            },
-            {
-              "minX": 1439,
-              "minY": 461,
-              "maxX": 1720,
-              "maxY": 870
+              "minX": 1416,
+              "minY": 455,
+              "maxX": 1689,
+              "maxY": 879
             }
           ]
         }
