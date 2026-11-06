@@ -165,11 +165,11 @@ const entries: readonly Entry[] = [
   ],
   [
     "emilio",
-    "El Chunior",
+    "Furia de Bigotes",
     "theater",
-    "Se transforma en El Chunior durante seis segundos de combate y sus ataques hacen un 20 % más de daño.",
-    "Peluca gris, gafas de aviador, bigote, audífonos y chaqueta beige",
-    "El Chunior en acción",
+    "Desata la furia de Bigotes durante seis segundos de combate: sus ataques se potencian e infligen un 20 % más de daño.",
+    "Bigote imponente, mirada de combate y poder riojano",
+    "¡Furia de Bigotes!",
     "show",
   ],
   [
