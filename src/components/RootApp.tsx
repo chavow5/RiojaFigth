@@ -74,13 +74,18 @@ export function RootApp({
       const response = await fetch("/api/community/characters", {
         signal: request.signal,
       });
-      if (!response.ok) throw new Error("No pudimos cargar los luchadores.");
+      const contentType = response.headers.get("content-type") || "";
+      if (!response.ok || !contentType.includes("application/json")) {
+        return;
+      }
       const { characters }: { characters: CommunityCharacter[] } =
         await response.json();
       const [, { syncCommunityCatalog }] = await loadGame();
       if (request.signal.aborted) return;
       syncCommunityCatalog(characters);
       setRevision((n) => n + 1);
+    } catch {
+      // Ignorar fallas de red en entornos estáticos (Vercel/GitHub Pages)
     } finally {
       clearTimeout(timeout);
       signal.removeEventListener("abort", abort);
