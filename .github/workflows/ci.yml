@@ -1,0 +1,170 @@
+name: Validate Arena Criolla
+on:
+  # PRs into prod reuse the checks of their head commit's push to main.
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  # A manual run checks everything.
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: arena-ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  # Each passing run records the git tree it tested. A run whose tree already
+  # passed (main after merging an up-to-date PR) needs no checks.
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      actions: read
+    outputs:
+      tree: ${{ steps.tested.outputs.tree }}
+      passed: ${{ steps.tested.outputs.passed }}
+      tests: ${{ steps.select.outputs.tests }}
+      test-shards: ${{ steps.select.outputs.test-shards }}
+      typecheck: ${{ steps.select.outputs.typecheck }}
+      assets: ${{ steps.select.outputs.assets }}
+      audit: ${{ steps.select.outputs.audit }}
+      deploy-controls: ${{ steps.select.outputs.deploy-controls }}
+      image: ${{ steps.select.outputs.image }}
+      scan: ${{ steps.select.outputs.scan }}
+      e2e: ${{ steps.select.outputs.e2e }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          filter: blob:none
+      - name: Look for a passing run of this exact tree
+        id: tested
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          tree=$(git rev-parse 'HEAD^{tree}')
+          passed=$(gh api "repos/$GITHUB_REPOSITORY/actions/artifacts?name=tested-tree-$tree" \
+            --jq '[.artifacts[] | select((.expired | not) and .workflow_run.head_repository_id == .workflow_run.repository_id)] | length')
+          echo "tree=$tree" >> "$GITHUB_OUTPUT"
+          echo "passed=$([ "$passed" -gt 0 ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+      - name: Select checks for the changed files
+        id: select
+        if: steps.tested.outputs.passed != 'true'
+        env:
+          # A PR compares against its base, a push against the previous main.
+          # A manual run without either checks everything.
+          BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: node scripts/select-checks.mjs $BASE
+  # The selected checks run as parallel jobs; each one is skipped when not needed.
+  unit:
+    needs: plan
+    if: needs.plan.outputs.tests != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: ${{ fromJSON(needs.plan.outputs.test-shards) }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - name: Run the affected tests
+        env:
+          TESTS: ${{ needs.plan.outputs.tests }}
+          SHARD: ${{ matrix.shard }}/${{ strategy.job-total }}
+        run: node --import tsx --test --test-shard="$SHARD" $TESTS
+  layout:
+    needs: plan
+    if: needs.plan.outputs.e2e == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npx playwright install --with-deps --only-shell chromium
+      - run: npm run test:ui
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: failure()
+        with:
+          name: layout-traces-${{ github.run_id }}-${{ github.run_attempt }}
+          path: test-results/
+          retention-days: 7
+          if-no-files-found: ignore
+  static:
+    needs: plan
+    if: >-
+      needs.plan.outputs.typecheck == 'true' || needs.plan.outputs.assets == 'true' ||
+      needs.plan.outputs.audit == 'true' || needs.plan.outputs.deploy-controls == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      NODE_WORK: ${{ needs.plan.outputs.typecheck == 'true' || needs.plan.outputs.assets == 'true' || needs.plan.outputs.audit == 'true' }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        if: env.NODE_WORK == 'true'
+        with:
+          node-version: 24
+          cache: npm
+      - if: env.NODE_WORK == 'true'
+        run: npm ci --no-audit --no-fund
+      - name: Audit locked dependencies
+        if: needs.plan.outputs.audit == 'true'
+        run: npm audit --audit-level=low
+      - if: needs.plan.outputs.typecheck == 'true'
+        run: npm run typecheck
+      - if: needs.plan.outputs.assets == 'true'
+        run: npm run check:assets
+      - name: Validate production delivery controls
+        if: needs.plan.outputs.deploy-controls == 'true'
+        run: |
+          python3 -B deploy/test_install_release.py
+          bash -n deploy/receive-release deploy/install-delivery-controls.sh
+  # Builds and smoke-tests the image for changes to what it ships.
+  image:
+    needs: plan
+    if: needs.plan.outputs.image == 'true'
+    uses: ./.github/workflows/image.yml
+    with:
+      scan: ${{ needs.plan.outputs.scan == 'true' }}
+  # The required check: fails if any job that ran failed or was cancelled.
+  validate:
+    if: always()
+    needs: [plan, unit, layout, static, image]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require the selected checks
+        env:
+          PLAN: ${{ needs.plan.result }}
+          RESULTS: ${{ needs.unit.result }} ${{ needs.layout.result }} ${{ needs.static.result }} ${{ needs.image.result }}
+        run: |
+          test "$PLAN" = success
+          for result in $RESULTS; do [[ "$result" =~ ^(success|skipped)$ ]]; done
+      - name: Record the tested tree
+        if: needs.plan.outputs.passed != 'true'
+        env:
+          TREE: ${{ needs.plan.outputs.tree }}
+        run: echo "$TREE" > "$RUNNER_TEMP/tested-tree"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: needs.plan.outputs.passed != 'true'
+        with:
+          name: tested-tree-${{ needs.plan.outputs.tree }}
+          path: ${{ runner.temp }}/tested-tree
+          retention-days: 90

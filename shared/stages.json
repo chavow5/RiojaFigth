@@ -1,0 +1,103 @@
+[
+  {
+    "id": "caracas",
+    "name": "Catedral San Nicolás",
+    "location": "LA RIOJA · PLAZA 25 DE MAYO",
+    "time": "21:30",
+    "color": "#e8b77c",
+    "artStyle": "pixel",
+    "theme": "plaza",
+    "ambience": "city",
+    "description": "Noche riojana frente a la imponente catedral histórica iluminada.",
+    "platforms": [
+      {
+        "x": 188,
+        "y": 392,
+        "width": 166
+      },
+      {
+        "x": 732,
+        "y": 392,
+        "width": 166
+      }
+    ]
+  },
+  {
+    "id": "guaira",
+    "name": "El Superdomo",
+    "location": "LA RIOJA · PARQUE DE LA CIUDAD",
+    "time": "22:15",
+    "color": "#6adacb",
+    "theme": "plaza",
+    "ambience": "city",
+    "description": "Combate bajo la cúpula geodésica del Parque de la Ciudad.",
+    "platforms": [
+      {
+        "x": 418,
+        "y": 380,
+        "width": 243
+      }
+    ]
+  },
+  {
+    "id": "valencia",
+    "name": "Monumento a Facundo Quiroga",
+    "location": "LA RIOJA · PARQUE DE LAS JUVENTUDES",
+    "time": "17:00",
+    "color": "#b69cff",
+    "artStyle": "pixel",
+    "theme": "plaza",
+    "ambience": "city",
+    "description": "Frente a la estatua ecuestre del Tigre de los Llanos y la cordillera.",
+    "platforms": [
+      {
+        "x": 111,
+        "y": 418,
+        "width": 166
+      },
+      {
+        "x": 457,
+        "y": 345,
+        "width": 166
+      },
+      {
+        "x": 808,
+        "y": 418,
+        "width": 166
+      }
+    ]
+  },
+  {
+    "id": "canaima",
+    "name": "Escuela Normal / Pelagio B. Luna",
+    "location": "LA RIOJA · CENTRO HISTÓRICO",
+    "time": "19:45",
+    "color": "#86e7b4",
+    "artStyle": "pixel",
+    "theme": "plaza",
+    "ambience": "city",
+    "description": "Atardecer por las calles y veredas históricas de la ciudad.",
+    "platforms": [
+      {
+        "x": 129,
+        "y": 405,
+        "width": 180
+      },
+      {
+        "x": 771,
+        "y": 405,
+        "width": 180
+      },
+      {
+        "x": 457,
+        "y": 380,
+        "width": 166,
+        "motion": {
+          "axis": "y",
+          "range": 44,
+          "period": 360
+        }
+      }
+    ]
+  }
+]

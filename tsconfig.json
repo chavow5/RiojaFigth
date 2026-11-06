@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "allowImportingTsExtensions": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "types": ["node"]
+  },
+  "include": [
+    "src",
+    "shared",
+    "server",
+    "tests",
+    "e2e",
+    "playwright.config.ts",
+    "scripts/creator-codex.ts",
+    "scripts/creator-codex",
+    "scripts/creator-import.ts",
+    "scripts/performance-audit.ts",
+    "vite.config.ts"
+  ]
+}

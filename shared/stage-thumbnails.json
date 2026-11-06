@@ -1,0 +1,66 @@
+{
+  "caracas": {
+    "sourceSha256": "c05ccd7137c8b3959e3aef8095835a0b8b68aa853067ec6177c2a1c5b0352264",
+    "quality": 85,
+    "files": {
+      "strip": {
+        "file": "stage-thumb-strip-caracas",
+        "width": 360,
+        "sha256": "cfc82e8fd5d034299eb5c18015dabdd594c3602bc51e43193c60b1caddf4279b"
+      },
+      "gallery": {
+        "file": "stage-thumb-gallery-caracas",
+        "width": 1100,
+        "sha256": "3bc43db808232ded2788532313a7791077f082b8d473b57ae4f51aee20642383"
+      }
+    }
+  },
+  "guaira": {
+    "sourceSha256": "e907e9cb55a97cb05211980fdd205fb3ba3d73b80315180ce5411cac162cd5e8",
+    "quality": 85,
+    "files": {
+      "strip": {
+        "file": "stage-thumb-strip-guaira",
+        "width": 360,
+        "sha256": "dddf0143cd4a507be307fb51302820c1b6b3d8cbd28330dbba4145c03b27c25d"
+      },
+      "gallery": {
+        "file": "stage-thumb-gallery-guaira",
+        "width": 1100,
+        "sha256": "18c2fce4403f3c74a6e52d942237cb2f0f2770754d0501109306382d853be373"
+      }
+    }
+  },
+  "valencia": {
+    "sourceSha256": "f02568055e053caad6b6082f38a7b3fa0ef2749b0f238659acafa47e67c29f5f",
+    "quality": 85,
+    "files": {
+      "strip": {
+        "file": "stage-thumb-strip-valencia",
+        "width": 360,
+        "sha256": "67b4bc8db4dcb7518a810c9781bf39d7b1670b0b85ec97fd91c83896840605f3"
+      },
+      "gallery": {
+        "file": "stage-thumb-gallery-valencia",
+        "width": 1100,
+        "sha256": "d004ae9266280c4218bfb232ef79ab85647d415738083f68a1a10960d9255daa"
+      }
+    }
+  },
+  "canaima": {
+    "sourceSha256": "dfd90992b8a9a1e1e0c38f3c2f337fb802570e7d3d930289e822c3649c04f086",
+    "quality": 85,
+    "files": {
+      "strip": {
+        "file": "stage-thumb-strip-canaima",
+        "width": 360,
+        "sha256": "738cfb20960247092ef7ffb7485772f59945766c413b9e6e26c2b67feeb0d126"
+      },
+      "gallery": {
+        "file": "stage-thumb-gallery-canaima",
+        "width": 1100,
+        "sha256": "14ce803d28f4966631c1a262c49a05cf79c56a93fc7c58e80d4500bddca8626b"
+      }
+    }
+  }
+}

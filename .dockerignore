@@ -1,0 +1,14 @@
+node_modules
+dist
+.git
+.github
+README.md
+assets
+docs
+tests
+e2e
+playwright.config.ts
+test-results
+*.log
+.env*
+data

@@ -1,0 +1,591 @@
+.arena-entrance {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  overflow: hidden;
+  isolation: isolate;
+  background: #0c1b2e;
+  color: #fff5db;
+  --entrance-ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.rioja-entrance-stage {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0c1b2e;
+  overflow: hidden;
+  z-index: 1;
+}
+.rioja-entrance-poster {
+  width: 100vw;
+  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+.is-playing .rioja-entrance-poster {
+  opacity: 1;
+}
+@keyframes rioja-poster-entrance {
+  0% {
+    opacity: 0;
+    transform: scale(1.06);
+  }
+  15% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.arena-entrance-stage {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: max(24px, env(safe-area-inset-top))
+    max(24px, env(safe-area-inset-right))
+    calc(100px + env(safe-area-inset-bottom))
+    max(24px, env(safe-area-inset-left));
+  isolation: isolate;
+}
+.arena-entrance.is-preparing :is(.arena-entrance-duel, .arena-entrance-brand) {
+  visibility: hidden;
+}
+.arena-entrance.is-preparing .arena-entrance-panel-left {
+  transform: translateX(-100%);
+}
+.arena-entrance.is-preparing .arena-entrance-panel-right {
+  transform: translateX(100%);
+}
+.arena-entrance.is-loading-fonts
+  :is(
+    .arena-entrance-title,
+    .arena-entrance-versus,
+    .arena-entrance-status,
+    .arena-entrance-skip
+  ) {
+  visibility: hidden;
+}
+.arena-entrance-scenery {
+  position: absolute;
+  inset: -4%;
+  z-index: -3;
+  background:
+    linear-gradient(0deg, #091524 2%, #09152440 55%, #091524ad),
+    url("/assets/caracas.webp") center 42% / cover;
+}
+.arena-entrance-panel {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+.arena-entrance-panel-left {
+  background: #315caa80;
+  clip-path: polygon(0 0, 61% 0, 40% 100%, 0 100%);
+}
+.arena-entrance-panel-right {
+  background: #e8665840;
+  clip-path: polygon(62% 0, 100% 0, 100% 100%, 41% 100%);
+}
+.arena-entrance-speed {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: #fff5db;
+  stroke-width: 2;
+  opacity: 0;
+}
+.arena-entrance-duel {
+  position: relative;
+  container-type: size;
+  flex-shrink: 1;
+  min-height: 0;
+  width: min(1000px, 100%);
+  height: min(500px, 55svh);
+}
+.arena-entrance-matchup {
+  position: absolute;
+  container-type: inline-size;
+  left: 50%;
+  bottom: 0;
+  --matchup-ratio: 1.71873;
+  width: min(100cqw, calc(100cqh * var(--matchup-ratio)));
+  aspect-ratio: 729.59 / 424.494;
+  transform: translateX(-50%);
+  --fighter-contact-travel: clamp(1px, 0.25cqw, 2px);
+}
+.arena-entrance-fighter {
+  position: absolute;
+  inset: 0;
+  filter: drop-shadow(0 12px 16px #030a12a6);
+}
+.arena-entrance-fighter-left {
+  --fighter-direction: -1;
+}
+.arena-entrance-fighter-right {
+  --fighter-direction: 1;
+}
+.arena-entrance-fighter picture {
+  position: absolute;
+  display: block;
+}
+/* Keep the fighters upright on one baseline, with the fists grazing the cheeks.
+   The impact scales both together without pushing either hand over a face. */
+.arena-entrance-fighter-left picture {
+  left: 4.81889%;
+  top: 3.77387%;
+  width: 56.92107%;
+}
+.arena-entrance-fighter-right picture {
+  left: 36.06465%;
+  top: 3.29805%;
+  width: 59.11646%;
+}
+.arena-entrance-fighter img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.arena-entrance-fighter img[hidden] {
+  display: none;
+}
+.arena-entrance-fighter-right img {
+  transform: scaleX(-1);
+}
+.arena-entrance-impact,
+.arena-entrance-sparks,
+.arena-entrance-versus {
+  position: absolute;
+  left: 50%;
+  top: 49%;
+}
+.arena-entrance-impact {
+  left: 50%;
+  top: 27%;
+  width: min(44%, 380px);
+  height: auto;
+  fill: #ffd45a;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+}
+.arena-entrance-impact-core {
+  fill: #fff5db;
+  opacity: 0;
+}
+.arena-entrance-sparks i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: clamp(12px, 3.6cqw, 36px);
+  height: clamp(2px, 0.4cqw, 4px);
+  background: #ffd45a;
+  opacity: 0;
+  transform-origin: left center;
+}
+
+.arena-entrance-sparks {
+  left: 50%;
+  top: 27%;
+}
+.arena-entrance-versus {
+  color: #fff5db;
+  font: italic 800 clamp(76px, 11vw, 96px) / 1 var(--font-display);
+  letter-spacing: -0.04em;
+  text-shadow: 0 5px 12px #071124b3;
+  transform: translate(-50%, -50%) rotate(-12deg);
+}
+.arena-entrance-brand {
+  position: relative;
+  flex-shrink: 0;
+  width: max-content;
+  max-width: 100%;
+  text-align: center;
+}
+.arena-entrance-title {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 0;
+  font: italic 800 clamp(64px, 9vw, 96px) / 0.9 var(--font-display);
+  letter-spacing: -0.025em;
+  text-shadow: 0 5px 18px #030a12;
+}
+.arena-entrance-title span:last-child {
+  color: #ffd45a;
+}
+.arena-entrance-stars {
+  display: block;
+  width: 128px;
+  height: 26px;
+  margin: 18px auto 0;
+  color: #ffd45a;
+}
+.arena-entrance-footer {
+  position: absolute;
+  bottom: calc(20px + env(safe-area-inset-bottom));
+  left: max(24px, env(safe-area-inset-left));
+  right: max(24px, env(safe-area-inset-right));
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+}
+.arena-entrance-status {
+  grid-column: 2;
+  margin: 0;
+  color: #e2e8f0;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+  background: rgba(12, 27, 46, 0.85);
+  padding: 6px 18px;
+  border-radius: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(8px);
+}
+.arena-entrance-skip {
+  grid-column: 3;
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  background: rgba(12, 27, 46, 0.9);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition:
+    border-color 150ms,
+    color 150ms;
+}
+.arena-entrance-skip:hover:enabled {
+  background: #b91c1c;
+  border-color: #dc2626;
+  color: #ffffff;
+}
+.arena-entrance-skip:focus-visible {
+  outline: 2px solid #ffd45a;
+}
+.arena-entrance-exit-slash {
+  position: absolute;
+  inset: -20% -40%;
+  background: #b91c1c;
+  clip-path: polygon(45% 0, 50% 0, 30% 100%, 25% 100%);
+  transform: translateX(-100%);
+  pointer-events: none;
+  z-index: 50;
+}
+.is-playing .arena-entrance-scenery {
+  animation: arena-camera-in 2200ms var(--entrance-ease) both;
+}
+.is-playing .arena-entrance-panel-left {
+  animation: arena-panel-left 480ms var(--entrance-ease) both;
+}
+.is-playing .arena-entrance-panel-right {
+  animation: arena-panel-right 480ms var(--entrance-ease) both;
+}
+.is-playing .arena-entrance-speed {
+  animation: arena-speed 720ms 100ms ease-out both;
+}
+.is-playing .arena-entrance-fighter {
+  animation: arena-fighter-clash 1800ms 80ms both;
+}
+.is-playing .arena-entrance-impact {
+  animation: arena-impact 600ms 640ms ease-out both;
+}
+.is-playing .arena-entrance-impact-core {
+  animation: arena-impact-core 260ms 640ms ease-out both;
+}
+.is-playing .arena-entrance-sparks i {
+  animation: arena-spark 620ms 660ms cubic-bezier(0.1, 0.6, 0.3, 1) both;
+}
+.is-playing .arena-entrance-versus {
+  animation: arena-versus 600ms 560ms var(--entrance-ease) both;
+}
+.is-playing .arena-entrance-stage {
+  animation: arena-impact-jolt 200ms 760ms linear;
+}
+.is-playing .arena-entrance-brand {
+  animation: arena-brand-impact 560ms 1040ms var(--entrance-ease) both;
+}
+.arena-entrance.is-leaving {
+  pointer-events: none;
+  animation: arena-entrance-out 360ms ease-in both;
+}
+.is-leaving .arena-entrance-exit-slash {
+  animation: arena-exit-slash 360ms ease-in both;
+}
+.arena-arrival {
+  animation: arena-lobby-in 220ms ease-out both;
+}
+@keyframes arena-camera-in {
+  from {
+    transform: scale(1.14);
+  }
+  36% {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.025);
+  }
+}
+@keyframes arena-panel-left {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes arena-panel-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes arena-speed {
+  0% {
+    opacity: 0;
+    transform: scaleX(1.6);
+  }
+  30% {
+    opacity: 0.5;
+  }
+  70% {
+    opacity: 0.22;
+  }
+  100% {
+    opacity: 0;
+    transform: scaleX(0.85);
+  }
+}
+@keyframes arena-fighter-clash {
+  0% {
+    transform: translateX(calc(var(--fighter-direction) * 85vw))
+      rotate(calc(var(--fighter-direction) * 14deg)) scale(0.88);
+    animation-timing-function: cubic-bezier(0.12, 0.72, 0.18, 1);
+  }
+  29% {
+    transform: translateX(
+      calc(var(--fighter-direction) * var(--fighter-contact-travel))
+    );
+    animation-timing-function: cubic-bezier(0.6, 0, 1, 1);
+  }
+  37% {
+    transform: scale(1.06);
+    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  53% {
+    transform: translateX(
+      calc(var(--fighter-direction) * var(--fighter-contact-travel) * 0.5)
+    );
+    animation-timing-function: ease-out;
+  }
+  100% {
+    transform: none;
+  }
+}
+@keyframes arena-impact {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.1) rotate(-20deg);
+  }
+  12% {
+    opacity: 0.95;
+    transform: translate(-50%, -50%) scale(0.86) rotate(-10deg);
+  }
+  24% {
+    opacity: 0.95;
+    transform: translate(-50%, -50%) scale(1) rotate(-4deg);
+  }
+  45% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.6) rotate(12deg);
+  }
+}
+@keyframes arena-impact-core {
+  0%,
+  12% {
+    opacity: 0.95;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes arena-spark {
+  0% {
+    opacity: 0;
+    transform: rotate(var(--spark-angle)) translateX(2cqw) scaleX(0.2);
+  }
+  12% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(var(--spark-angle)) translateX(var(--spark-distance))
+      scaleX(0.4);
+  }
+}
+@keyframes arena-versus {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(-24deg) scale(3);
+  }
+  25% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(-12deg) scale(1);
+  }
+}
+@keyframes arena-impact-jolt {
+  0%,
+  100% {
+    transform: none;
+  }
+  25% {
+    transform: translate(-4px, 2px);
+  }
+  50% {
+    transform: translate(3px, -2px);
+  }
+  75% {
+    transform: translate(-2px, 1px);
+  }
+}
+@keyframes arena-brand-impact {
+  from {
+    opacity: 0;
+    transform: scale(1.25) rotate(-5deg);
+  }
+  30% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+@keyframes arena-entrance-out {
+  0%,
+  55% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes arena-exit-slash {
+  to {
+    transform: translateX(120%);
+  }
+}
+@keyframes arena-lobby-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (max-width: 600px) and (orientation: portrait) {
+  .arena-entrance-stage {
+    justify-content: flex-end;
+    gap: 18px;
+    padding-bottom: calc(128px + env(safe-area-inset-bottom));
+  }
+  .arena-entrance-duel {
+    height: min(52svh, 78vw);
+  }
+  .arena-entrance-matchup {
+    width: min(calc(100cqw + 32px), calc(100cqh * var(--matchup-ratio)));
+  }
+  .arena-entrance-title {
+    flex-direction: column;
+    gap: 4px;
+    font-size: clamp(56px, min(24vw, 12svh), 96px);
+  }
+  .arena-entrance.has-fallback-display .arena-entrance-title {
+    font-size: clamp(44px, min(18vw, 12svh), 96px);
+  }
+  .arena-entrance-stars {
+    margin-top: 14px;
+  }
+  .arena-entrance-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+@media (max-height: 480px) and (orientation: landscape) {
+  .arena-entrance-stage {
+    gap: 10px;
+    padding-top: max(12px, env(safe-area-inset-top));
+    padding-bottom: calc(70px + env(safe-area-inset-bottom));
+  }
+  .arena-entrance-duel {
+    width: min(620px, 100%);
+    height: 52svh;
+  }
+  .arena-entrance-title {
+    gap: 10px;
+    font-size: clamp(32px, 12svh, 56px);
+  }
+  .arena-entrance-stars {
+    display: none;
+  }
+  .arena-entrance-footer {
+    bottom: calc(10px + env(safe-area-inset-bottom));
+    display: flex;
+    justify-content: space-between;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .arena-entrance.is-preparing
+    :is(.arena-entrance-duel, .arena-entrance-brand) {
+    visibility: visible;
+  }
+  .arena-entrance.is-preparing .arena-entrance-panel {
+    transform: none;
+  }
+  .arena-entrance *,
+  .arena-entrance.is-playing *,
+  .arena-entrance.is-playing .arena-entrance-sparks i,
+  .arena-entrance.is-leaving,
+  .arena-arrival {
+    animation: none;
+    transition: none;
+  }
+}

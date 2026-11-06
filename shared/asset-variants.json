@@ -1,0 +1,5 @@
+{
+  "schema": 1,
+  "policy": "Exact decoded RGBA, dimensions and metadata. Same-format lossless recompression is stored in place; list only cross-format (for example AVIF) variants here, with original-file fallbacks.",
+  "assets": {}
+}

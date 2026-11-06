@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#091524" />
+    <!-- Warm only the matching banner while higher-priority entrance art loads. -->
+    <link
+      rel="preload"
+      href="/src/assets/lobby-cast-banner-mobile.webp"
+      as="image"
+      type="image/webp"
+      media="(max-width: 600px)"
+      fetchpriority="low"
+    />
+    <link
+      rel="preload"
+      href="/src/assets/lobby-cast-banner-tablet.webp"
+      as="image"
+      type="image/webp"
+      media="(min-width: 601px) and (max-width: 1100px)"
+      fetchpriority="low"
+    />
+    <link
+      rel="preload"
+      href="/src/assets/lobby-cast-banner.webp"
+      as="image"
+      type="image/webp"
+      media="(min-width: 1101px)"
+      fetchpriority="low"
+    />
+    <link
+      rel="preload"
+      href="/fonts/dm-sans-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/barlow-800-italic.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <meta
+      name="description"
+      content="Elige tu personaje y échate una partida con tus compas, en el mismo dispositivo o en línea. También puedes jugar contra la CPU. Gratis y sin registro."
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="__ARENA_PAGE_URL__" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:site_name" content="Rioja Fight" />
+    <meta
+      property="og:title"
+      content="Rioja Fight"
+    />
+    <meta
+      property="og:description"
+      content="Elige tu personaje y échate una partida con tus compas, en el mismo dispositivo o en línea. También puedes jugar contra la CPU. Gratis y sin registro."
+    />
+    <meta property="og:url" content="__ARENA_PAGE_URL__" />
+    <meta
+      property="og:image"
+      content="__ARENA_ORIGIN____ARENA_SOCIAL_IMAGE_PATH__"
+    />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Rioja Fight: personajes frente a frente en La Rioja, Argentina."
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Rioja Fight"
+    />
+    <meta
+      name="twitter:description"
+      content="Elige tu personaje y échate una partida con tus compas, en el mismo dispositivo o en línea. También puedes jugar contra la CPU. Gratis y sin registro."
+    />
+    <meta
+      name="twitter:image"
+      content="__ARENA_ORIGIN____ARENA_SOCIAL_IMAGE_PATH__"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="Rioja Fight: personajes frente a frente en La Rioja, Argentina."
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "VideoGame",
+        "name": "Rioja Fight",
+        "url": "__ARENA_ORIGIN__/",
+        "image": "__ARENA_ORIGIN____ARENA_SOCIAL_IMAGE_PATH__",
+        "description": "Elige tu personaje y échate una partida con tus panas, en el mismo dispositivo o en línea. También puedes jugar contra la CPU. Gratis y sin registro.",
+        "inLanguage": "es",
+        "genre": "Fighting",
+        "applicationCategory": "Game",
+        "operatingSystem": "Web browser",
+        "isAccessibleForFree": true,
+        "playMode": [
+          "https://schema.org/SinglePlayer",
+          "https://schema.org/MultiPlayer"
+        ]
+      }
+    </script>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/assets/arena-icon.svg?v=strike"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/arena-icon-32.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/arena-icon-180.png"
+    />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <title>Rioja Fight</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
