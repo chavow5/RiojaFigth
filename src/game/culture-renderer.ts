@@ -303,6 +303,152 @@ export function drawCultureSpecial(
     ctx.beginPath();
     ctx.arc(x, y, 12, 0, Math.PI * 2);
     ctx.stroke();
+  } else if (ability === "whirl") {
+    // Chorro de vino tinto riojano y torbellino barrial del 4 de Junio para Coché Coché
+    const front = x + p.facing * 55;
+    const wineProgress = Math.min(1, p.attackTick / 18);
+    // Swirling street whirlwind rings with emerald accent
+    ctx.strokeStyle = "#10b981";
+    ctx.lineWidth = 4;
+    ctx.globalAlpha = 0.7 * (1 - wineProgress * 0.3);
+    for (let ring = 0; ring < 3; ring++) {
+      const angle = (p.attackTick * 0.22 + ring * 2.1) % (Math.PI * 2);
+      ctx.beginPath();
+      ctx.ellipse(
+        x + p.facing * ring * 15,
+        y + ring * 8,
+        35 + ring * 18,
+        14 + ring * 6,
+        angle,
+        0,
+        Math.PI * 2,
+      );
+      ctx.stroke();
+    }
+    // Chorro de vino tinto (deep red wine torrent)
+    ctx.strokeStyle = "#800020";
+    ctx.fillStyle = "#58111a";
+    ctx.lineWidth = 6;
+    ctx.globalAlpha = 0.9;
+    ctx.beginPath();
+    ctx.moveTo(x + p.facing * 20, y - 10);
+    ctx.quadraticCurveTo(
+      x + p.facing * 60,
+      y - 35 - Math.sin(p.attackTick * 0.3) * 12,
+      front + p.facing * (60 * wineProgress),
+      y - 5 + Math.cos(p.attackTick * 0.4) * 15,
+    );
+    ctx.stroke();
+    // Flying wine splash droplets
+    ctx.fillStyle = "#991b1b";
+    for (let drop = 0; drop < 7; drop++) {
+      const dropAge = (p.attackTick * 4 + drop * 11) % 45;
+      const dropX = front + p.facing * (dropAge * 2.8 + drop * 6);
+      const dropY =
+        y -
+        15 +
+        Math.sin(drop * 1.7 + p.attackTick * 0.3) * (20 + drop * 5) +
+        dropAge * 0.5;
+      const dropRadius = Math.max(1.5, 4.5 - dropAge * 0.08);
+      ctx.globalAlpha = Math.max(0, 0.85 - dropAge / 45);
+      ctx.beginPath();
+      ctx.arc(dropX, dropY, dropRadius, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  } else if (ability === "cuatro") {
+    // Harinazo Chayero y Acorde Festivo de El Gallo (Sergio Galleguillo)
+    const front = x + p.facing * 50;
+    const chayaProgress = Math.min(1, p.attackTick / 16);
+    // Festive carnival sound waves (golden amber #f59e0b)
+    ctx.strokeStyle = "#f59e0b";
+    ctx.lineWidth = 4;
+    for (let ring = 0; ring < 3; ring++) {
+      ctx.globalAlpha = Math.max(0, 0.8 - ring * 0.22 - chayaProgress * 0.2);
+      ctx.beginPath();
+      ctx.arc(
+        x + p.facing * (25 + ring * 14),
+        y - 5,
+        28 + ring * 18 + p.attackTick * 1.5,
+        -1.0,
+        1.0,
+      );
+      ctx.stroke();
+    }
+    // Nube de harina chayera (bursting white flour cloud)
+    ctx.fillStyle = "#ffffff";
+    for (let puff = 0; puff < 8; puff++) {
+      const puffAge = (p.attackTick * 3 + puff * 9) % 36;
+      const px = front + p.facing * (puffAge * 3.2 + (puff % 3) * 12);
+      const py =
+        y - 20 + Math.sin(puff * 1.4 + p.attackTick * 0.2) * (18 + puff * 4);
+      const radius = 10 + puffAge * 0.6;
+      ctx.globalAlpha = Math.max(0, (1 - puffAge / 36) * 0.7);
+      ctx.beginPath();
+      ctx.arc(px, py, radius, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    // Festive green basil sprigs (hojas de albahaca)
+    ctx.fillStyle = "#16a34a";
+    ctx.strokeStyle = "#15803d";
+    ctx.lineWidth = 1.5;
+    for (let leaf = 0; leaf < 4; leaf++) {
+      const leafAge = (p.attackTick * 2.5 + leaf * 12) % 40;
+      const lx = front + p.facing * (leafAge * 2.2 + leaf * 15);
+      const ly = y - 30 + Math.sin(leaf * 2.1 + p.attackTick * 0.25) * 35;
+      ctx.globalAlpha = Math.max(0, (1 - leafAge / 40) * 0.85);
+      ctx.save();
+      ctx.translate(lx, ly);
+      ctx.rotate((p.attackTick * 0.1 + leaf) * p.facing);
+      ctx.beginPath();
+      ctx.ellipse(0, 0, 7, 3.5, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.stroke();
+      ctx.restore();
+    }
+  } else if (ability === "spotlight") {
+    // Voz del Superdomo y Luces del Escenario Provincial (La Teresita)
+    const voiceProgress = Math.min(1, p.attackTick / 18);
+    const front = x + p.facing * 50;
+
+    // Conical Superdomo arena floodlight beams from overhead
+    const gradient = ctx.createLinearGradient(front, y - 180, front, y + 20);
+    gradient.addColorStop(0, "rgba(236, 72, 153, 0.45)"); // Magenta
+    gradient.addColorStop(0.6, "rgba(244, 63, 94, 0.25)"); // Rose
+    gradient.addColorStop(1, "rgba(251, 191, 36, 0)"); // Amber fade
+
+    ctx.fillStyle = gradient;
+    ctx.beginPath();
+    ctx.moveTo(front, y - 180);
+    ctx.lineTo(front + p.facing * 70, y + 15);
+    ctx.lineTo(front - p.facing * 50, y + 15);
+    ctx.closePath();
+    ctx.fill();
+
+    // Vibrant acoustic soundwave arcs echoing from the podium
+    ctx.lineWidth = 3.5;
+    for (let wave = 0; wave < 3; wave++) {
+      ctx.strokeStyle = wave % 2 === 0 ? "#ec4899" : "#fb7185";
+      ctx.globalAlpha = Math.max(0, 0.85 - wave * 0.22 - voiceProgress * 0.2);
+      ctx.beginPath();
+      ctx.arc(
+        front + wave * 14 * p.facing,
+        y - 30,
+        25 + wave * 18 + p.attackTick * 1.4,
+        -0.9,
+        0.9,
+      );
+      ctx.stroke();
+    }
+
+    // Sparkle particles of stadium sound
+    ctx.fillStyle = "#fdf2f8";
+    for (let spark = 0; spark < 5; spark++) {
+      const sparkAge = (p.attackTick * 3 + spark * 8) % 32;
+      const sx = front + p.facing * (sparkAge * 2.4 + spark * 10);
+      const sy = y - 45 + Math.sin(spark * 1.8 + p.attackTick * 0.3) * 25;
+      ctx.globalAlpha = Math.max(0, 0.9 - sparkAge / 32);
+      star(ctx, sx, sy, 4.5);
+    }
   }
   ctx.restore();
 }

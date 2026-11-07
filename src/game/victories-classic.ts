@@ -23,7 +23,7 @@ export const CLASSIC_VICTORIES = {
     music: "percussion",
   },
   javier: {
-    name: "Mialma, qué remate",
+    name: "Servicio Cumplido",
     frame: 4,
     movement: "hop",
     gesture: {
@@ -49,7 +49,7 @@ export const CLASSIC_VICTORIES = {
     music: "brass",
   },
   renny: {
-    name: "Cierre de transmisión",
+    name: "Moción Aprobada",
     frame: 0,
     movement: "rise",
     gesture: { head: 0.045, front: -0.25, frontX: 0.025, back: 0.07 },
@@ -79,7 +79,7 @@ export const CLASSIC_VICTORIES = {
     music: "strings",
   },
   conde: {
-    name: "Remate del Conde",
+    name: "Paso del 4 de Junio",
     frame: 0,
     movement: "rise",
     gesture: {
@@ -105,7 +105,7 @@ export const CLASSIC_VICTORIES = {
     music: "spectral",
   },
   maite: {
-    name: "Gala encendida",
+    name: "Voz de La Rioja",
     frame: 0,
     movement: "rise",
     gesture: {

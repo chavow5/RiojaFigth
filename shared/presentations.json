@@ -264,8 +264,8 @@
     ]
   },
   "javier": {
-    "introName": "Se yergue y cruza los brazos",
-    "selectionName": "Se yergue y cruza los brazos",
+    "introName": "Llegó la Cuadrilla",
+    "selectionName": "La Muni al Servicio",
     "battleFrame": 0,
     "frameFacing": [
       1,
@@ -275,12 +275,12 @@
       1,
       1,
       1,
-      -1
+      1
     ],
     "introStyle": "defiant",
     "selectionStyle": "defiant",
     "prop": "none",
-    "color": "#ff96bd",
+    "color": "#0284c7",
     "durationMs": 2800,
     "introBeats": [
       {
@@ -528,8 +528,8 @@
     ]
   },
   "renny": {
-    "introName": "Se yergue y cruza los brazos",
-    "selectionName": "Se yergue y cruza los brazos",
+    "introName": "Apertura de Sesión",
+    "selectionName": "Martincito en la Cámara",
     "battleFrame": 1,
     "frameFacing": [
       1,
@@ -544,7 +544,7 @@
     "introStyle": "defiant",
     "selectionStyle": "defiant",
     "prop": "none",
-    "color": "#ffc76a",
+    "color": "#8b5cf6",
     "durationMs": 2800,
     "introBeats": [
       {
@@ -792,9 +792,9 @@
     ]
   },
   "simon": {
-    "introName": "Inclinación de sombrero",
-    "selectionName": "Inclinación de sombrero",
-    "battleFrame": 1,
+    "introName": "Grito Chayero",
+    "selectionName": "El Gallo de la Chaya",
+    "battleFrame": 0,
     "frameFacing": [
       1,
       1,
@@ -807,8 +807,8 @@
     ],
     "introStyle": "hat",
     "selectionStyle": "hat",
-    "prop": "hat",
-    "color": "#e0a55f",
+    "prop": "none",
+    "color": "#f59e0b",
     "durationMs": 2800,
     "introBeats": [
       {
@@ -924,8 +924,8 @@
     ]
   },
   "conde": {
-    "introName": "Saludo del Conde",
-    "selectionName": "Saludo del Conde",
+    "introName": "Giro del 4 de Junio",
+    "selectionName": "El inconfundible Coché Coché",
     "battleFrame": 1,
     "frameFacing": [
       1,
@@ -940,7 +940,7 @@
     "introStyle": "hat",
     "selectionStyle": "joke",
     "prop": "hat",
-    "color": "#8bd3ac",
+    "color": "#10b981",
     "durationMs": 2800,
     "introBeats": [
       {
@@ -1188,8 +1188,8 @@
     ]
   },
   "maite": {
-    "introName": "Se yergue y cruza los brazos",
-    "selectionName": "Se yergue y cruza los brazos",
+    "introName": "Voz de la Vice",
+    "selectionName": "La Teresita en el Superdomo",
     "battleFrame": 1,
     "frameFacing": [
       1,
@@ -1204,7 +1204,7 @@
     "introStyle": "defiant",
     "selectionStyle": "defiant",
     "prop": "none",
-    "color": "#f19bca",
+    "color": "#ec4899",
     "durationMs": 2800,
     "introBeats": [
       {
@@ -6468,8 +6468,8 @@
     ]
   },
   "bolivar": {
-    "introName": "Se yergue y cruza los brazos",
-    "selectionName": "Se yergue y cruza los brazos",
+    "introName": "Llega el Caudillo",
+    "selectionName": "El Chacho Peñaloza - La Leyenda",
     "battleFrame": 0,
     "frameFacing": [
       1,
@@ -6484,7 +6484,7 @@
     "introStyle": "defiant",
     "selectionStyle": "defiant",
     "prop": "none",
-    "color": "#f4b557",
+    "color": "#eab308",
     "durationMs": 2800,
     "introBeats": [
       {

@@ -485,7 +485,7 @@ export function App({
       <header className="site-header page-width">
         <button
           className="brand"
-          aria-label="Rioja Fight, inicio"
+          aria-label="Caudillo Fight, inicio"
           onClick={() => {
             if (!active) {
               setModal(null);
@@ -508,7 +508,7 @@ export function App({
             />
           </span>
           <span className="brand-name">
-            RIOJA
+            CAUDILLO
             <span>FIGHT</span>
           </span>
         </button>
@@ -642,7 +642,7 @@ export function App({
             alt=""
           />
           <span className="footer-brand-name">
-            RIOJA <span>FIGHT</span>
+            CAUDILLO <span>FIGHT</span>
           </span>
         </span>
         <a className="footer-acknowledgements" href="/agradecimientos">

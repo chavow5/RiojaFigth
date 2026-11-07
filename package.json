@@ -1,7 +1,7 @@
 {
-  "name": "rioja-fight",
+  "name": "caudillo-fight",
   "version": "1.0.0",
-  "description": "Juego de pelea arcade ambientado en escenarios y cultura de La Rioja, Argentina",
+  "description": "Caudillo Fight - Juego de pelea arcade ambientado en escenarios y cultura de La Rioja, Argentina",
   "private": true,
   "type": "module",
   "scripts": {

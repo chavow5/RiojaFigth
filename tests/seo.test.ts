@@ -76,7 +76,7 @@ test("crawlers receive complete metadata and public URLs without executing JavaS
     const thanks = await fetch(base + route);
     assert.equal(thanks.status, 200);
     const page = await thanks.text();
-    assert.ok(page.includes("<title>Agradecimientos — Arena Criolla</title>"));
+    assert.ok(page.includes("<title>Agradecimientos — Caudillo Fight</title>"));
     assert.ok(
       page.includes(
         '<link rel="canonical" href="https://arena.example/agradecimientos"',
@@ -84,11 +84,11 @@ test("crawlers receive complete metadata and public URLs without executing JavaS
     );
     assert.match(
       page,
-      /property="og:title"\s+content="Agradecimientos — Arena Criolla"/,
+      /property="og:title"\s+content="Agradecimientos — Caudillo Fight"/,
     );
     assert.match(
       page,
-      /name="twitter:title"\s+content="Agradecimientos — Arena Criolla"/,
+      /name="twitter:title"\s+content="Agradecimientos — Caudillo Fight"/,
     );
     assert.ok(page.includes("Giuseppe Gangi"));
     assert.ok(!page.includes("PRIVATE"));

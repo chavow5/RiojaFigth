@@ -16,11 +16,11 @@ if (!buttonYellow)
 const artwork = master.match(/<g id="brand-mark">[\s\S]*?<\/g>/)?.[0];
 if (!artwork) throw new Error('The SVG master must contain g id="brand-mark".');
 const descriptionElement = master.match(/<desc>[\s\S]*?<\/desc>/)?.[0] ?? "";
-const icon = `<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><title>Arena Criolla</title>${descriptionElement}<rect width="64" height="64" rx="16" fill="${buttonYellow}"/>${artwork}</svg>\n`;
+const icon = `<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><title>Caudillo Fight</title>${descriptionElement}<rect width="64" height="64" rx="16" fill="${buttonYellow}"/>${artwork}</svg>\n`;
 // The full-bleed maskable export keeps the entire mark inside the safe circle.
-const maskable = `<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><title>Arena Criolla</title>${descriptionElement}<rect width="64" height="64" fill="${buttonYellow}"/><g transform="translate(11.52 11.52) scale(.64)">${artwork}</g></svg>`;
+const maskable = `<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><title>Caudillo Fight</title>${descriptionElement}<rect width="64" height="64" fill="${buttonYellow}"/><g transform="translate(11.52 11.52) scale(.64)">${artwork}</g></svg>`;
 // Full-size yellow badge with transparent corners and no outer background.
-const logo = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 64 64"><title>Arena Criolla</title>${descriptionElement}<rect width="64" height="64" rx="16" fill="${buttonYellow}"/>${artwork}</svg>\n`;
+const logo = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 64 64"><title>Caudillo Fight</title>${descriptionElement}<rect width="64" height="64" rx="16" fill="${buttonYellow}"/>${artwork}</svg>\n`;
 
 await writeFile(new URL("arena-icon.svg", directory), icon);
 // The repository/project icon uses the same approved artwork as the game.
@@ -38,4 +38,4 @@ for (const [name, source, size] of [
     .png()
     .toFile(fileURLToPath(new URL(name, directory)));
 }
-console.log("Exported Arena Criolla browser/app icons and social-cover logo.");
+console.log("Exported Caudillo Fight browser/app icons and social-cover logo.");

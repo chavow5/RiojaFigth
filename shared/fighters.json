@@ -114,7 +114,7 @@
     "title": "Cantor de la Chaya",
     "role": "DISTANCIA",
     "color": "#f59e0b",
-    "description": "Sergio Galleguillo, el rey del carnaval riojano. Con micrófono en mano y su potente voz, desata acordes festivos y harinazos chayinos que sacuden toda la arena.",
+    "description": "Sergio Galleguillo, el rey del carnaval riojano. Con micrófono y albahaca al viento, desata acordes festivos y harinazos chayinos que llenan la arena de carnaval y fiesta riojana.",
     "speed": 4.2,
     "damage": 1.05,
     "armor": 0.95,
@@ -126,8 +126,8 @@
     "ability": "cuatro",
     "special": "Acorde Chayero",
     "combos": [
+      "Harinazo Chayero",
       "Vidala Riojana",
-      "Zamba Chayera",
       "Grito Chayero"
     ],
     "category": "culture",
@@ -158,6 +158,141 @@
       "Bache Profundo"
     ],
     "category": "founders",
+    "portraitLift": 0.02
+  },
+  {
+    "id": "conde",
+    "sprite": "conde-v3",
+    "name": "Coché Coché",
+    "shortName": "Coché",
+    "title": "Ícono del 4 de Junio",
+    "role": "IMPREDECIBLE",
+    "color": "#10b981",
+    "description": "Inconfundible personaje del folklore urbano riojano, nacido en las calles del barrio 4 de Junio. Con su paso característico, tetrabrik en mano y carisma popular, desconcierta a sus rivales arrojando chorros de vino tinto y desatando giros impredecibles.",
+    "speed": 5.4,
+    "damage": 1.04,
+    "armor": 0.98,
+    "stats": [
+      4,
+      4,
+      3
+    ],
+    "ability": "whirl",
+    "special": "Chorro y Giro del 4",
+    "combos": [
+      "Chorro de Tinto",
+      "Arremetida Barrial",
+      "Giro Sorpresa"
+    ],
+    "category": "culture",
+    "portraitLift": 0.02
+  },
+  {
+    "id": "maite",
+    "sprite": "maite-v3",
+    "name": "La Teresita",
+    "shortName": "Teresita",
+    "title": "Vicegobernadora Provincial",
+    "role": "CONTROL",
+    "color": "#ec4899",
+    "description": "Referente central de la gestión riojana y vicegobernadora de la provincia. Con gran despliegue territorial y oratoria firme, controla el espacio en la arena y hace vibrar el Superdomo con su voz.",
+    "speed": 4.8,
+    "damage": 1.02,
+    "armor": 1.02,
+    "stats": [
+      4,
+      4,
+      4
+    ],
+    "ability": "spotlight",
+    "special": "Voz del Superdomo",
+    "combos": [
+      "Despliegue Territorial",
+      "Cadena Provincial",
+      "Acuerdo Federal"
+    ],
+    "category": "culture",
+    "portraitLift": 0.02
+  },
+  {
+    "id": "renny",
+    "sprite": "renny-v3",
+    "name": "Martincito",
+    "shortName": "Martincito",
+    "title": "Presidente de la Cámara",
+    "role": "PRECISIÓN",
+    "color": "#8b5cf6",
+    "description": "Referente de La Libertad Avanza en La Rioja y titular de la Cámara de Diputados. De traje formal y temple estricto, impone el reglamento de la casa a fuerza de campanazos, quórum y ataques milimétricos.",
+    "speed": 5.6,
+    "damage": 0.96,
+    "armor": 0.98,
+    "stats": [
+      3,
+      5,
+      4
+    ],
+    "ability": "broadcast",
+    "special": "Moción de Orden",
+    "combos": [
+      "Moción de Orden",
+      "Quórum Estricto",
+      "Articulado Firme"
+    ],
+    "category": "founders",
+    "portraitLift": 0.02
+  },
+  {
+    "id": "javier",
+    "sprite": "javier-v43",
+    "name": "La Muni",
+    "shortName": "La Muni",
+    "title": "Fuerza Operativa Urbana",
+    "role": "CONTROL",
+    "color": "#0284c7",
+    "description": "El brazo operativo de los servicios públicos de la capital riojana. Con herramientas de cuadrilla, conos de advertencia y despliegue urbano constante, barre con cualquier obstáculo que intente cortar el paso en la arena.",
+    "speed": 5,
+    "damage": 1.08,
+    "armor": 1.02,
+    "stats": [
+      4,
+      4,
+      4
+    ],
+    "ability": "spin",
+    "special": "Barrido Municipal",
+    "combos": [
+      "Barrido Urbano",
+      "Corte de Tránsito",
+      "Inspección General"
+    ],
+    "category": "founders",
+    "portraitLift": 0.02
+  },
+  {
+    "id": "bolivar",
+    "sprite": "bolivar-v39",
+    "name": "El Chacho",
+    "shortName": "El Chacho",
+    "title": "La Leyenda del Federalismo",
+    "role": "EMBESTIDA",
+    "color": "#eab308",
+    "description": "General Ángel Vicente 'El Chacho' Peñaloza, caudillo supremo de La Rioja y de las montoneras federales. Símbolo indiscutido del coraje del interior, lidera a su pueblo con lanza en mano y una carga a caballo que hace temblar la arena.",
+    "speed": 5.3,
+    "damage": 1.12,
+    "armor": 1.05,
+    "stats": [
+      5,
+      4,
+      4
+    ],
+    "ability": "liberator",
+    "special": "Carga Federal",
+    "combos": [
+      "Carga de los Llanos",
+      "Lanza Federal",
+      "Grito de Montonera"
+    ],
+    "category": "culture",
     "portraitLift": 0.02
   }
 ]

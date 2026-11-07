@@ -57,8 +57,8 @@ export function drawVictory(
     ctx.globalAlpha = arrival;
     ctx.translate(-width * 0.06 * (1 - arrival), 0);
     const ribbon = ctx.createLinearGradient(0, 0, width * 0.5, height);
-    ribbon.addColorStop(0, "#ffd45a66");
-    ribbon.addColorStop(1, "#ffd45a0a");
+    ribbon.addColorStop(0, "#ef444466");
+    ribbon.addColorStop(1, "#ef44440a");
     ctx.fillStyle = ribbon;
     ctx.beginPath();
     ctx.moveTo(width * 0.16, 0);
@@ -67,7 +67,7 @@ export function drawVictory(
     ctx.lineTo(width * 0.04, height);
     ctx.closePath();
     ctx.fill();
-    ctx.strokeStyle = "#ffd45a80";
+    ctx.strokeStyle = "#ef444480";
     ctx.lineWidth = Math.max(1, unit * 0.002);
     ctx.beginPath();
     ctx.moveTo(width * 0.52, 0);
@@ -151,11 +151,11 @@ export function drawVictory(
     ctx.restore();
   }
 
-  // A restrained frame ties the celebration to the game's yellow arcade trim.
+  // A restrained frame ties the celebration to the game's red arcade trim.
   ctx.fillStyle = "#091524";
   ctx.fillRect(0, 0, width, height * 0.018);
   ctx.fillRect(0, height * 0.982, width, height * 0.018);
-  ctx.fillStyle = "#ffd45a";
+  ctx.fillStyle = "#ef4444";
   ctx.fillRect(
     width * 0.045,
     height * 0.955,

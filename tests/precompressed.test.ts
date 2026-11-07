@@ -9,7 +9,7 @@ import type { AddressInfo } from "node:net";
 import express from "express";
 import { precompressedAssets } from "../server/precompressed";
 
-const script = "export const x = 'arena criolla';\n".repeat(80);
+const script = "export const x = 'caudillo fight';\n".repeat(80);
 
 async function withServer(
   run: (url: string, root: string) => Promise<void>,

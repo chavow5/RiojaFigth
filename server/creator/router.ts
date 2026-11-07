@@ -124,7 +124,7 @@ export function makeCreatorService(options: CreatorOptions = {}) {
     ) {
       res
         .status(403)
-        .json({ error: "Esta acción debe iniciarse desde Arena Criolla." });
+        .json({ error: "Esta acción debe iniciarse desde Caudillo Fight." });
       return;
     }
     const key =

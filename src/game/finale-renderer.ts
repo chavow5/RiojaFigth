@@ -9,8 +9,6 @@ import {
   finaleById,
   type FinaleDefinition,
 } from "../../shared/finales";
-import perroAssets from "../../shared/perro-mujeriego-assets.json";
-import perroChoreography from "../../shared/perro-mujeriego-choreography.json";
 import { drawSprite, type SpriteAsset } from "./assets";
 import { drawAttackArt } from "./attack-art";
 import { finaleArenaLayout, type FinaleArenaLayout } from "./finale-layout";
@@ -46,10 +44,23 @@ const actorManifest = actorAssets as unknown as {
     Record<FighterId, { file: string; frames: CafeActorFrame[] }>
   >;
 };
-const perroManifest = perroAssets as unknown as {
-  dancers: Partial<
+const perroManifest = {
+  dancers: {} as Partial<
     Record<FighterId, { file: string; frames: CafeActorFrame[] }>
-  >;
+  >,
+};
+const perroChoreography = {
+  durationTicks: 360,
+  poses: [
+    { tick: 0 },
+    { tick: 45 },
+    { tick: 90 },
+    { tick: 135 },
+    { tick: 180 },
+    { tick: 225 },
+    { tick: 270 },
+    { tick: 315 },
+  ],
 };
 const DANCE_BLEND_TICKS = 6;
 const DANCE_SOURCE_WIDTH = 512;

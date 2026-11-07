@@ -16,7 +16,6 @@ import finaleActors from "../../shared/finale-actor-assets.json";
 import cafeFurniture from "../../shared/finale-cafe-assets.json";
 import finaleDesk from "../../shared/finale-desk-assets.json";
 import { finaleAsset, finaleById } from "../../shared/finales";
-import perroMujeriego from "../../shared/perro-mujeriego-assets.json";
 import { ATTACK_ART } from "./attack-art";
 import { assetUrl } from "../asset-url";
 
@@ -76,8 +75,7 @@ const images = new Map<string, Promise<HTMLImageElement>>();
 const sprites = new Map<FighterId, Promise<SpriteAsset>>();
 const cinematicSprites = new Map<FighterId, Promise<SpriteAsset>>();
 // These two published files contain the exact same eight painted dance poses.
-const nachoDanceImage = "perro-mujeriego-v3-nacho";
-const legacyNachoDanceImage = "finales-nacho-dance";
+// Obsolete dance asset keys removed
 const seatedFinaleActors = new Set<FighterId>([
   "capriles",
   "juan",
@@ -123,15 +121,14 @@ export function loadImage(
   id: string,
   priority?: "high" | "low",
 ): Promise<HTMLImageElement> {
-  const imageId = id === legacyNachoDanceImage ? nachoDanceImage : id;
+  const imageId = id;
   if (!images.has(imageId)) {
     images.set(
       imageId,
       new Promise<HTMLImageElement>((resolve, reject) => {
         const image = new Image();
         if (priority) image.fetchPriority = priority;
-        let alternate =
-          imageId === nachoDanceImage ? legacyNachoDanceImage : undefined;
+        let alternate: string | undefined = undefined;
         image.onload = () => resolve(image);
         image.onerror = () => {
           // Keep the older URL as a recovery source, without downloading the
@@ -427,7 +424,6 @@ function decorationFiles(
       (attacks.has(id) || finales.has(id)) &&
       fighterById(id).ability === "courier",
   );
-  const hasNacho = finales.has("nacho");
   // Coffee, the two vehicle rides and the musical duel seat both fighters.
   const hasSeatedFinale = fighters.some(
     (id) => finales.has(id) && seatedFinaleActors.has(id),
@@ -450,14 +446,10 @@ function decorationFiles(
         const performer = (
           finaleActors.performers as Record<string, { file: string }>
         )[id];
-        const choreographyDancer = hasNacho
-          ? (perroMujeriego.dancers as Record<string, { file: string }>)[id]
-          : undefined;
         return [
           ...(asset ? [asset.file] : []),
           ...(hasSeatedFinale && seated ? [seated.file] : []),
           ...(capture && performer ? [performer.file] : []),
-          ...(choreographyDancer ? [choreographyDancer.file] : []),
           ...(finales.has(id) && id === "giuseppe" ? [finaleDesk.file] : []),
           ...(finales.has(id) && id === "capriles"
             ? [finaleActors.caprilesCafe.file, cafeFurniture.file]

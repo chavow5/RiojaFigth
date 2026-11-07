@@ -11,51 +11,51 @@
           "components": [
             {
               "minX": 85,
-              "minY": 11,
-              "maxX": 358,
-              "maxY": 435
+              "minY": 14,
+              "maxX": 359,
+              "maxY": 431
             },
             {
-              "minX": 535,
-              "minY": 11,
-              "maxX": 808,
-              "maxY": 435
+              "minX": 538,
+              "minY": 17,
+              "maxX": 790,
+              "maxY": 431
             },
             {
-              "minX": 986,
-              "minY": 11,
-              "maxX": 1259,
-              "maxY": 435
+              "minX": 995,
+              "minY": 14,
+              "maxX": 1222,
+              "maxY": 431
             },
             {
               "minX": 1434,
-              "minY": 11,
-              "maxX": 1707,
-              "maxY": 435
+              "minY": 18,
+              "maxX": 1668,
+              "maxY": 431
             },
             {
-              "minX": 77,
-              "minY": 459,
-              "maxX": 350,
-              "maxY": 883
-            },
-            {
-              "minX": 529,
-              "minY": 463,
-              "maxX": 802,
-              "maxY": 887
-            },
-            {
-              "minX": 972,
-              "minY": 443,
-              "maxX": 1245,
-              "maxY": 867
-            },
-            {
-              "minX": 1416,
+              "minX": 124,
               "minY": 455,
-              "maxX": 1689,
-              "maxY": 879
+              "maxX": 318,
+              "maxY": 810
+            },
+            {
+              "minX": 512,
+              "minY": 459,
+              "maxX": 817,
+              "maxY": 869
+            },
+            {
+              "minX": 947,
+              "minY": 458,
+              "maxX": 1269,
+              "maxY": 869
+            },
+            {
+              "minX": 1426,
+              "minY": 455,
+              "maxX": 1676,
+              "maxY": 869
             }
           ]
         }
@@ -128,56 +128,56 @@
         {
           "file": "public/assets/javier-v43.webp",
           "passed": true,
-          "width": 2048,
-          "height": 1024,
+          "width": 1774,
+          "height": 887,
           "components": [
             {
-              "minX": 121,
-              "minY": 43,
-              "maxX": 389,
-              "maxY": 480
+              "minX": 122,
+              "minY": 14,
+              "maxX": 321,
+              "maxY": 431
             },
             {
-              "minX": 635,
-              "minY": 45,
-              "maxX": 900,
-              "maxY": 480
+              "minX": 564,
+              "minY": 14,
+              "maxX": 764,
+              "maxY": 431
             },
             {
-              "minX": 1146,
-              "minY": 63,
-              "maxX": 1413,
-              "maxY": 480
+              "minX": 1000,
+              "minY": 14,
+              "maxX": 1216,
+              "maxY": 431
             },
             {
-              "minX": 1645,
-              "minY": 61,
-              "maxX": 1937,
-              "maxY": 480
+              "minX": 1450,
+              "minY": 12,
+              "maxX": 1653,
+              "maxY": 431
             },
             {
-              "minX": 142,
-              "minY": 670,
-              "maxX": 368,
-              "maxY": 992
+              "minX": 129,
+              "minY": 455,
+              "maxX": 313,
+              "maxY": 786
             },
             {
-              "minX": 613,
-              "minY": 555,
-              "maxX": 922,
-              "maxY": 992
+              "minX": 495,
+              "minY": 476,
+              "maxX": 833,
+              "maxY": 869
             },
             {
-              "minX": 1079,
-              "minY": 555,
-              "maxX": 1480,
-              "maxY": 992
+              "minX": 946,
+              "minY": 468,
+              "maxX": 1270,
+              "maxY": 869
             },
             {
-              "minX": 1674,
-              "minY": 593,
-              "maxX": 1908,
-              "maxY": 992
+              "minX": 1390,
+              "minY": 479,
+              "maxX": 1712,
+              "maxY": 869
             }
           ]
         }
@@ -254,52 +254,52 @@
           "height": 887,
           "components": [
             {
-              "minX": 142,
-              "minY": 19,
-              "maxX": 387,
-              "maxY": 458
-            },
-            {
-              "minX": 505,
-              "minY": 29,
-              "maxX": 820,
-              "maxY": 449
-            },
-            {
-              "minX": 933,
-              "minY": 29,
-              "maxX": 1290,
-              "maxY": 447
-            },
-            {
-              "minX": 1374,
-              "minY": 31,
-              "maxX": 1734,
-              "maxY": 442
-            },
-            {
               "minX": 114,
-              "minY": 473,
-              "maxX": 368,
-              "maxY": 811
+              "minY": 15,
+              "maxX": 329,
+              "maxY": 431
             },
             {
-              "minX": 474,
-              "minY": 477,
-              "maxX": 872,
-              "maxY": 855
+              "minX": 535,
+              "minY": 20,
+              "maxX": 793,
+              "maxY": 431
             },
             {
-              "minX": 935,
-              "minY": 479,
-              "maxX": 1323,
-              "maxY": 857
+              "minX": 989,
+              "minY": 15,
+              "maxX": 1227,
+              "maxY": 431
             },
             {
-              "minX": 1460,
-              "minY": 490,
-              "maxX": 1716,
-              "maxY": 857
+              "minX": 1445,
+              "minY": 14,
+              "maxX": 1659,
+              "maxY": 431
+            },
+            {
+              "minX": 124,
+              "minY": 455,
+              "maxX": 318,
+              "maxY": 805
+            },
+            {
+              "minX": 512,
+              "minY": 459,
+              "maxX": 816,
+              "maxY": 868
+            },
+            {
+              "minX": 950,
+              "minY": 466,
+              "maxX": 1266,
+              "maxY": 869
+            },
+            {
+              "minX": 1468,
+              "minY": 481,
+              "maxX": 1691,
+              "maxY": 869
             }
           ]
         }
@@ -316,51 +316,51 @@
           "components": [
             {
               "minX": 108,
-              "minY": 11,
+              "minY": 14,
               "maxX": 335,
-              "maxY": 435
+              "maxY": 431
             },
             {
-              "minX": 558,
+              "minX": 542,
+              "minY": 14,
+              "maxX": 787,
+              "maxY": 431
+            },
+            {
+              "minX": 993,
+              "minY": 10,
+              "maxX": 1223,
+              "maxY": 431
+            },
+            {
+              "minX": 1436,
               "minY": 11,
-              "maxX": 785,
-              "maxY": 435
-            },
-            {
-              "minX": 1009,
-              "minY": 11,
-              "maxX": 1236,
-              "maxY": 435
-            },
-            {
-              "minX": 1457,
-              "minY": 11,
-              "maxX": 1684,
-              "maxY": 435
-            },
-            {
-              "minX": 100,
-              "minY": 459,
-              "maxX": 327,
-              "maxY": 883
-            },
-            {
-              "minX": 552,
-              "minY": 463,
-              "maxX": 779,
-              "maxY": 887
-            },
-            {
-              "minX": 995,
-              "minY": 443,
-              "maxX": 1222,
-              "maxY": 867
-            },
-            {
-              "minX": 1439,
-              "minY": 455,
               "maxX": 1666,
-              "maxY": 879
+              "maxY": 431
+            },
+            {
+              "minX": 129,
+              "minY": 450,
+              "maxX": 314,
+              "maxY": 818
+            },
+            {
+              "minX": 499,
+              "minY": 443,
+              "maxX": 829,
+              "maxY": 869
+            },
+            {
+              "minX": 944,
+              "minY": 440,
+              "maxX": 1273,
+              "maxY": 869
+            },
+            {
+              "minX": 1432,
+              "minY": 442,
+              "maxX": 1671,
+              "maxY": 869
             }
           ]
         }
@@ -376,52 +376,52 @@
           "height": 887,
           "components": [
             {
-              "minX": 62,
+              "minX": 109,
+              "minY": 14,
+              "maxX": 333,
+              "maxY": 431
+            },
+            {
+              "minX": 545,
+              "minY": 17,
+              "maxX": 784,
+              "maxY": 431
+            },
+            {
+              "minX": 978,
               "minY": 11,
-              "maxX": 381,
-              "maxY": 435
+              "maxX": 1239,
+              "maxY": 431
             },
             {
-              "minX": 512,
+              "minX": 1434,
               "minY": 11,
-              "maxX": 831,
-              "maxY": 435
+              "maxX": 1669,
+              "maxY": 431
             },
             {
-              "minX": 963,
-              "minY": 11,
-              "maxX": 1282,
-              "maxY": 435
+              "minX": 116,
+              "minY": 450,
+              "maxX": 327,
+              "maxY": 804
             },
             {
-              "minX": 1411,
-              "minY": 11,
-              "maxX": 1730,
-              "maxY": 435
-            },
-            {
-              "minX": 54,
-              "minY": 459,
-              "maxX": 373,
-              "maxY": 883
-            },
-            {
-              "minX": 506,
-              "minY": 463,
+              "minX": 503,
+              "minY": 462,
               "maxX": 825,
-              "maxY": 887
+              "maxY": 869
             },
             {
-              "minX": 949,
-              "minY": 443,
-              "maxX": 1268,
-              "maxY": 867
+              "minX": 935,
+              "minY": 462,
+              "maxX": 1282,
+              "maxY": 869
             },
             {
-              "minX": 1393,
-              "minY": 455,
-              "maxX": 1712,
-              "maxY": 879
+              "minX": 1426,
+              "minY": 434,
+              "maxX": 1676,
+              "maxY": 869
             }
           ]
         }
@@ -437,51 +437,51 @@
           "height": 887,
           "components": [
             {
-              "minX": 115,
-              "minY": 10,
-              "maxX": 320,
-              "maxY": 443
+              "minX": 111,
+              "minY": 14,
+              "maxX": 331,
+              "maxY": 431
             },
             {
-              "minX": 497,
-              "minY": 36,
-              "maxX": 800,
-              "maxY": 439
+              "minX": 551,
+              "minY": 26,
+              "maxX": 778,
+              "maxY": 431
             },
             {
-              "minX": 941,
-              "minY": 11,
-              "maxX": 1259,
-              "maxY": 440
+              "minX": 987,
+              "minY": 24,
+              "maxX": 1229,
+              "maxY": 431
             },
             {
-              "minX": 1394,
-              "minY": 12,
-              "maxX": 1726,
-              "maxY": 438
+              "minX": 1448,
+              "minY": 20,
+              "maxX": 1655,
+              "maxY": 431
             },
             {
-              "minX": 57,
-              "minY": 446,
-              "maxX": 427,
-              "maxY": 820
+              "minX": 125,
+              "minY": 450,
+              "maxX": 317,
+              "maxY": 810
             },
             {
-              "minX": 471,
-              "minY": 457,
-              "maxX": 882,
+              "minX": 489,
+              "minY": 470,
+              "maxX": 840,
               "maxY": 869
             },
             {
-              "minX": 938,
-              "minY": 444,
-              "maxX": 1318,
-              "maxY": 870
+              "minX": 949,
+              "minY": 463,
+              "maxX": 1268,
+              "maxY": 869
             },
             {
-              "minX": 1388,
-              "minY": 477,
-              "maxX": 1728,
+              "minX": 1427,
+              "minY": 470,
+              "maxX": 1675,
               "maxY": 869
             }
           ]
@@ -555,56 +555,56 @@
         {
           "file": "public/assets/maite-v3.webp",
           "passed": true,
-          "width": 1536,
-          "height": 1024,
+          "width": 1774,
+          "height": 887,
           "components": [
             {
-              "minX": 7,
+              "minX": 82,
               "minY": 14,
-              "maxX": 378,
-              "maxY": 502
+              "maxX": 361,
+              "maxY": 431
             },
             {
-              "minX": 399,
-              "minY": 14,
-              "maxX": 740,
-              "maxY": 500
+              "minX": 508,
+              "minY": 15,
+              "maxX": 821,
+              "maxY": 431
             },
             {
-              "minX": 759,
-              "minY": 19,
-              "maxX": 1125,
-              "maxY": 496
+              "minX": 983,
+              "minY": 15,
+              "maxX": 1233,
+              "maxY": 431
             },
             {
-              "minX": 1167,
-              "minY": 29,
-              "maxX": 1524,
-              "maxY": 490
+              "minX": 1425,
+              "minY": 15,
+              "maxX": 1678,
+              "maxY": 431
             },
             {
-              "minX": 9,
-              "minY": 499,
-              "maxX": 429,
-              "maxY": 990
+              "minX": 129,
+              "minY": 450,
+              "maxX": 314,
+              "maxY": 826
             },
             {
-              "minX": 394,
-              "minY": 534,
-              "maxX": 817,
-              "maxY": 1006
+              "minX": 503,
+              "minY": 457,
+              "maxX": 825,
+              "maxY": 867
             },
             {
-              "minX": 818,
-              "minY": 532,
-              "maxX": 1247,
-              "maxY": 1007
+              "minX": 950,
+              "minY": 454,
+              "maxX": 1266,
+              "maxY": 869
             },
             {
-              "minX": 1240,
-              "minY": 562,
-              "maxX": 1502,
-              "maxY": 1001
+              "minX": 1410,
+              "minY": 470,
+              "maxX": 1693,
+              "maxY": 868
             }
           ]
         }
@@ -2995,56 +2995,56 @@
         {
           "file": "public/assets/bolivar-v39.webp",
           "passed": true,
-          "width": 2048,
-          "height": 1024,
+          "width": 1774,
+          "height": 887,
           "components": [
             {
+              "minX": 78,
+              "minY": 14,
+              "maxX": 365,
+              "maxY": 431
+            },
+            {
+              "minX": 532,
+              "minY": 13,
+              "maxX": 797,
+              "maxY": 431
+            },
+            {
+              "minX": 982,
+              "minY": 14,
+              "maxX": 1234,
+              "maxY": 431
+            },
+            {
+              "minX": 1419,
+              "minY": 16,
+              "maxX": 1684,
+              "maxY": 431
+            },
+            {
               "minX": 86,
-              "minY": 44,
-              "maxX": 424,
-              "maxY": 479
+              "minY": 450,
+              "maxX": 356,
+              "maxY": 817
             },
             {
-              "minX": 596,
-              "minY": 45,
-              "maxX": 939,
-              "maxY": 479
+              "minX": 502,
+              "minY": 454,
+              "maxX": 827,
+              "maxY": 869
             },
             {
-              "minX": 1086,
-              "minY": 56,
-              "maxX": 1473,
-              "maxY": 479
+              "minX": 946,
+              "minY": 448,
+              "maxX": 1271,
+              "maxY": 869
             },
             {
-              "minX": 1593,
-              "minY": 53,
-              "maxX": 1989,
-              "maxY": 479
-            },
-            {
-              "minX": 117,
-              "minY": 617,
-              "maxX": 393,
-              "maxY": 991
-            },
-            {
-              "minX": 553,
-              "minY": 594,
-              "maxX": 982,
-              "maxY": 991
-            },
-            {
-              "minX": 1075,
-              "minY": 593,
-              "maxX": 1484,
-              "maxY": 991
-            },
-            {
-              "minX": 1653,
-              "minY": 602,
-              "maxX": 1930,
-              "maxY": 991
+              "minX": 1428,
+              "minY": 453,
+              "maxX": 1675,
+              "maxY": 869
             }
           ]
         }

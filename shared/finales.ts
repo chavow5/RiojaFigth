@@ -4,7 +4,6 @@ import {
   isArenaFinalist,
 } from "./arena-finales";
 import { fighterById, type BuiltInFighterId, type FighterId } from "./content";
-import perroMujeriego from "./perro-mujeriego-choreography.json";
 
 export type FinaleFamily =
   | "transport"
@@ -111,11 +110,11 @@ const entries: readonly Entry[] = [
   ],
   [
     "javier",
-    "Regaño de campeonato",
+    "Operativo de Limpieza",
     "theater",
-    "Javier se pone una camiseta sobre la cabeza y regaña con tres ondas cortas que salen de sus gestos. Cada onda debe alcanzar al rival y se puede bloquear o esquivar.",
-    "Camiseta sobre la cabeza",
-    "¡Y punto!",
+    "La Muni activa un operativo relámpago con conos y herramientas de cuadrilla, despejando la calzada y barriendo al rival fuera de combate.",
+    "Conos de tránsito y cuadrilla municipal",
+    "¡Zona de obras municipal!",
     "show",
   ],
   [
@@ -129,11 +128,11 @@ const entries: readonly Entry[] = [
   ],
   [
     "renny",
-    "El comercial del número uno",
+    "Campanazo de la Cámara",
     "broadcast",
-    "Renny se sienta en su escalera y presenta a dos bailarinas. Se acercan, alternan patadas y empujan al rival solo cuando está a su alcance, mientras continúa la pelea.",
-    "Escalera y bailarinas del comercial",
-    "¡Y ahora, el comercial!",
+    "Martincito hace sonar el campanazo de la presidencia y exige silencio en la sala mientras su equipo parlamentario avanza y desaloja al rival del recinto.",
+    "Campanazo y equipo de debate",
+    "¡Silencio en la sala, se vota!",
     "show",
   ],
   [
@@ -156,11 +155,11 @@ const entries: readonly Entry[] = [
   ],
   [
     "conde",
-    "Conde Bond",
+    "Chorro y Giro del 4",
     "theater",
-    "Se transforma en Conde Bond durante seis segundos de combate y sus ataques hacen un 20 % más de daño.",
-    "Sombrero blanco, gafas y traje oscuro",
-    "Conde Bond en acción",
+    "Coché Coché desata la energía del barrio 4 de Junio arrojando chorros de vino tinto durante seis segundos de combate: sus movimientos se vuelven impredecibles y sus ataques hacen un 20 % más de daño.",
+    "Tetrabrik de vino tinto, giros callejeros y carisma barrial",
+    "¡Coché Coché en acción!",
     "show",
   ],
   [
@@ -176,7 +175,7 @@ const entries: readonly Entry[] = [
     "maite",
     "¡Buenas noches, Superdomo!",
     "broadcast",
-    "Proyecta su saludo al Superdomo con una potente onda sonora que viaja por la arena y daña al rival al alcanzarlo. Se puede bloquear o esquivar.",
+    "La Teresita saluda al pueblo riojano y proyecta una potente onda sonora que viaja por la arena y desestabiliza por completo al rival.",
     "Micrófono y onda sonora",
     "¡BUENAS NOOOCHES, SUPERDOMO DE LA RIOJA!",
     "show",
@@ -552,11 +551,11 @@ const entries: readonly Entry[] = [
   ],
   [
     "bolivar",
-    "Marcha de la libertad",
+    "Carga de la Montonera",
     "theater",
-    "Bolívar carga a caballo con seis llaneros distintos que lo siguen. Cada montura puede golpear una vez al cruzar al rival; se pueden bloquear o esquivar. Bolívar desmonta donde termina su recorrido.",
-    "Caballo y seis llaneros",
-    "Adelante, la arena es libre",
+    "El Chacho Peñaloza lidera la legendaria carga de la Montonera Federal a caballo a través de los llanos riojanos. Los gauchos federales cruzan la arena a galope arrollando al rival en defensa del federalismo.",
+    "Caballos y Montonera Federal",
+    "¡Viva el Chacho, carajo!",
     "show",
   ],
   [
@@ -640,9 +639,7 @@ export const FINALES = Object.fromEntries(
               ? 360
               : id === "maite"
                 ? 84
-                : id === "nacho"
-                  ? perroMujeriego.durationTicks
-                  : FINALE_DURATION,
+                : FINALE_DURATION,
         ...(id === "nacho" ? { release: { force: 0 } } : {}),
         damageBeats:
           isArenaFinalist(id) ||
@@ -652,12 +649,7 @@ export const FINALES = Object.fromEntries(
           id === "deyna" ||
           id === "dayana"
             ? []
-            : id === "nacho"
-              ? FINALE_DAMAGE_BEATS.map(
-                  (tick) =>
-                    tick * (perroMujeriego.durationTicks / FINALE_DURATION),
-                )
-              : FINALE_DAMAGE_BEATS,
+            : FINALE_DAMAGE_BEATS,
         sound,
       },
     ],

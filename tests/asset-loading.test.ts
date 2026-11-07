@@ -2,7 +2,6 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { fighterById } from "../shared/content";
 import actors from "../shared/finale-actor-assets.json";
-import choreography from "../shared/perro-mujeriego-assets.json";
 import { browserFixture } from "./helpers/asset-browser";
 
 const primaryDance = "perro-mujeriego-v3-nacho";
@@ -10,7 +9,7 @@ const alternateDance = "finales-nacho-dance";
 const danceUrl = `/assets/${primaryDance}.webp`;
 const alternateUrl = `/assets/${alternateDance}.webp`;
 const seated: Record<string, { file: string }> = actors.seated;
-const recorded: Record<string, { file: string }> = choreography.dancers;
+const recorded: Record<string, { file: string }> = {};
 
 // Each scenario gets its own real loader cache, without adding test-only cache
 // controls to the production module.

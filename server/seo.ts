@@ -45,7 +45,7 @@ export function renderSiteHtml(
     .replaceAll("__ARENA_ORIGIN__", origin)
     .replaceAll("__ARENA_PAGE_URL__", origin + pagePath);
   if (acknowledgements) {
-    const title = "Agradecimientos — Rioja Fight";
+    const title = "Agradecimientos — Caudillo Fight";
     const description =
       "Gracias a la comunidad de Asilo Digital por la difusión y las primeras pruebas, y a Giuseppe Gangi por donar el dominio arenacriolla.com.";
     html = html
@@ -69,7 +69,7 @@ export function renderSiteHtml(
           inLanguage: "es",
           isPartOf: {
             "@type": "WebSite",
-            name: "Rioja Fight",
+            name: "Caudillo Fight",
             url: origin + "/",
           },
         })}</script>`,

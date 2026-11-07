@@ -100,7 +100,8 @@ export function drawIconSpecial(
     ctx.stroke();
     ctx.setLineDash([]);
   } else if (ability === "liberator") {
-    for (const [n, color] of ["#ffe16b", "#6bafff", "#f87970"].entries()) {
+    // Carga de los Llanos de El Chacho: estela roja punzó (#dc2626) y oro federal (#eab308)
+    for (const [n, color] of ["#dc2626", "#eab308", "#991b1b"].entries()) {
       ctx.strokeStyle = color;
       ctx.lineWidth = 4;
       ctx.beginPath();
@@ -108,10 +109,16 @@ export function drawIconSpecial(
       ctx.quadraticCurveTo(-65, -34 - n * 14, -105, -17 - n * 14);
       ctx.stroke();
     }
-    ctx.strokeStyle = "#ffe9a6";
+    // Lanza federal y tajo de facón
+    ctx.strokeStyle = "#fef08a";
     ctx.lineWidth = 5;
     ctx.beginPath();
     ctx.arc(35, -77, 58, -1.1, 0.8);
+    ctx.stroke();
+    ctx.strokeStyle = "#dc2626";
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.arc(42, -77, 48, -0.9, 0.6);
     ctx.stroke();
   } else if (ability === "retake") {
     ctx.strokeStyle = p.countered ? "#fff1ac" : "#9ec2ee";

@@ -894,7 +894,7 @@ if (
     production: process.env.NODE_ENV === "production",
   });
   server.http.listen(port, "0.0.0.0", () =>
-    console.log(`Arena Criolla lista en http://localhost:${port}`),
+    console.log(`Caudillo Fight listo en http://localhost:${port}`),
   );
   for (const signal of ["SIGINT", "SIGTERM"])
     process.on(signal, () => {

@@ -43,7 +43,7 @@ export const ICON_VICTORIES = {
     music: "brass",
   },
   bolivar: {
-    name: "Honor al vencedor",
+    name: "La Leyenda Federal",
     frame: 0,
     movement: "plant",
     gesture: { head: -0.06, front: -0.31, frontY: -0.07, back: 0.13 },

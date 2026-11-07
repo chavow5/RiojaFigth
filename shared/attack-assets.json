@@ -71,40 +71,40 @@
     "file": "javier-scolding-attack-v1",
     "frames": {
       "headshirt": {
-        "x": 133,
-        "y": 20,
-        "width": 246,
-        "height": 472,
-        "anchorX": 118.08,
-        "anchorY": 463.8760757314974,
-        "bodyHeight": 461.4388984509466
+        "x": 178,
+        "y": 61,
+        "width": 157,
+        "height": 425,
+        "anchorX": 79,
+        "anchorY": 425,
+        "bodyHeight": 420
       },
       "fingerwag": {
-        "x": 636,
-        "y": 20,
-        "width": 264,
-        "height": 472,
-        "anchorX": 138.6,
-        "anchorY": 460.5078260869565,
-        "bodyHeight": 458.04521739130433
+        "x": 705,
+        "y": 57,
+        "width": 157,
+        "height": 425,
+        "anchorX": 79,
+        "anchorY": 425,
+        "bodyHeight": 420
       },
       "scold": {
-        "x": 104,
-        "y": 532,
-        "width": 303,
-        "height": 472,
-        "anchorX": 151.5,
-        "anchorY": 460.6159554730983,
-        "bodyHeight": 457.98886827458256
+        "x": 188,
+        "y": 571,
+        "width": 157,
+        "height": 425,
+        "anchorX": 79,
+        "anchorY": 425,
+        "bodyHeight": 420
       },
       "point": {
-        "x": 572,
-        "y": 532,
-        "width": 391,
-        "height": 472,
-        "anchorX": 144.279,
-        "anchorY": 462.3673469387755,
-        "bodyHeight": 459.7402597402597
+        "x": 710,
+        "y": 577,
+        "width": 157,
+        "height": 425,
+        "anchorX": 79,
+        "anchorY": 425,
+        "bodyHeight": 420
       }
     }
   },
@@ -112,40 +112,40 @@
     "file": "renny-commercial-attack-v1",
     "frames": {
       "ladder": {
-        "x": 56,
-        "y": 20,
-        "width": 400,
-        "height": 472,
-        "anchorX": 180,
-        "anchorY": 464.94205607476636,
-        "bodyHeight": 461.41308411214953
+        "x": 116,
+        "y": 61,
+        "width": 281,
+        "height": 425,
+        "anchorX": 141,
+        "anchorY": 425,
+        "bodyHeight": 420
       },
       "present": {
-        "x": 623,
-        "y": 20,
-        "width": 290,
-        "height": 472,
-        "anchorX": 147.9,
-        "anchorY": 467.1340206185567,
-        "bodyHeight": 460.64604810996565
+        "x": 643,
+        "y": 57,
+        "width": 281,
+        "height": 425,
+        "anchorX": 141,
+        "anchorY": 425,
+        "bodyHeight": 420
       },
       "kick": {
-        "x": 60,
-        "y": 532,
-        "width": 392,
-        "height": 472,
-        "anchorX": 161.896,
-        "anchorY": 463.9591141396934,
-        "bodyHeight": 461.54684838160136
+        "x": 141,
+        "y": 573,
+        "width": 281,
+        "height": 425,
+        "anchorX": 141,
+        "anchorY": 425,
+        "bodyHeight": 420
       },
       "push": {
-        "x": 553,
-        "y": 532,
-        "width": 430,
-        "height": 472,
-        "anchorX": 156.95,
-        "anchorY": 466.0253164556962,
-        "bodyHeight": 460.90415913200724
+        "x": 638,
+        "y": 579,
+        "width": 281,
+        "height": 425,
+        "anchorX": 141,
+        "anchorY": 425,
+        "bodyHeight": 420
       }
     }
   },
@@ -289,76 +289,76 @@
     "file": "attack-conde-bond-v1",
     "frames": {
       "ready": {
-        "x": 106,
-        "y": 20,
-        "width": 299,
-        "height": 472,
-        "anchorX": 149.5,
-        "anchorY": 466.537037037037,
-        "bodyHeight": 462.1666666666667
+        "x": 146,
+        "y": 68,
+        "width": 221,
+        "height": 418,
+        "anchorX": 111,
+        "anchorY": 418,
+        "bodyHeight": 418
       },
       "guard": {
-        "x": 561,
-        "y": 20,
-        "width": 414,
-        "height": 472,
-        "anchorX": 207,
-        "anchorY": 468.52941176470586,
-        "bodyHeight": 461.5882352941176
+        "x": 654,
+        "y": 80,
+        "width": 228,
+        "height": 406,
+        "anchorX": 114,
+        "anchorY": 406,
+        "bodyHeight": 418
       },
       "run": {
-        "x": 1088,
-        "y": 20,
-        "width": 383,
-        "height": 472,
-        "anchorX": 191.5,
-        "anchorY": 461.1990846681922,
-        "bodyHeight": 454.71853546910756
+        "x": 1159,
+        "y": 78,
+        "width": 243,
+        "height": 408,
+        "anchorX": 122,
+        "anchorY": 408,
+        "bodyHeight": 418
       },
       "jump": {
-        "x": 1582,
-        "y": 20,
-        "width": 420,
-        "height": 472,
-        "anchorX": 210,
-        "anchorY": 469.413698630137,
-        "bodyHeight": 465.5342465753425
+        "x": 1696,
+        "y": 100,
+        "width": 193,
+        "height": 361,
+        "anchorX": 97,
+        "anchorY": 361,
+        "bodyHeight": 418
       },
       "punch": {
-        "x": 20,
-        "y": 580,
-        "width": 472,
-        "height": 424,
-        "anchorX": 236,
-        "anchorY": 421.90617283950616,
-        "bodyHeight": 414.5777777777778
+        "x": 50,
+        "y": 598,
+        "width": 352,
+        "height": 400,
+        "anchorX": 176,
+        "anchorY": 400,
+        "bodyHeight": 418
       },
       "kick": {
-        "x": 532,
-        "y": 560,
-        "width": 472,
-        "height": 444,
-        "anchorX": 236,
-        "anchorY": 441.8498789346247,
-        "bodyHeight": 438.6246973365617
+        "x": 608,
+        "y": 591,
+        "width": 320,
+        "height": 407,
+        "anchorX": 160,
+        "anchorY": 407,
+        "bodyHeight": 418
       },
       "hurt": {
-        "x": 1089,
-        "y": 532,
-        "width": 381,
-        "height": 472,
-        "anchorX": 190.5,
-        "anchorY": 468.3598971722365,
-        "bodyHeight": 457.439588688946
+        "x": 1156,
+        "y": 598,
+        "width": 249,
+        "height": 400,
+        "anchorX": 125,
+        "anchorY": 400,
+        "bodyHeight": 418
       },
       "whirl": {
-        "x": 1564,
-        "y": 532,
-        "width": 456,
-        "height": 472,
-        "anchorX": 228,
-        "anchorY": 468.5378973105135,
-        "bodyHeight": 460.4596577017115
+        "x": 1616,
+        "y": 598,
+        "width": 352,
+        "height": 400,
+        "anchorX": 176,
+        "anchorY": 400,
+        "bodyHeight": 418
       }
     }
   },
@@ -443,40 +443,40 @@
     "file": "attack-maite-greeting",
     "frames": {
       "breath": {
-        "x": 20,
-        "y": 20,
-        "width": 472,
-        "height": 472,
-        "anchorX": 250.16000000000003,
-        "anchorY": 467.3267326732673,
-        "bodyHeight": 464.990099009901
+        "x": 96,
+        "y": 61,
+        "width": 321,
+        "height": 425,
+        "anchorX": 161,
+        "anchorY": 425,
+        "bodyHeight": 420
       },
       "shout": {
-        "x": 536,
-        "y": 20,
-        "width": 464,
-        "height": 472,
-        "anchorX": 236.64000000000001,
-        "anchorY": 465.25714285714287,
-        "bodyHeight": 463.0095238095238
+        "x": 623,
+        "y": 57,
+        "width": 321,
+        "height": 425,
+        "anchorX": 161,
+        "anchorY": 425,
+        "bodyHeight": 420
       },
       "sustain": {
-        "x": 20,
-        "y": 581,
-        "width": 472,
-        "height": 423,
-        "anchorX": 212.4,
-        "anchorY": 411.81490384615387,
-        "bodyHeight": 405.7139423076923
+        "x": 106,
+        "y": 571,
+        "width": 321,
+        "height": 425,
+        "anchorX": 161,
+        "anchorY": 425,
+        "bodyHeight": 420
       },
       "recover": {
-        "x": 532,
-        "y": 540,
-        "width": 472,
-        "height": 464,
-        "anchorX": 250.16000000000003,
-        "anchorY": 453.0566037735849,
-        "bodyHeight": 447.58490566037733
+        "x": 608,
+        "y": 579,
+        "width": 321,
+        "height": 425,
+        "anchorX": 161,
+        "anchorY": 425,
+        "bodyHeight": 420
       }
     }
   },

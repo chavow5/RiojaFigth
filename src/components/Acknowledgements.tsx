@@ -9,7 +9,7 @@ export function Acknowledgements() {
         <a
           className="acknowledgements-brand"
           href="/"
-          aria-label="Rioja Fight, inicio"
+          aria-label="Caudillo Fight, inicio"
         >
           <img
             src={assetUrl("/assets/arena-icon.svg")}
@@ -18,7 +18,7 @@ export function Acknowledgements() {
             alt=""
           />
           <span>
-            RIOJA <span>FIGHT</span>
+            CAUDILLO <span>FIGHT</span>
           </span>
         </a>
         <a href="/">Volver al juego</a>
@@ -27,7 +27,7 @@ export function Acknowledgements() {
       <main className="acknowledgements-content">
         <h1>Agradecimientos</h1>
         <p className="acknowledgements-intro">
-          <strong>Rioja Fight</strong> también es de quienes le han dado una
+          <strong>Caudillo Fight</strong> también es de quienes le han dado una
           mano. Gracias a todas las personas y comunidades que, de una forma u
           otra, han contribuido a que este juego siga creciendo.
         </p>
@@ -44,7 +44,7 @@ export function Acknowledgements() {
             </a>
           </h2>
           <p>
-            Gracias a los chicos de Asilo Digital por darle difusión a Rioja
+            Gracias a los chicos de Asilo Digital por darle difusión a Caudillo
             Fight y ser los primeros testers. Gracias por sumarse desde el
             principio y ayudar a poner el juego a prueba.
           </p>
@@ -70,7 +70,7 @@ export function Acknowledgements() {
 
         <p className="acknowledgements-closing">
           <Heart size={19} aria-hidden="true" />
-          Gracias por ser parte de Rioja Fight.
+          Gracias por ser parte de Caudillo Fight.
         </p>
       </main>
 
