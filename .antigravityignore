@@ -1,0 +1,42 @@
+# Dependencias y paquetes (Node, Python, PHP, Rust, etc.)
+node_modules/
+vendor/
+venv/
+.venv/
+env/
+target/
+__pycache__/
+*.pyc
+
+# Compilados y builds
+dist/
+build/
+out/
+.next/
+.nuxt/
+.output/
+
+# Control de versiones y cachés del sistema
+.git/
+.svn/
+.cache/
+.tmp/
+.temp/
+.DS_Store
+Thumbs.db
+
+# Logs, bases de datos y archivos pesados
+*.log
+*.sqlite
+*.db
+*.zip
+*.tar.gz
+*.mp4
+*.mov
+*.pdf
+
+# Cobertura de tests y variables de entorno
+coverage/
+.nyc_output/
+.env
+.env.*

@@ -1330,6 +1330,34 @@ function transport(scene: Scene) {
     prop(scene, x, 384, 450, 250);
     body(scene, actor, x - 100, 396, 176, 1, "seat");
     body(scene, rival, x + 68, 396, 176, 1, "seat");
+  } else if (actor === "gomez") {
+    // EL COE: Palazo de cuadrilla y pozo en el asfalto
+    const strike = tick > 45;
+    const coeX = 320 + clamp((tick - 10) / 45) * 350;
+    body(scene, actor, coeX, 508, 295, 1, strike ? "perform" : "stand");
+    body(scene, rival, 760, 508, 285, -1, strike ? "recoil" : "stand");
+
+    // Pozo en el asfalto bajo el rival
+    ctx.fillStyle = "#0f172a";
+    ctx.beginPath();
+    ctx.ellipse(760, 520, 85, 22, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = "#f97316";
+    ctx.lineWidth = 4;
+    ctx.stroke();
+
+    // Cascotes y tierra volando del palazo
+    if (strike) {
+      for (let n = 0; n < 14; n++) {
+        const p = ((tick - 45) * 10 + n * 18) % 110;
+        const sx = 760 + Math.cos(n * 1.4) * p;
+        const sy = 490 - Math.sin(n * 1.1) * (p * 0.85);
+        ctx.fillStyle = ["#78350f", "#92400e", "#b45309", "#ea580c"][n % 4];
+        ctx.fillRect(sx, sy, 8, 8);
+      }
+      text(ctx, "¡PALAZO!", 760, 240, 28, "#f97316");
+    }
+    bubble(scene, "¡Cuidado con el pozo!", 360, 190, 240);
   } else {
     const x = 375 + Math.sin(progress * TAU) * 12 * motion;
     prop(scene, x, 413, 485, 263);
@@ -1443,6 +1471,30 @@ function music(scene: Scene) {
         "#2c211b",
       );
     }
+  } else if (actor === "simon") {
+    // EL GALLO: Fiesta de la Chaya riojana (nube de harina y albahaca)
+    bubble(scene, "¡A chayar, cumpa!", 360, 190, 220);
+    // Nube de harina blanca chayera expandiéndose sobre el rival
+    for (let n = 0; n < 24; n++) {
+      const spread = (tick * 4 + n * 24) % 190;
+      const hx = 760 + Math.cos(n * 1.35) * (spread * 0.95);
+      const hy = 470 - (spread * 0.72) + Math.sin(n * 2.2) * 35;
+      const r = 24 + Math.sin(tick / 10 + n) * 9 + (spread * 0.28);
+      ctx.fillStyle = n % 3 === 0 ? "rgba(255, 255, 255, 0.88)" : n % 3 === 1 ? "rgba(250, 248, 235, 0.78)" : "rgba(240, 235, 220, 0.68)";
+      ctx.beginPath();
+      ctx.arc(hx, hy, r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    // Hojas de albahaca chayera volando
+    for (let n = 0; n < 8; n++) {
+      const ax = 730 + Math.sin(tick / 14 + n * 1.5) * 85;
+      const ay = 380 + Math.cos(tick / 18 + n * 2) * 65;
+      ctx.fillStyle = "#22c55e";
+      ctx.beginPath();
+      ctx.ellipse(ax, ay, 9, 5, n * 0.8, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    text(ctx, "¡CHAYA RIOJANA!", 760, 220, 26, "#ffffff");
   } else {
     const label =
       actor === "puma"

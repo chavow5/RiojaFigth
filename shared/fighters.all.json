@@ -52,7 +52,8 @@
       "Golpe de Bastón",
       "Espina Brava"
     ],
-    "portraitLift": 0.02
+    "portraitLift": 0.02,
+    "portraitScale": 1.12
   },
   {
     "id": "javier",
@@ -133,52 +134,56 @@
   {
     "id": "gomez",
     "sprite": "gomez-v3",
-    "name": "Juan Vicente Gómez",
-    "shortName": "Gómez",
-    "title": "El general de archivo",
+    "name": "El Coe",
+    "shortName": "El Coe",
+    "title": "Operario de Cuadrilla",
     "role": "PODER",
-    "color": "#c9ae78",
-    "description": "Uniforme histórico, bigote y andar pesado. Un golpe contra el suelo sacude a los rivales que permanezcan cerca.",
-    "speed": 3.5,
-    "damage": 1.2,
-    "armor": 0.86,
+    "color": "#ef4444",
+    "description": "Trabajador incansable de la cuadrilla municipal y del COE. Con su campera roja y pala de punta, cava pozos en el asfalto y conecta golpes contundentes.",
+    "speed": 3.8,
+    "damage": 1.18,
+    "armor": 1.02,
     "stats": [
       5,
       2,
       5
     ],
     "ability": "command",
-    "special": "Paso del general",
+    "special": "Pozo en el Asfalto",
     "combos": [
-      "Paso firme",
-      "Orden cerrada",
-      "Golpe de mando"
-    ]
+      "Zanja Urbana",
+      "Paredón Rojo",
+      "Bache Profundo"
+    ],
+    "category": "founders",
+    "portraitLift": 0.02
   },
   {
     "id": "simon",
     "sprite": "simon-v3",
-    "name": "Simón Díaz",
-    "shortName": "Tío Simón",
-    "title": "El cantor del llano",
+    "name": "El Gallo",
+    "shortName": "El Gallo",
+    "title": "Cantor de la Chaya",
     "role": "DISTANCIA",
-    "color": "#e0a55f",
-    "description": "Sombrero y camisa de faena. Un abanico de tres notas viaja por trayectorias distintas y cubre los saltos del rival.",
-    "speed": 4.1,
-    "damage": 0.95,
-    "armor": 0.97,
+    "color": "#f59e0b",
+    "description": "Sergio Galleguillo, el rey del carnaval riojano. Con micrófono en mano y su potente voz, desata acordes festivos y harinazos chayinos que sacuden toda la arena.",
+    "speed": 4.2,
+    "damage": 1.05,
+    "armor": 0.95,
     "stats": [
-      3,
+      4,
       3,
       4
     ],
     "ability": "cuatro",
-    "special": "Acorde llanero",
+    "special": "Acorde Chayero",
     "combos": [
-      "Primer acorde",
-      "Contrapunteo",
-      "Tonada de la arena"
-    ]
+      "Vidala Riojana",
+      "Zamba Chayera",
+      "Grito Chayero"
+    ],
+    "category": "culture",
+    "portraitLift": 0.02
   },
   {
     "id": "conde",

@@ -52,7 +52,8 @@
       "Golpe de Bastón",
       "Espina Brava"
     ],
-    "portraitLift": 0.02
+    "portraitLift": 0.02,
+    "portraitScale": 1.12
   },
   {
     "id": "capriles",
@@ -104,5 +105,59 @@
       "Emisión Extraordinaria",
       "Federalismo Extremo"
     ]
+  },
+  {
+    "id": "simon",
+    "sprite": "simon-v3",
+    "name": "El Gallo",
+    "shortName": "El Gallo",
+    "title": "Cantor de la Chaya",
+    "role": "DISTANCIA",
+    "color": "#f59e0b",
+    "description": "Sergio Galleguillo, el rey del carnaval riojano. Con micrófono en mano y su potente voz, desata acordes festivos y harinazos chayinos que sacuden toda la arena.",
+    "speed": 4.2,
+    "damage": 1.05,
+    "armor": 0.95,
+    "stats": [
+      4,
+      3,
+      4
+    ],
+    "ability": "cuatro",
+    "special": "Acorde Chayero",
+    "combos": [
+      "Vidala Riojana",
+      "Zamba Chayera",
+      "Grito Chayero"
+    ],
+    "category": "culture",
+    "portraitLift": 0.02
+  },
+  {
+    "id": "gomez",
+    "sprite": "gomez-v3",
+    "name": "El Coe",
+    "shortName": "El Coe",
+    "title": "Operario de Cuadrilla",
+    "role": "PODER",
+    "color": "#ef4444",
+    "description": "Trabajador incansable de la cuadrilla municipal y del COE. Con su campera roja y pala de punta, cava pozos en el asfalto y conecta golpes contundentes.",
+    "speed": 3.8,
+    "damage": 1.18,
+    "armor": 1.02,
+    "stats": [
+      5,
+      2,
+      5
+    ],
+    "ability": "command",
+    "special": "Pozo en el Asfalto",
+    "combos": [
+      "Zanja Urbana",
+      "Paredón Rojo",
+      "Bache Profundo"
+    ],
+    "category": "founders",
+    "portraitLift": 0.02
   }
 ]

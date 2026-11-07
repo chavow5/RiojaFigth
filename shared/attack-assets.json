@@ -153,76 +153,76 @@
     "file": "gomez-cavalry-attack-v1",
     "frames": {
       "ready": {
-        "x": 36,
-        "y": 20,
-        "width": 440,
-        "height": 472,
-        "anchorX": 220,
-        "anchorY": 462.56,
-        "bodyHeight": 455.81714285714287
+        "x": 154,
+        "y": 15,
+        "width": 204,
+        "height": 489,
+        "anchorX": 102,
+        "anchorY": 489,
+        "bodyHeight": 489
       },
       "gallop-extended": {
-        "x": 532,
-        "y": 157,
-        "width": 472,
-        "height": 335,
-        "anchorX": 236,
-        "anchorY": 329.45364238410593,
-        "bodyHeight": 327.23509933774835
+        "x": 666,
+        "y": 78,
+        "width": 204,
+        "height": 426,
+        "anchorX": 102,
+        "anchorY": 426,
+        "bodyHeight": 426
       },
       "gallop-gathered": {
-        "x": 1044,
-        "y": 80,
-        "width": 472,
-        "height": 412,
-        "anchorX": 278.47999999999996,
-        "anchorY": 400.4485981308411,
-        "bodyHeight": 390.18068535825546
+        "x": 1178,
+        "y": 66,
+        "width": 204,
+        "height": 438,
+        "anchorX": 102,
+        "anchorY": 438,
+        "bodyHeight": 438
       },
       "brake": {
-        "x": 1558,
-        "y": 20,
-        "width": 467,
-        "height": 472,
-        "anchorX": 312.89000000000004,
-        "anchorY": 464.06722689075633,
-        "bodyHeight": 460.10084033613447
+        "x": 1690,
+        "y": 1,
+        "width": 204,
+        "height": 503,
+        "anchorX": 102,
+        "anchorY": 503,
+        "bodyHeight": 503
       },
       "trooper-extended": {
-        "x": 20,
-        "y": 650,
-        "width": 472,
-        "height": 354,
-        "anchorX": 236,
-        "anchorY": 350.61783439490443,
-        "bodyHeight": 346.10828025477707
+        "x": 154,
+        "y": 590,
+        "width": 204,
+        "height": 426,
+        "anchorX": 102,
+        "anchorY": 426,
+        "bodyHeight": 426
       },
       "trooper-gathered": {
-        "x": 532,
-        "y": 572,
-        "width": 472,
-        "height": 432,
-        "anchorX": 259.6,
-        "anchorY": 424.3086053412463,
-        "bodyHeight": 416.61721068249255
+        "x": 666,
+        "y": 565,
+        "width": 204,
+        "height": 451,
+        "anchorX": 102,
+        "anchorY": 451,
+        "bodyHeight": 451
       },
       "dismount": {
-        "x": 1044,
-        "y": 578,
-        "width": 472,
-        "height": 426,
-        "anchorX": 202.96,
-        "anchorY": 418.0373831775701,
-        "bodyHeight": 414.05607476635515
+        "x": 1178,
+        "y": 565,
+        "width": 204,
+        "height": 451,
+        "anchorX": 102,
+        "anchorY": 451,
+        "bodyHeight": 451
       },
       "horse-exit": {
-        "x": 1556,
-        "y": 619,
-        "width": 472,
-        "height": 385,
-        "anchorX": 240.72,
-        "anchorY": 373.9297124600639,
-        "bodyHeight": 367.779552715655
+        "x": 1632,
+        "y": 856,
+        "width": 320,
+        "height": 160,
+        "anchorX": 160,
+        "anchorY": 160,
+        "bodyHeight": 160
       }
     }
   },
@@ -230,58 +230,58 @@
     "file": "simon-cuatro-attack-v1",
     "frames": {
       "ready": {
-        "x": 80,
-        "y": 20,
-        "width": 352,
-        "height": 472,
-        "anchorX": 144.32,
-        "anchorY": 467.0210970464135,
-        "bodyHeight": 464.0337552742616
+        "x": 79,
+        "y": 34,
+        "width": 354,
+        "height": 470,
+        "anchorX": 177,
+        "anchorY": 470,
+        "bodyHeight": 470
       },
       "downstroke": {
-        "x": 575,
-        "y": 20,
-        "width": 385,
-        "height": 472,
-        "anchorX": 165.55,
-        "anchorY": 464.86393088552916,
-        "bodyHeight": 459.76673866090715
+        "x": 591,
+        "y": 34,
+        "width": 354,
+        "height": 470,
+        "anchorX": 177,
+        "anchorY": 470,
+        "bodyHeight": 470
       },
       "upstroke": {
-        "x": 1093,
-        "y": 20,
-        "width": 373,
-        "height": 472,
-        "anchorX": 160.39,
-        "anchorY": 463.8795698924731,
-        "bodyHeight": 458.8043010752688
+        "x": 1103,
+        "y": 34,
+        "width": 354,
+        "height": 470,
+        "anchorX": 177,
+        "anchorY": 470,
+        "bodyHeight": 470
       },
       "accent": {
-        "x": 62,
-        "y": 532,
-        "width": 388,
-        "height": 472,
-        "anchorX": 162.96,
-        "anchorY": 465.7206208425721,
-        "bodyHeight": 463.62749445676275
+        "x": 79,
+        "y": 546,
+        "width": 354,
+        "height": 470,
+        "anchorX": 177,
+        "anchorY": 470,
+        "bodyHeight": 470
       },
       "horse-trot": {
-        "x": 532,
-        "y": 602,
-        "width": 472,
-        "height": 402,
-        "anchorX": 236,
-        "anchorY": 396.765625,
-        "bodyHeight": 393.625
+        "x": 618,
+        "y": 746,
+        "width": 300,
+        "height": 270,
+        "anchorX": 150,
+        "anchorY": 270,
+        "bodyHeight": 270
       },
       "horse-spring": {
-        "x": 1044,
-        "y": 568,
-        "width": 472,
-        "height": 436,
-        "anchorX": 236,
-        "anchorY": 432.8481927710843,
-        "bodyHeight": 427.59518072289154
+        "x": 1130,
+        "y": 746,
+        "width": 300,
+        "height": 270,
+        "anchorX": 150,
+        "anchorY": 270,
+        "bodyHeight": 270
       }
     }
   },

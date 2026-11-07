@@ -311,56 +311,56 @@
         {
           "file": "public/assets/gomez-v3.webp",
           "passed": true,
-          "width": 2048,
-          "height": 1024,
+          "width": 1774,
+          "height": 887,
           "components": [
             {
-              "minX": 136,
-              "minY": 58,
-              "maxX": 493,
-              "maxY": 515
+              "minX": 108,
+              "minY": 11,
+              "maxX": 335,
+              "maxY": 435
             },
             {
-              "minX": 605,
-              "minY": 59,
-              "maxX": 987,
-              "maxY": 515
+              "minX": 558,
+              "minY": 11,
+              "maxX": 785,
+              "maxY": 435
             },
             {
-              "minX": 1058,
-              "minY": 59,
-              "maxX": 1471,
-              "maxY": 515
+              "minX": 1009,
+              "minY": 11,
+              "maxX": 1236,
+              "maxY": 435
             },
             {
-              "minX": 1543,
-              "minY": 59,
-              "maxX": 1954,
-              "maxY": 515
+              "minX": 1457,
+              "minY": 11,
+              "maxX": 1684,
+              "maxY": 435
             },
             {
-              "minX": 170,
-              "minY": 531,
-              "maxX": 435,
-              "maxY": 877
+              "minX": 100,
+              "minY": 459,
+              "maxX": 327,
+              "maxY": 883
             },
             {
-              "minX": 561,
-              "minY": 532,
-              "maxX": 1006,
-              "maxY": 964
+              "minX": 552,
+              "minY": 463,
+              "maxX": 779,
+              "maxY": 887
             },
             {
-              "minX": 1071,
-              "minY": 534,
-              "maxX": 1508,
-              "maxY": 964
+              "minX": 995,
+              "minY": 443,
+              "maxX": 1222,
+              "maxY": 867
             },
             {
-              "minX": 1623,
-              "minY": 534,
-              "maxX": 1928,
-              "maxY": 963
+              "minX": 1439,
+              "minY": 455,
+              "maxX": 1666,
+              "maxY": 879
             }
           ]
         }
@@ -372,56 +372,56 @@
         {
           "file": "public/assets/simon-v3.webp",
           "passed": true,
-          "width": 1772,
-          "height": 888,
+          "width": 1774,
+          "height": 887,
           "components": [
             {
-              "minX": 110,
-              "minY": 30,
-              "maxX": 332,
-              "maxY": 412
+              "minX": 62,
+              "minY": 11,
+              "maxX": 381,
+              "maxY": 435
             },
             {
-              "minX": 520,
-              "minY": 30,
-              "maxX": 807,
-              "maxY": 412
+              "minX": 512,
+              "minY": 11,
+              "maxX": 831,
+              "maxY": 435
             },
             {
-              "minX": 932,
-              "minY": 30,
-              "maxX": 1281,
-              "maxY": 412
+              "minX": 963,
+              "minY": 11,
+              "maxX": 1282,
+              "maxY": 435
             },
             {
-              "minX": 1383,
-              "minY": 30,
-              "maxX": 1717,
-              "maxY": 412
+              "minX": 1411,
+              "minY": 11,
+              "maxX": 1730,
+              "maxY": 435
             },
             {
-              "minX": 30,
-              "minY": 477,
-              "maxX": 412,
-              "maxY": 853
+              "minX": 54,
+              "minY": 459,
+              "maxX": 373,
+              "maxY": 883
             },
             {
-              "minX": 473,
-              "minY": 490,
-              "maxX": 855,
-              "maxY": 840
+              "minX": 506,
+              "minY": 463,
+              "maxX": 825,
+              "maxY": 887
             },
             {
-              "minX": 922,
-              "minY": 474,
-              "maxX": 1292,
-              "maxY": 856
+              "minX": 949,
+              "minY": 443,
+              "maxX": 1268,
+              "maxY": 867
             },
             {
-              "minX": 1406,
-              "minY": 474,
-              "maxX": 1694,
-              "maxY": 856
+              "minX": 1393,
+              "minY": 455,
+              "maxX": 1712,
+              "maxY": 879
             }
           ]
         }

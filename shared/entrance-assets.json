@@ -550,50 +550,50 @@
     "height": 1024,
     "frames": [
       {
-        "x": 127,
-        "y": 92,
-        "width": 271,
-        "height": 403,
+        "x": 148,
+        "y": 87,
+        "width": 217,
+        "height": 405,
         "slotX": 0,
         "slotY": 0
       },
       {
-        "x": 665,
-        "y": 89,
-        "width": 216,
-        "height": 406,
+        "x": 660,
+        "y": 87,
+        "width": 217,
+        "height": 405,
         "slotX": 512,
         "slotY": 0
       },
       {
-        "x": 1171,
-        "y": 90,
-        "width": 231,
+        "x": 1172,
+        "y": 87,
+        "width": 217,
         "height": 405,
         "slotX": 1024,
         "slotY": 0
       },
       {
-        "x": 147,
-        "y": 602,
-        "width": 231,
+        "x": 148,
+        "y": 599,
+        "width": 217,
         "height": 405,
         "slotX": 0,
         "slotY": 512
       },
       {
-        "x": 661,
-        "y": 602,
-        "width": 228,
+        "x": 660,
+        "y": 599,
+        "width": 217,
         "height": 405,
         "slotX": 512,
         "slotY": 512
       },
       {
-        "x": 1173,
-        "y": 604,
-        "width": 228,
-        "height": 403,
+        "x": 1172,
+        "y": 599,
+        "width": 217,
+        "height": 405,
         "slotX": 1024,
         "slotY": 512
       }
@@ -3157,77 +3157,59 @@
   "simon": {
     "file": "simon-entrance-v1",
     "cell": 512,
-    "bodyHeight": 485,
-    "baseline": 496,
+    "bodyHeight": 400,
+    "baseline": 492,
     "anchorX": 256,
-    "width": 2048,
-    "height": 515,
+    "width": 1536,
+    "height": 1024,
     "frames": [
       {
-        "x": 8,
-        "y": 8,
-        "width": 281,
-        "height": 491,
-        "anchorX": 139.5,
-        "anchorY": 488,
-        "bodyHeight": 485,
-        "slotX": 8,
-        "slotY": 8
+        "x": 104,
+        "y": 87,
+        "width": 305,
+        "height": 405,
+        "slotX": 0,
+        "slotY": 0
       },
       {
-        "x": 297,
-        "y": 8,
-        "width": 298,
-        "height": 480,
-        "anchorX": 148.5,
-        "anchorY": 477,
-        "bodyHeight": 485,
-        "slotX": 297,
-        "slotY": 8
+        "x": 616,
+        "y": 87,
+        "width": 305,
+        "height": 405,
+        "slotX": 512,
+        "slotY": 0
       },
       {
-        "x": 603,
-        "y": 8,
-        "width": 278,
-        "height": 499,
-        "anchorX": 138.5,
-        "anchorY": 496,
-        "bodyHeight": 485,
-        "slotX": 603,
-        "slotY": 8
+        "x": 1128,
+        "y": 87,
+        "width": 305,
+        "height": 405,
+        "slotX": 1024,
+        "slotY": 0
       },
       {
-        "x": 889,
-        "y": 8,
-        "width": 451,
-        "height": 484,
-        "anchorX": 294,
-        "anchorY": 481,
-        "bodyHeight": 485,
-        "slotX": 889,
-        "slotY": 8
+        "x": 104,
+        "y": 599,
+        "width": 305,
+        "height": 405,
+        "slotX": 0,
+        "slotY": 512
       },
       {
-        "x": 1348,
-        "y": 8,
-        "width": 292,
-        "height": 487,
-        "anchorX": 145.5,
-        "anchorY": 484,
-        "bodyHeight": 485,
-        "slotX": 1348,
-        "slotY": 8
+        "x": 616,
+        "y": 599,
+        "width": 305,
+        "height": 405,
+        "slotX": 512,
+        "slotY": 512
       },
       {
-        "x": 1648,
-        "y": 8,
-        "width": 350,
-        "height": 485,
-        "anchorX": 163,
-        "anchorY": 482,
-        "bodyHeight": 485,
-        "slotX": 1648,
-        "slotY": 8
+        "x": 1128,
+        "y": 599,
+        "width": 305,
+        "height": 405,
+        "slotX": 1024,
+        "slotY": 512
       }
     ]
   },

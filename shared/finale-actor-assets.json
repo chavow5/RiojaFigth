@@ -22,28 +22,6 @@
       "bodyHeight": 433,
       "anchorX": 109.63435899459171
     },
-    "gomez": {
-      "file": "finales-seated-v1-1",
-      "frame": {
-        "x": 602,
-        "y": 555,
-        "width": 331,
-        "height": 439
-      },
-      "bodyHeight": 439,
-      "anchorX": 126.82239203355985
-    },
-    "simon": {
-      "file": "finales-seated-v1-1",
-      "frame": {
-        "x": 1125,
-        "y": 569,
-        "width": 309,
-        "height": 425
-      },
-      "bodyHeight": 425,
-      "anchorX": 105.92497637876909
-    },
     "conde": {
       "file": "finales-seated-v1-1",
       "frame": {
