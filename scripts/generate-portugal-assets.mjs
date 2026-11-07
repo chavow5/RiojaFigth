@@ -488,7 +488,7 @@ async function main() {
     ability: "installments",
     special: "Ataque del Cardón",
     combos: ["Marcha Andina", "Golpe de Bastón", "Espina Brava"],
-    portraitLift: 0.02
+    portraitLift: 0.1
   };
 
   // Update fighters.all.json
