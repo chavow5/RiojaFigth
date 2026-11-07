@@ -85,7 +85,7 @@ export function VictoryScreen({
             height={30}
           />
           <span>
-            RIOJA <b>FIGHT</b>
+            CAUDILLO <b>FIGHT</b>
           </span>
         </div>
         <div className="victory-screen-copy">

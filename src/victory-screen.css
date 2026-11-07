@@ -10,13 +10,13 @@
   padding: 0;
   color: #fff5db;
   background: transparent;
-  scrollbar-color: #ffd45a #091524;
+  scrollbar-color: #ef4444 #091524;
 }
 
 .victory-screen::selection,
 .victory-screen ::selection {
-  color: #091524;
-  background: #ffd45a;
+  color: #ffffff;
+  background: #ef4444;
 }
 
 .victory-screen-scenery,
@@ -35,7 +35,7 @@
 }
 
 .victory-screen-slash {
-  background: #ffd45a;
+  background: #ef4444;
   clip-path: polygon(49% 0, 76% 0, 96% 100%, 69% 100%);
   opacity: 0.9;
 }
@@ -62,12 +62,12 @@
   font: italic 800 22px/1 var(--font-display);
 }
 .victory-screen-brand b {
-  color: #ffd45a;
+  color: #ef4444;
 }
 .victory-screen-brand img {
   padding: 4px;
   border-radius: 6px;
-  background: #ffd45a;
+  background: #ef4444;
 }
 
 .victory-screen-copy {
@@ -96,7 +96,7 @@
   max-width: 100%;
 }
 .victory-screen-title strong {
-  color: #ffd45a;
+  color: #ef4444;
   font-weight: inherit;
   text-transform: uppercase;
   font-size: 1em;
@@ -133,7 +133,7 @@
   gap: 8px;
   align-items: center;
   margin: 18px 0 0;
-  color: #ffd45a;
+  color: #ef4444;
   font: 400 12px/1.5 var(--font-body);
 }
 .victory-screen-unlock svg {
@@ -162,17 +162,18 @@
   min-width: min(280px, 100%);
   max-width: 100%;
   border-radius: 4px;
-  background: #ffd45a;
-  color: #091524;
+  background: #ef4444;
+  color: #ffffff;
   font: italic 800 24px/1.1 var(--font-display);
 }
 .victory-screen-rematch:hover:not(:disabled) {
-  background: #ffe69a;
+  background: #dc2626;
+  color: #ffffff;
 }
 .victory-screen-rematch:disabled {
   opacity: 1;
-  background: #c5b577;
-  color: #293445;
+  background: #7f1d1d;
+  color: #cbd5e1;
 }
 .victory-screen-exit {
   padding-inline: 0;
@@ -180,7 +181,7 @@
   font: 700 13px/1.4 var(--font-body);
 }
 .victory-screen-exit:hover {
-  color: #ffd45a;
+  color: #ef4444;
 }
 .victory-screen-actions button:focus-visible {
   outline: 2px solid #fff5db;
@@ -240,7 +241,7 @@
 }
 .victory-screen-name svg {
   flex-shrink: 0;
-  color: #ffd45a;
+  color: #ef4444;
 }
 .victory-screen-footer {
   grid-column: 1;
