@@ -35,6 +35,45 @@
 .is-playing .rioja-entrance-poster {
   opacity: 1;
 }
+
+.rioja-entrance-play-prompt {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(16, 26, 48, 0.85);
+  border: 2px solid #ffd45a;
+  border-radius: 24px;
+  color: #fff;
+  font-family: var(--pixel, sans-serif);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 12px rgba(255, 212, 90, 0.4);
+  animation: pulsePrompt 2s infinite ease-in-out;
+  pointer-events: auto;
+}
+
+.rioja-entrance-play-icon {
+  color: #ffd45a;
+  font-size: 14px;
+}
+
+@keyframes pulsePrompt {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 12px rgba(255, 212, 90, 0.4);
+  }
+  50% {
+    transform: translateX(-50%) scale(1.05);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 212, 90, 0.8);
+  }
+}
 @keyframes rioja-poster-entrance {
   0% {
     opacity: 0;

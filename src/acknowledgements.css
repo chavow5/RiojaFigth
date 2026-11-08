@@ -111,8 +111,190 @@
   color: #a3b3ca;
   font-size: 13px;
 }
+.acknowledgements-event-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 212, 90, 0.12);
+  border: 1px solid rgba(255, 212, 90, 0.35);
+  color: var(--lime);
+  font-family: var(--pixel, sans-serif);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+.acknowledgements-back-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.acknowledgements-back-btn:hover {
+  background: rgba(255, 212, 90, 0.18);
+  border-color: var(--lime);
+}
+
+.acknowledgements-creator-card {
+  margin-top: 36px;
+  background: linear-gradient(145deg, #10213d 0%, #0a1426 100%);
+  border: 2px solid #ffd45a;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.acknowledgements-creator-header {
+  margin-bottom: 16px;
+}
+
+.creator-tag {
+  display: inline-block;
+  font-family: var(--pixel, sans-serif);
+  font-size: 11px;
+  color: #ffd45a;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.acknowledgements-creator-header h2 {
+  font-size: 28px !important;
+  color: #fff !important;
+  margin: 0 0 4px !important;
+}
+
+.acknowledgements-creator-header p {
+  color: #94a3b8;
+  font-size: 14px;
+  margin: 0;
+}
+
+.acknowledgements-linkedin-preview {
+  display: block;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 18px;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  background: #000;
+}
+
+.acknowledgements-linkedin-preview:hover {
+  transform: translateY(-2px);
+  border-color: #ffd45a;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+.linkedin-banner-img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  max-height: 280px;
+}
+
+.linkedin-click-hint {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(10, 20, 36, 0.88);
+  border: 1px solid rgba(255, 212, 90, 0.4);
+  color: #ffd45a;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  backdrop-filter: blur(4px);
+}
+
+.acknowledgements-links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.creator-contact-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff !important;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.2s ease;
+}
+
+.creator-contact-pill:hover {
+  transform: translateY(-2px);
+}
+
+.pill-arrow {
+  margin-left: auto;
+  opacity: 0.6;
+}
+
+.creator-contact-pill.linkedin-pill {
+  background: #0a66c2;
+  border-color: #0d7adb;
+}
+.creator-contact-pill.linkedin-pill:hover {
+  background: #0d7adb;
+  box-shadow: 0 4px 14px rgba(10, 102, 194, 0.4);
+}
+
+.creator-contact-pill.instagram-pill {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+.creator-contact-pill.instagram-pill:hover {
+  box-shadow: 0 4px 14px rgba(220, 39, 67, 0.4);
+}
+
+.creator-contact-pill.whatsapp-pill {
+  background: #25d366;
+  border-color: #2fe671;
+  color: #0b2e17 !important;
+}
+.creator-contact-pill.whatsapp-pill:hover {
+  background: #2fe671;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
+}
+
+.acknowledgements-kevin-card {
+  margin-top: 32px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 4px solid #ffd45a;
+  border-radius: 8px;
+  padding: 16px 20px;
+}
+
+.acknowledgements-kevin-card h2 {
+  color: #ffd45a !important;
+  margin: 0 0 6px !important;
+  font-size: 20px !important;
+}
+
+.acknowledgements-kevin-card p {
+  margin: 0;
+  font-size: 15px;
+}
+
 @media (max-width: 600px) {
   .acknowledgements-content {
-    padding: 40px 0;
+    padding: 30px 0;
+  }
+  .acknowledgements-links-grid {
+    grid-template-columns: 1fr;
   }
 }

@@ -13,12 +13,25 @@ import {
 } from "../src/game/story-mode.ts";
 import { FIGHTERS } from "../shared/content.ts";
 
-test("story ladder contains 10 sequential levels ending with El Chacho", () => {
+test("story ladder contains exact 10 sequential rivals requested ending with El Chacho", () => {
   assert.equal(STORY_LADDER.length, 10);
+  const expectedRivals = [
+    "gomez",      // 1. El COE
+    "conde",      // 2. Coché Coché
+    "vallenilla", // 3. Josué Portugal
+    "javier",     // 4. La Muni
+    "simon",      // 5. El Gallo
+    "renny",      // 6. Martín Menem
+    "maite",      // 7. La Teresita
+    "capriles",   // 8. Felipe Álvarez
+    "emilio",     // 9. Bigote
+    "bolivar",    // 10. La Leyenda El Chacho
+  ];
+
   STORY_LADDER.forEach((entry, idx) => {
     assert.equal(entry.level, idx + 1);
+    assert.equal(entry.defaultRival, expectedRivals[idx], `Level ${idx + 1} rival should be ${expectedRivals[idx]}`);
   });
-  assert.equal(STORY_LADDER[9].defaultRival, "bolivar");
 });
 
 test("all default ladder rivals are valid fighters in the roster", () => {
@@ -31,24 +44,22 @@ test("all default ladder rivals are valid fighters in the roster", () => {
   }
 });
 
-test("initial unlocked fighters include El Gallo, Armandito and Portugal", () => {
-  assert.ok(INITIAL_UNLOCKED_FIGHTERS.includes("simon"));
-  assert.ok(INITIAL_UNLOCKED_FIGHTERS.includes("zavarce"));
-  assert.ok(INITIAL_UNLOCKED_FIGHTERS.includes("vallenilla"));
+test("initial unlocked protagonist is Armandito Molina", () => {
+  assert.deepEqual([...INITIAL_UNLOCKED_FIGHTERS], ["zavarce"]);
 });
 
 test("getStoryMatch swaps rival if player picks the ladder rival to avoid mirror matches", () => {
-  // Level 1 default is zavarce
-  const matchForSimon = getStoryMatch(1, "simon");
-  assert.equal(matchForSimon.rival, "zavarce");
-
-  // If player picked zavarce, Level 1 rival swaps to simon
+  // Level 1 default is gomez
   const matchForZavarce = getStoryMatch(1, "zavarce");
-  assert.equal(matchForZavarce.rival, "simon");
+  assert.equal(matchForZavarce.rival, "gomez");
 
-  // If player picked bolivar, Level 10 rival swaps to simon
+  // If player unlocked and picked gomez, Level 1 rival swaps to zavarce
+  const matchForGomez = getStoryMatch(1, "gomez");
+  assert.equal(matchForGomez.rival, "zavarce");
+
+  // If player picked bolivar, Level 10 rival swaps to zavarce
   const matchForBolivar = getStoryMatch(10, "bolivar");
-  assert.equal(matchForBolivar.rival, "simon");
+  assert.equal(matchForBolivar.rival, "zavarce");
 });
 
 test("difficulty scales as level increases", () => {
@@ -74,7 +85,8 @@ test("story progress defaults and unlocking", () => {
   const p = defaultStoryProgress();
   assert.equal(p.currentLevel, 1);
   assert.equal(p.completed, false);
-  assert.ok(isFighterUnlocked("simon", p));
+  assert.equal(p.introSeen, false);
   assert.ok(isFighterUnlocked("zavarce", p));
   assert.ok(!isFighterUnlocked("bolivar", p));
+  assert.ok(!isFighterUnlocked("gomez", p));
 });

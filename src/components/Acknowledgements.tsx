@@ -1,4 +1,11 @@
-import { ArrowUpRight, Heart } from "lucide-react";
+import {
+  ArrowUpRight,
+  Heart,
+  Instagram,
+  Linkedin,
+  MessageCircle,
+  Trophy,
+} from "lucide-react";
 import { assetUrl } from "../asset-url";
 import "../acknowledgements.css";
 
@@ -21,68 +28,122 @@ export function Acknowledgements() {
             CAUDILLO <span>FIGHT</span>
           </span>
         </a>
-        <a href="/">Volver al juego</a>
+        <a href="/" className="acknowledgements-back-btn">← Volver al juego</a>
       </header>
 
       <main className="acknowledgements-content">
-        <h1>Agradecimientos</h1>
+        <div className="acknowledgements-event-badge">
+          <Trophy size={18} aria-hidden="true" />
+          <span>VIRTUAL JAM · LA RIOJA</span>
+        </div>
+
+        <h1>Agradecimientos y Créditos</h1>
+
         <p className="acknowledgements-intro">
-          <strong>Caudillo Fight</strong> también es de quienes le han dado una
-          mano. Gracias a todas las personas y comunidades que, de una forma u
-          otra, han contribuido a que este juego siga creciendo.
+          <strong>Caudillo Fight</strong> fue creado y diseñado especialmente
+          para participar de la <strong>Virtual Jam en La Rioja</strong>.
+          Diseñado íntegramente por <strong>David Ramirez</strong>, este juego
+          busca homenajear la cultura, la historia federal y los personajes más
+          emblemáticos de nuestra querida provincia.
         </p>
 
-        <section aria-labelledby="asilo-digital-heading">
-          <h2 id="asilo-digital-heading">
+        {/* Creador / Diseñador Section */}
+        <section
+          className="acknowledgements-creator-card"
+          aria-labelledby="creator-heading"
+        >
+          <div className="acknowledgements-creator-header">
+            <span className="creator-tag">DISEÑADOR & DESARROLLADOR</span>
+            <h2 id="creator-heading">David Ramirez</h2>
+            <p>
+              Full Stack Web Developer & Creador de Caudillo Fight. La Rioja,
+              Argentina.
+            </p>
+          </div>
+
+          <a
+            href="https://www.linkedin.com/in/david-ramirez-031015253/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="acknowledgements-linkedin-preview"
+            title="Ver perfil de David Ramirez en LinkedIn"
+          >
+            <img
+              src={assetUrl("/assets/david-ramirez-linkedin.jpg")}
+              alt="Perfil de LinkedIn de David Ramirez - Full Stack Web Developer"
+              className="linkedin-banner-img"
+            />
+            <span className="linkedin-click-hint">
+              <Linkedin size={16} /> Abrir perfil de LinkedIn{" "}
+              <ArrowUpRight size={14} />
+            </span>
+          </a>
+
+          <div className="acknowledgements-links-grid">
             <a
-              href="https://builders.asilodigital.com/"
+              href="https://www.linkedin.com/in/david-ramirez-031015253/"
               target="_blank"
               rel="noopener noreferrer"
+              className="creator-contact-pill linkedin-pill"
             >
-              Comunidad de Asilo Digital
-              <ArrowUpRight size={18} aria-hidden="true" />
+              <Linkedin size={18} />
+              <span>LinkedIn</span>
+              <ArrowUpRight size={14} className="pill-arrow" />
             </a>
-          </h2>
-          <p>
-            Gracias a los chicos de Asilo Digital por darle difusión a Caudillo
-            Fight y ser los primeros testers. Gracias por sumarse desde el
-            principio y ayudar a poner el juego a prueba.
-          </p>
+
+            <a
+              href="https://www.instagram.com/davidramirez_651"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="creator-contact-pill instagram-pill"
+            >
+              <Instagram size={18} />
+              <span>@davidramirez_651</span>
+              <ArrowUpRight size={14} className="pill-arrow" />
+            </a>
+
+            <a
+              href="https://wa.me/5493804201334"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="creator-contact-pill whatsapp-pill"
+            >
+              <MessageCircle size={18} />
+              <span>WhatsApp: 3804201334</span>
+              <ArrowUpRight size={14} className="pill-arrow" />
+            </a>
+          </div>
         </section>
 
-        <section aria-labelledby="giuseppe-heading">
-          <h2 id="giuseppe-heading">
-            <a
-              href="https://twitter.com/ggangix"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Giuseppe Gangi
-              <ArrowUpRight size={18} aria-hidden="true" />
-            </a>
-          </h2>
+        {/* Kevin Bravo Section */}
+        <section
+          className="acknowledgements-kevin-card"
+          aria-labelledby="kevin-heading"
+        >
+          <h2 id="kevin-heading">Kevin Bravo</h2>
           <p>
-            Gracias por donar el dominio <strong>arenacriolla.com</strong> y
-            darle una casa propia a este proyecto. Un aporte que hoy forma parte
-            de cada visita al juego.
+            Y al último, un agradecimiento muy especial a <strong>Kevin Bravo</strong> por
+            su valioso desarrollo en pequeño y aporte técnico a la construcción
+            del juego.
           </p>
         </section>
 
         <p className="acknowledgements-closing">
           <Heart size={19} aria-hidden="true" />
-          Gracias por ser parte de Caudillo Fight.
+          Gracias a todos por apoyar y formar parte de Caudillo Fight.
         </p>
       </main>
 
       <footer className="acknowledgements-footer">
-        Hecho por{" "}
+        Diseñado y desarrollado por{" "}
         <a
-          href="https://davidramirezweb.vercel.app"
+          href="https://www.linkedin.com/in/david-ramirez-031015253/"
           target="_blank"
           rel="noopener noreferrer"
         >
           David Ramirez
-        </a>
+        </a>{" "}
+        · La Rioja, Argentina
       </footer>
     </div>
   );

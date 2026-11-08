@@ -12,90 +12,88 @@ export interface StoryLadderEntry {
 export const STORY_LADDER: readonly StoryLadderEntry[] = [
   {
     level: 1,
-    defaultRival: "zavarce",
-    stage: "caracas",
-    chapterTitle: "Capítulo 1: La Ronda Municipal",
-    chapterSubtitle: "Catedral San Nicolás · Plaza 25 de Mayo",
-    lore: "Armandito te pone a prueba con velocidad implacable por las calles céntricas de La Rioja.",
+    defaultRival: "gomez",
+    stage: "guaira",
+    chapterTitle: "Capítulo 1: Operativo de Emergencia",
+    chapterSubtitle: "El Superdomo · Parque de la Ciudad",
+    lore: "Armandito inicia su camino al caudillismo enfrentando la disciplina pesada, pozos de asfalto y barricadas del COE.",
   },
   {
     level: 2,
-    defaultRival: "emilio",
+    defaultRival: "conde",
     stage: "canaima",
-    chapterTitle: "Capítulo 2: Pura Picardía",
+    chapterTitle: "Capítulo 2: Risa y Candela",
     chapterSubtitle: "Calle Pelagio B. Luna · Centro Histórico",
-    lore: "Bigotes entra al combate con sus ocurrencias, ritmo y agilidad entre adoquines coloniales.",
+    lore: "Coché Coché intenta desconcentrar a Armandito con sus ocurrencias, fintas impredecibles y humor pícaro en el casco céntrico.",
   },
   {
     level: 3,
-    defaultRival: "conde",
+    defaultRival: "vallenilla",
     stage: "valencia",
-    chapterTitle: "Capítulo 3: Risa y Candela",
+    chapterTitle: "Capítulo 3: El Guardián del Famatina",
     chapterSubtitle: "Monumento a Facundo Quiroga · Parque de las Juventudes",
-    lore: "Coché Coché despliega su humor y fintas impredecibles al pie del caudillo de piedra.",
+    lore: "Josué Portugal baja de las alturas cordilleranas con sus bastones de trekking para medir el temple y la resistencia de Armandito.",
   },
   {
     level: 4,
-    defaultRival: "maite",
-    stage: "guaira",
-    chapterTitle: "Capítulo 4: Voz de Oro",
-    chapterSubtitle: "El Superdomo · Parque de la Ciudad",
-    lore: "La Teresita hace tronar el domo con su presencia arrolladora y copla chayera.",
+    defaultRival: "javier",
+    stage: "caracas",
+    chapterTitle: "Capítulo 4: Barrido Urbano",
+    chapterSubtitle: "Catedral San Nicolás · Plaza 25 de Mayo",
+    lore: "La Muni pone a prueba la capacidad de gestión de Armandito con operativos de limpieza implacables, conos y trabajo en equipo.",
   },
   {
     level: 5,
-    defaultRival: "renny",
-    stage: "caracas",
-    chapterTitle: "Capítulo 5: El Showman Riojano",
-    chapterSubtitle: "Catedral San Nicolás · Plaza 25 de Mayo",
-    lore: "Martincito maneja el escenario con elegancia y contragolpes milimétricos frente a la catedral.",
+    defaultRival: "simon",
+    stage: "guaira",
+    chapterTitle: "Capítulo 5: El Rey de la Chaya",
+    chapterSubtitle: "El Superdomo · Parque de la Ciudad",
+    lore: "El Gallo desata toda la fiesta chayera: coplas al viento, harina y albahaca para desafiar el ritmo del nuevo aspirante a caudillo.",
   },
   {
     level: 6,
-    defaultRival: "javier",
-    stage: "valencia",
-    chapterTitle: "Capítulo 6: La Fuerza de la Calle",
-    chapterSubtitle: "Monumento a Facundo Quiroga · Parque de las Juventudes",
-    lore: "La Muni defiende su territorio con tenacidad inquebrantable y juego en equipo.",
+    defaultRival: "renny",
+    stage: "caracas",
+    chapterTitle: "Capítulo 6: Moción de Orden",
+    chapterSubtitle: "Catedral San Nicolás · Plaza 25 de Mayo",
+    lore: "Martín Menem entra a la arena con rigidez parlamentaria, su campanazo legislativo y discursos de precisión milimétrica.",
   },
   {
     level: 7,
-    defaultRival: "gomez",
-    stage: "guaira",
-    chapterTitle: "Capítulo 7: Furia y Resistencia",
-    chapterSubtitle: "El Superdomo · Parque de la Ciudad",
-    lore: "El Coe no da tregua: disciplina de acero y ataques pesados que hacen temblar el piso.",
+    defaultRival: "maite",
+    stage: "canaima",
+    chapterTitle: "Capítulo 7: La Voz del Pueblo",
+    chapterSubtitle: "Calle Pelagio B. Luna · Centro Histórico",
+    lore: "La Teresita hace tronar el centro histórico con su carisma arrollador, micrófono en mano y la ovación popular de las peñas riojanas.",
   },
   {
     level: 8,
     defaultRival: "capriles",
     stage: "canaima",
-    chapterTitle: "Capítulo 8: Táctica Histórica",
+    chapterTitle: "Capítulo 8: Táctica y Oposición",
     chapterSubtitle: "Calle Pelagio B. Luna · Centro Histórico",
-    lore: "Felipe Álvarez lee cada uno de tus pasos con sabiduría serrana y contraataques certeros.",
+    lore: "Felipe Álvarez desafía a Armandito con análisis calculador, contraataques veloces y estrategia política riojana.",
   },
   {
     level: 9,
-    defaultRival: "vallenilla",
+    defaultRival: "emilio",
     stage: "valencia",
-    chapterTitle: "Capítulo 9: El Guardián del Famatina",
+    chapterTitle: "Capítulo 9: El Viejo Zorro",
     chapterSubtitle: "Monumento a Facundo Quiroga · Parque de las Juventudes",
-    lore: "Josué Portugal blande sus bastones y la fuerza de los cardones de altura.",
+    lore: "Bigote se planta en la antesala de la gloria: años de experiencia, picardía y cintura política para frenar la marcha de Armandito.",
   },
   {
     level: 10,
     defaultRival: "bolivar",
     stage: "valencia",
-    chapterTitle: "Batalla Final: El Gran Caudillo",
+    chapterTitle: "Batalla Final: La Leyenda Federal",
     chapterSubtitle: "Monumento a Facundo Quiroga · Parque de las Juventudes",
-    lore: "Ángel Vicente 'El Chacho' Peñaloza despierta toda la leyenda federal. ¡El duelo definitivo!",
+    lore: "Ángel Vicente 'El Chacho' Peñaloza, caudillo supremo y prócer indiscutido de La Rioja. ¡El combate definitivo para ser el gran caudillo riojano!",
   },
 ];
 
 export const INITIAL_UNLOCKED_FIGHTERS: readonly FighterId[] = [
-  "simon",
   "zavarce",
-  "vallenilla",
 ];
 
 export interface StoryProgress {
@@ -103,9 +101,10 @@ export interface StoryProgress {
   unlockedFighters: FighterId[];
   completed: boolean;
   highestLevelUnlocked: number;
+  introSeen: boolean;
 }
 
-const STORY_STORAGE_KEY = "arena-story-progress-v1";
+const STORY_STORAGE_KEY = "arena-story-progress-v2";
 
 export function defaultStoryProgress(): StoryProgress {
   return {
@@ -113,6 +112,7 @@ export function defaultStoryProgress(): StoryProgress {
     unlockedFighters: [...INITIAL_UNLOCKED_FIGHTERS],
     completed: false,
     highestLevelUnlocked: 1,
+    introSeen: false,
   };
 }
 
@@ -145,6 +145,7 @@ export function readStoryProgress(): StoryProgress {
       unlockedFighters: unlocked,
       completed: Boolean(data.completed),
       highestLevelUnlocked,
+      introSeen: Boolean(data.introSeen),
     };
   } catch {
     return defaultStoryProgress();
@@ -166,7 +167,7 @@ export function isFighterUnlocked(
 
 /**
  * Returns the match setup for a story level.
- * If the default rival is the player's chosen fighter, we swap to 'simon' (El Gallo)
+ * If the default rival is the player's chosen fighter, we swap cleanly
  * so there are never mirror matches in Story Mode.
  */
 export function getStoryMatch(
@@ -177,7 +178,7 @@ export function getStoryMatch(
   const entry = STORY_LADDER[safeLevel - 1] ?? STORY_LADDER[0];
   let rival = entry.defaultRival;
   if (rival === playerFighter) {
-    rival = playerFighter === "simon" ? "zavarce" : "simon";
+    rival = playerFighter === "zavarce" ? "bolivar" : "zavarce";
   }
   return {
     ...entry,
@@ -260,6 +261,13 @@ export function advanceStoryProgress(
     completed,
     nextLevel,
   };
+}
+
+export function markStoryIntroSeen(): StoryProgress {
+  const current = readStoryProgress();
+  current.introSeen = true;
+  saveStoryProgress(current);
+  return current;
 }
 
 export function resetStoryProgress(): StoryProgress {

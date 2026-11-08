@@ -45,8 +45,10 @@ import {
   difficultyLabel,
   isFighterUnlocked,
   defaultStoryProgress,
+  markStoryIntroSeen,
   type StoryProgress,
 } from "../game/story-mode";
+import { StoryIntroModal } from "./StoryIntroModal";
 
 const desktopBanner = new URL(
   "../assets/lobby-cast-banner.webp",
@@ -74,6 +76,7 @@ interface Props {
   setupPanel: RefObject<HTMLElement | null>;
   storyProgress?: StoryProgress;
   onResetStory?: () => void;
+  onStoryProgressChange?: (progress: StoryProgress) => void;
   onNotice?: (notice: string) => void;
   onQuery: (query: string) => void;
   onClearQuery: () => void;
@@ -154,6 +157,18 @@ export function ArcadeLobby(props: Props) {
   };
   useEffect(() => () => window.clearTimeout(cardIntent.current), []);
   const storyProgress = props.storyProgress ?? defaultStoryProgress();
+  const [showStoryIntro, setShowStoryIntro] = useState(false);
+
+  useEffect(() => {
+    if (
+      mode === "story" &&
+      !storyProgress.introSeen &&
+      storyProgress.currentLevel === 1
+    ) {
+      setShowStoryIntro(true);
+    }
+  }, [mode, storyProgress.introSeen, storyProgress.currentLevel]);
+
   const storyMatch = useMemo(
     () => getStoryMatch(storyProgress.currentLevel, props.fighter),
     [storyProgress.currentLevel, props.fighter],
@@ -387,6 +402,14 @@ export function ArcadeLobby(props: Props) {
                   🏆 ¡CAMPEÓN!
                 </span>
               )}
+              <button
+                type="button"
+                className="story-intro-btn"
+                onClick={() => setShowStoryIntro(true)}
+                title="Ver video del prólogo y la historia de Armandito"
+              >
+                🎬 Ver Prólogo e Historia
+              </button>
               <button
                 type="button"
                 className="story-reset-btn"
@@ -899,6 +922,21 @@ export function ArcadeLobby(props: Props) {
           )}
         </section>
       </div>
+
+      <StoryIntroModal
+        isOpen={showStoryIntro}
+        onClose={() => {
+          const updated = markStoryIntroSeen();
+          props.onStoryProgressChange?.(updated);
+          setShowStoryIntro(false);
+        }}
+        onStartStory={() => {
+          props.onFighter("zavarce");
+          const updated = markStoryIntroSeen();
+          props.onStoryProgressChange?.(updated);
+          setShowStoryIntro(false);
+        }}
+      />
     </main>
   );
 }

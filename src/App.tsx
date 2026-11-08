@@ -173,7 +173,7 @@ export function App({
 
   useEffect(() => {
     if (mode === "story" && !isFighterUnlocked(fighter, storyProgress)) {
-      setFighter("simon");
+      setFighter("zavarce");
     }
   }, [mode, fighter, storyProgress]);
 
@@ -341,6 +341,9 @@ export function App({
     leaveLandscape();
     if (network.room) network.send({ type: "leave" });
     setMode(next);
+    if (next === "story" && !isFighterUnlocked(fighter, storyProgress)) {
+      setFighter("zavarce");
+    }
     network.setError("");
     clickSound();
   };
@@ -685,6 +688,7 @@ export function App({
           searchInput={fighterSearchInput}
           setupPanel={setupPanel}
           storyProgress={storyProgress}
+          onStoryProgressChange={setStoryProgress}
           onResetStory={() => {
             const fresh = resetStoryProgress();
             setStoryProgress(fresh);
