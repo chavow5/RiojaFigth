@@ -112,6 +112,7 @@ export async function prepareMatchAudio(fighters: FighterId[]) {
       sampleRate,
       length: Math.ceil((sampleRate * VICTORY_MUSIC_MS) / 1000),
     });
+  void loadVictoryAudio();
   await Promise.all(pendingScores.values());
 }
 let victorySource: AudioBufferSourceNode | null = null;
@@ -130,6 +131,39 @@ const reactions = [0, 1].map(() => ({
   previous: "",
 }));
 const buffers = new Map<string, Promise<AudioBuffer | null>>();
+
+export function loadAudioBuffer(file: string): Promise<AudioBuffer | null> {
+  if (!context) return Promise.resolve(null);
+  if (!buffers.has(file)) {
+    const ctx = context;
+    buffers.set(
+      file,
+      fetch(assetUrl(file))
+        .then((r) => {
+          if (!r.ok) throw new Error("Audio no disponible");
+          return r.arrayBuffer();
+        })
+        .then((data) => ctx.decodeAudioData(data))
+        .catch(() => {
+          buffers.delete(file);
+          return null;
+        }),
+    );
+  }
+  return buffers.get(file)!;
+}
+
+const VICTORY_AUDIO_PATH = "/audio/victory.mp3";
+let cachedVictoryBuffer: AudioBuffer | null = null;
+
+export function loadVictoryAudio(): Promise<AudioBuffer | null> {
+  if (cachedVictoryBuffer) return Promise.resolve(cachedVictoryBuffer);
+  initAudio();
+  return loadAudioBuffer(VICTORY_AUDIO_PATH).then((buf) => {
+    if (buf) cachedVictoryBuffer = buf;
+    return buf;
+  });
+}
 let ambienceStage: StageId | null = null;
 let activeAmbienceStage: StageId | null = null;
 let ambienceNodes: AudioNode[] = [];
@@ -224,6 +258,7 @@ export function initAudio(retryResume = false) {
         });
       resumeAttempt = attempt;
     }
+    void loadVictoryAudio();
   } catch {}
 }
 
@@ -360,28 +395,53 @@ export function syncVictoryMusic(
   elapsedMs: number,
   paused: boolean,
 ) {
-  if (paused || pageHidden || !enabled || elapsedMs >= VICTORY_MUSIC_MS) {
+  const durationMs = cachedVictoryBuffer
+    ? cachedVictoryBuffer.duration * 1000
+    : VICTORY_MUSIC_MS;
+  if (paused || pageHidden || !enabled || elapsedMs >= durationMs) {
     stopVictoryMusic();
     return;
   }
   if (victorySource) return;
   initAudio();
   if (!context || !musicBus || context.state !== "running") return;
-  const buffer = scoreBuffer({
-    kind: "victory",
-    style: fighter === "draw" ? "strings" : victoryById(fighter).music,
-    fighter,
-    sampleRate: context.sampleRate,
-    length: Math.ceil((context.sampleRate * VICTORY_MUSIC_MS) / 1000),
-  });
-  if (!buffer) return;
-  victorySource = context.createBufferSource();
-  victorySource.buffer = buffer;
-  victoryGain = context.createGain();
-  victoryGain.gain.value = 1.9;
-  victorySource.connect(victoryGain);
-  victoryGain.connect(musicBus);
-  victorySource.start(0, Math.max(0, elapsedMs / 1000));
+
+  const playBuffer = (buffer: AudioBuffer) => {
+    if (victorySource || pageHidden || !enabled || !context || !musicBus) return;
+    const currentDurationMs = buffer.duration * 1000;
+    if (elapsedMs >= currentDurationMs) return;
+    victorySource = context.createBufferSource();
+    victorySource.buffer = buffer;
+    victoryGain = context.createGain();
+    victoryGain.gain.value = 1.0;
+    victorySource.connect(victoryGain);
+    victoryGain.connect(musicBus);
+    victorySource.onended = () => {
+      if (victorySource?.buffer === buffer) {
+        stopVictoryMusic();
+      }
+    };
+    victorySource.start(0, Math.max(0, elapsedMs / 1000));
+  };
+
+  if (cachedVictoryBuffer) {
+    playBuffer(cachedVictoryBuffer);
+  } else {
+    void loadVictoryAudio().then((buf) => {
+      if (buf) {
+        playBuffer(buf);
+      } else {
+        const fallback = scoreBuffer({
+          kind: "victory",
+          style: fighter === "draw" ? "strings" : victoryById(fighter).music,
+          fighter,
+          sampleRate: context!.sampleRate,
+          length: Math.ceil((context!.sampleRate * VICTORY_MUSIC_MS) / 1000),
+        });
+        if (fallback) playBuffer(fallback);
+      }
+    });
+  }
 }
 
 /** Start with the winner screen, independently of the arena's stopped clock. */
@@ -393,6 +453,9 @@ export function startVictoryMusic(fighter: FighterId | "draw") {
   const update = () => {
     if (disposed) return;
     const elapsed = performance.now() - started;
+    const durationMs = cachedVictoryBuffer
+      ? cachedVictoryBuffer.duration * 1000
+      : VICTORY_MUSIC_MS;
     syncVictoryMusic(
       fighter,
       elapsed,
@@ -400,7 +463,7 @@ export function startVictoryMusic(fighter: FighterId | "draw") {
         !focused ||
         Boolean(document.querySelector("dialog[open]")),
     );
-    if (elapsed < VICTORY_MUSIC_MS) frame = requestAnimationFrame(update);
+    if (elapsed < durationMs) frame = requestAnimationFrame(update);
   };
   const hide = () => {
     focused = document.hasFocus?.() ?? focused;
@@ -482,24 +545,7 @@ const stereoPosition = (x = 540) =>
     ),
   );
 function loadReaction(file: string) {
-  if (!context) return Promise.resolve(null);
-  if (!buffers.has(file)) {
-    const ctx = context;
-    buffers.set(
-      file,
-      fetch(assetUrl(file))
-        .then((r) => {
-          if (!r.ok) throw new Error("Audio no disponible");
-          return r.arrayBuffer();
-        })
-        .then((data) => ctx.decodeAudioData(data))
-        .catch(() => {
-          buffers.delete(file);
-          return null;
-        }),
-    );
-  }
-  return buffers.get(file)!;
+  return loadAudioBuffer(file);
 }
 export function preloadReactions() {
   if (!enabled || !context) return;
@@ -803,10 +849,20 @@ export function sound(
     tone(240, 72, 0.28, "triangle", 0.05);
     noise(0.16, 1100, 0.05, "bandpass");
   } else if (kind === "win") {
-    [392, 494, 587, 784].forEach((f, i) =>
-      tone(f, f, 0.36, "triangle", 0.08, i * 0.115),
-    );
-    tone(1174, 1568, 0.55, "sine", 0.035, 0.3);
+    if (cachedVictoryBuffer && context && musicBus && context.state === "running") {
+      const src = context.createBufferSource();
+      src.buffer = cachedVictoryBuffer;
+      const g = context.createGain();
+      g.gain.value = 1.0;
+      src.connect(g);
+      g.connect(musicBus);
+      src.start(0);
+    } else {
+      [392, 494, 587, 784].forEach((f, i) =>
+        tone(f, f, 0.36, "triangle", 0.08, i * 0.115),
+      );
+      tone(1174, 1568, 0.55, "sine", 0.035, 0.3);
+    }
   } else {
     const ability = fighter ? fighterById(fighter).ability : "broadcast";
     const cultureSound = CULTURE_SOUNDS[ability];
