@@ -270,6 +270,15 @@
   box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
 }
 
+.acknowledgements-collaborator-card {
+  margin-top: 28px;
+  background: linear-gradient(145deg, #10213d 0%, #0a1426 100%);
+  border: 1px solid rgba(255, 212, 90, 0.4);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
 .acknowledgements-kevin-card {
   margin-top: 32px;
   background: rgba(255, 255, 255, 0.04);

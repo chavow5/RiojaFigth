@@ -42,7 +42,8 @@ export function Acknowledgements() {
         <p className="acknowledgements-intro">
           <strong>Caudillo Fight</strong> fue creado y diseñado especialmente
           para participar de la <strong>Virtual Jam en La Rioja</strong>.
-          Diseñado íntegramente por <strong>David Ramirez</strong>, este juego
+          Diseñado por <strong>David Ramirez</strong> junto a{" "}
+          <strong>Facundo Neira</strong> como parte del proyecto, este juego
           busca homenajear la cultura, la historia federal y los personajes más
           emblemáticos de nuestra querida provincia.
         </p>
@@ -115,6 +116,33 @@ export function Acknowledgements() {
           </div>
         </section>
 
+        {/* Facundo Neira Section */}
+        <section
+          className="acknowledgements-collaborator-card"
+          aria-labelledby="facundo-heading"
+        >
+          <div className="acknowledgements-creator-header">
+            <span className="creator-tag">PARTE DEL PROYECTO</span>
+            <h2 id="facundo-heading">Facundo Neira</h2>
+            <p>
+              Colaborador y parte del proyecto Caudillo Fight.
+            </p>
+          </div>
+
+          <div className="acknowledgements-links-grid">
+            <a
+              href="https://www.linkedin.com/in/neira-facundo-dami%C3%A1n-003639243/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="creator-contact-pill linkedin-pill"
+            >
+              <Linkedin size={18} />
+              <span>LinkedIn</span>
+              <ArrowUpRight size={14} className="pill-arrow" />
+            </a>
+          </div>
+        </section>
+
         {/* Kevin Bravo Section */}
         <section
           className="acknowledgements-kevin-card"
@@ -142,6 +170,14 @@ export function Acknowledgements() {
           rel="noopener noreferrer"
         >
           David Ramirez
+        </a>{" "}
+        y{" "}
+        <a
+          href="https://www.linkedin.com/in/neira-facundo-dami%C3%A1n-003639243/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Facu Neira
         </a>{" "}
         · La Rioja, Argentina
       </footer>

@@ -744,6 +744,14 @@ export function App({
             rel="noopener noreferrer"
           >
             David Ramirez
+          </a>{" "}
+          y{" "}
+          <a
+            href="https://www.linkedin.com/in/neira-facundo-dami%C3%A1n-003639243/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Facu Neira
           </a>
         </p>
       </footer>
