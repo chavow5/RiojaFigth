@@ -16,13 +16,16 @@ import {
   Check,
   Copy,
   Globe2,
+  LockKeyhole,
   Search,
+  Smartphone,
   X,
 } from "lucide-react";
 import {
   FIGHTERS,
   STAGES,
   fighterById,
+  stageById,
   type FighterCategory,
   type FighterId,
   type StageDefinition,
@@ -36,6 +39,14 @@ import { assetUrl } from "../asset-url";
 import { loadSprite } from "../game/assets";
 import { PixelIcon } from "./PixelIcon";
 import { RosterFilter } from "./RosterFilter";
+import {
+  getStoryMatch,
+  calculateEffectiveDifficulty,
+  difficultyLabel,
+  isFighterUnlocked,
+  defaultStoryProgress,
+  type StoryProgress,
+} from "../game/story-mode";
 
 const desktopBanner = new URL(
   "../assets/lobby-cast-banner.webp",
@@ -61,6 +72,9 @@ interface Props {
   network: ReturnType<typeof useArenaNetwork>;
   searchInput: RefObject<HTMLInputElement | null>;
   setupPanel: RefObject<HTMLElement | null>;
+  storyProgress?: StoryProgress;
+  onResetStory?: () => void;
+  onNotice?: (notice: string) => void;
   onQuery: (query: string) => void;
   onClearQuery: () => void;
   onFighter: (id: FighterId) => void;
@@ -71,7 +85,7 @@ interface Props {
   onModeKeys: (event: KeyboardEvent<HTMLDivElement>) => void;
   onRosterKeys: (event: KeyboardEvent<HTMLDivElement>) => void;
   onDetail: (id: FighterId) => void;
-  onModal: (modal: "help" | "stages" | "progress") => void;
+  onModal: (modal: "help" | "stages" | "progress" | "install") => void;
   onStart: () => void;
   /** Hover, focus or press on the start button: warm the match art. */
   onStartIntent?: () => void;
@@ -139,6 +153,19 @@ export function ArcadeLobby(props: Props) {
     cardIntent.current = window.setTimeout(() => warmSelection(id), 120);
   };
   useEffect(() => () => window.clearTimeout(cardIntent.current), []);
+  const storyProgress = props.storyProgress ?? defaultStoryProgress();
+  const storyMatch = useMemo(
+    () => getStoryMatch(storyProgress.currentLevel, props.fighter),
+    [storyProgress.currentLevel, props.fighter],
+  );
+  const effectiveStoryDifficulty = useMemo(
+    () =>
+      calculateEffectiveDifficulty(
+        props.difficulty,
+        storyProgress.currentLevel,
+      ),
+    [props.difficulty, storyProgress.currentLevel],
+  );
   const chosen = fighterById(fighter);
   const rivalPlayer = network.room?.players.find(
     (player) => player.id !== network.id,
@@ -148,16 +175,27 @@ export function ArcadeLobby(props: Props) {
       ? rivalPlayer
         ? fighterById(rivalPlayer.fighter)
         : null
-      : fighterById(rival);
+      : mode === "story"
+        ? fighterById(storyMatch.rival)
+        : fighterById(rival);
+  const currentStage =
+    mode === "story" ? stageById(storyMatch.stage) : stage;
   const ownRoomPlayer = network.room?.players.find(
     (player) => player.id === network.id,
   );
   const host = network.room?.host === network.id;
-  const stageLocked = Boolean(network.room && !host);
-  const pickingRival = target === "p2" && mode !== "online";
+  const stageLocked = Boolean(network.room && !host) || mode === "story";
+  const pickingRival = target === "p2" && mode !== "online" && mode !== "story";
   const activeFighter = pickingRival ? rival : fighter;
   const surpriseFighter = () => {
-    const candidates = roster.filter((item) => item.id !== activeFighter);
+    const candidates =
+      mode === "story"
+        ? roster.filter(
+            (item) =>
+              isFighterUnlocked(item.id, storyProgress) &&
+              item.id !== activeFighter,
+          )
+        : roster.filter((item) => item.id !== activeFighter);
     if (!candidates.length) return;
     const pick = candidates[Math.floor(Math.random() * candidates.length)];
     if (pickingRival) props.onRival(pick.id);
@@ -170,7 +208,13 @@ export function ArcadeLobby(props: Props) {
       ? "P2"
       : "P1";
   const rivalLabel =
-    mode === "practice" ? "CPU" : ownLabel === "P2" ? "P1" : "P2";
+    mode === "story"
+      ? `Nivel ${storyProgress.currentLevel}`
+      : mode === "practice"
+        ? "CPU"
+        : ownLabel === "P2"
+          ? "P1"
+          : "P2";
   const handleStageKeys = (event: KeyboardEvent<HTMLDivElement>) => {
     if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
     const buttons = Array.from(
@@ -243,6 +287,30 @@ export function ArcadeLobby(props: Props) {
         </picture>
       </section>
 
+      <section className="lobby-install-banner" aria-label="Instalar acceso directo">
+        <div className="lobby-install-lead">
+          <img
+            src="/assets/arena-icon-192.png"
+            width="42"
+            height="42"
+            alt="Caudillo Fight Logo"
+            className="lobby-install-logo"
+          />
+          <div className="lobby-install-text">
+            <strong>¿Querés jugar en el celular?</strong>
+            <span>Guardá el acceso directo con el logo en tu pantalla de inicio</span>
+          </div>
+        </div>
+        <button
+          type="button"
+          className="lobby-install-btn"
+          onClick={() => props.onModal("install")}
+        >
+          <Smartphone size={16} aria-hidden="true" />
+          <span>Guardar en el inicio</span>
+        </button>
+      </section>
+
       <div className="arcade-mode-row">
         <div
           className="mode-tabs arcade-modes"
@@ -253,8 +321,8 @@ export function ArcadeLobby(props: Props) {
           {(
             [
               ["practice", "Contra CPU", "gamepad"],
+              ["story", "Modo historia", "star"],
               ["local", "Dos jugadores", "heart"],
-              ["online", "Modo historia", "star"],
             ] as const
           ).map(([value, label, icon]) => (
             <button
@@ -267,9 +335,9 @@ export function ArcadeLobby(props: Props) {
               title={
                 value === "local"
                   ? "Dos jugadores en el mismo dispositivo"
-                  : value === "online"
-                    ? "Modo historia y campaña riojana (Próximamente)"
-                    : undefined
+                  : value === "story"
+                    ? "Derrota a todos los personajes y desbloquea el plantel completo"
+                    : "Combate libre contra la CPU"
               }
               className={mode === value ? "selected" : ""}
               onClick={() => props.onMode(value)}
@@ -287,6 +355,50 @@ export function ArcadeLobby(props: Props) {
           <ArrowRight size={14} />
         </button>
       </div>
+
+      {mode === "story" && (
+        <section
+          className="story-lobby-banner"
+          aria-label="Progreso del modo historia"
+        >
+          <div className="story-banner-header">
+            <div className="story-banner-tag">
+              <PixelIcon kind="star" size={16} />
+              <span>MODO HISTORIA · SENDA FEDERAL</span>
+            </div>
+            <span className="story-banner-progress">
+              {storyProgress.unlockedFighters.length} / {FIGHTERS.length} Luchadores desbloqueados
+            </span>
+          </div>
+          <div className="story-banner-details">
+            <div className="story-banner-chapter">
+              <h3>{storyMatch.chapterTitle}</h3>
+              <p>{storyMatch.lore}</p>
+            </div>
+            <div className="story-banner-meta">
+              <span className="story-pill level-pill">
+                Nivel {storyProgress.currentLevel} de 10
+              </span>
+              <span className="story-pill diff-pill">
+                CPU: {difficultyLabel(effectiveStoryDifficulty)}
+              </span>
+              {storyProgress.completed && (
+                <span className="story-pill champion-pill">
+                  🏆 ¡CAMPEÓN!
+                </span>
+              )}
+              <button
+                type="button"
+                className="story-reset-btn"
+                onClick={props.onResetStory}
+                title="Reiniciar progreso del modo historia al Nivel 1"
+              >
+                Reiniciar historia
+              </button>
+            </div>
+          </div>
+        </section>
+      )}
 
       {network.opponentLeft && (
         <div className="notice-banner" role="status">
@@ -318,9 +430,9 @@ export function ArcadeLobby(props: Props) {
         <section className="arcade-cabinet" aria-label="Elegir luchadores">
           <div
             className="cabinet-scenery"
-            key={stage.id}
+            key={currentStage.id}
             style={{
-              backgroundImage: `url(${assetUrl(`/assets/${stage.id}.webp`)})`,
+              backgroundImage: `url(${assetUrl(`/assets/${currentStage.id}.webp`)})`,
             }}
             aria-hidden="true"
           />
@@ -386,7 +498,7 @@ export function ArcadeLobby(props: Props) {
                   className={`contender-player ${pickingRival ? "editing" : ""}`}
                   aria-label={`Elegir luchador para ${rivalLabel}`}
                   aria-pressed={pickingRival}
-                  disabled={mode === "online"}
+                  disabled={mode === "online" || mode === "story"}
                   onClick={() => setTarget("p2")}
                 >
                   <span>{rivalLabel}</span>
@@ -450,7 +562,7 @@ export function ArcadeLobby(props: Props) {
                   >
                     {ownLabel}
                   </button>
-                  {mode !== "online" && (
+                  {mode !== "online" && mode !== "story" && (
                     <button
                       className={pickingRival ? "active p2" : "p2"}
                       aria-pressed={pickingRival}
@@ -526,12 +638,19 @@ export function ArcadeLobby(props: Props) {
                 {visibleFighters.map((item) => {
                   const p1 = fighter === item.id;
                   const p2 = opponent?.id === item.id;
+                  const locked =
+                    mode === "story" &&
+                    !isFighterUnlocked(item.id, storyProgress);
                   return (
                     <button
                       key={item.id}
-                      className={`fighter-card ${activeFighter === item.id ? "chosen" : ""} ${p1 ? "picked-p1" : ""} ${p2 ? "picked-p2" : ""} ${pickingRival ? "picking-p2" : ""}`}
+                      className={`fighter-card ${activeFighter === item.id ? "chosen" : ""} ${p1 ? "picked-p1" : ""} ${p2 ? "picked-p2" : ""} ${pickingRival ? "picking-p2" : ""} ${locked ? "is-locked" : ""}`}
                       style={colorStyle(item.color)}
-                      aria-label={`Elegir a ${item.name}`}
+                      aria-label={
+                        locked
+                          ? `${item.name} (Bloqueado en Modo Historia)`
+                          : `Elegir a ${item.name}`
+                      }
                       aria-pressed={activeFighter === item.id}
                       onPointerEnter={(event) => {
                         if (event.pointerType === "mouse") hoverCard(item.id);
@@ -541,14 +660,28 @@ export function ArcadeLobby(props: Props) {
                       }
                       onPointerDown={() => warmSelection(item.id)}
                       onFocus={() => warmSelection(item.id)}
-                      onClick={() =>
-                        pickingRival
-                          ? props.onRival(item.id)
-                          : props.onFighter(item.id)
-                      }
+                      onClick={() => {
+                        if (locked) {
+                          props.onNotice?.(
+                            `¡Derrota a ${item.name} en el Modo Historia para desbloquearlo!`,
+                          );
+                          return;
+                        }
+                        if (pickingRival) {
+                          props.onRival(item.id);
+                        } else {
+                          props.onFighter(item.id);
+                        }
+                      }}
                     >
                       <div className="fighter-card-art">
                         <Portrait fighter={item.id} bust />
+                        {locked && (
+                          <div className="fighter-lock-overlay" aria-hidden="true">
+                            <LockKeyhole size={11} />
+                            <span>Bloqueado</span>
+                          </div>
+                        )}
                         <div className="fighter-player-tags">
                           {p1 && <span className="tag-p1">{ownLabel}</span>}
                           {p2 && <span className="tag-p2">{rivalLabel}</span>}
@@ -630,9 +763,9 @@ export function ArcadeLobby(props: Props) {
             {STAGES.map((item) => (
               <button
                 key={item.id}
-                className={`arcade-stage ${item.id === stage.id ? "selected" : ""}`}
+                className={`arcade-stage ${item.id === currentStage.id ? "selected" : ""}`}
                 aria-label={`Elegir escenario ${item.location}`}
-                aria-pressed={item.id === stage.id}
+                aria-pressed={item.id === currentStage.id}
                 disabled={stageLocked}
                 onClick={() => props.onStage(item.id)}
               >
@@ -644,7 +777,7 @@ export function ArcadeLobby(props: Props) {
                     decoding="async"
                     fetchPriority="low"
                   />
-                  {item.id === stage.id && (
+                  {item.id === currentStage.id && (
                     <span className="stage-tick">
                       <Check size={12} />
                     </span>
@@ -655,7 +788,11 @@ export function ArcadeLobby(props: Props) {
             ))}
           </div>
           {stageLocked && (
-            <p className="stage-lock-note">El anfitrión elige el escenario.</p>
+            <p className="stage-lock-note">
+              {mode === "story"
+                ? `Escenario del Nivel ${storyProgress.currentLevel}: ${currentStage.name} (${currentStage.location})`
+                : "El anfitrión elige el escenario."}
+            </p>
           )}
         </section>
 
@@ -680,9 +817,11 @@ export function ArcadeLobby(props: Props) {
               </button>
             </div>
           )}
-          {mode === "practice" && (
+          {(mode === "practice" || mode === "story") && (
             <div className="ready-difficulty">
-              <span>NIVEL DEL CPU</span>
+              <span>
+                NIVEL DEL CPU {mode === "story" ? "· DIFICULTAD BASE" : ""}
+              </span>
               <div role="group" aria-label="Dificultad del CPU">
                 {(
                   [
@@ -691,14 +830,12 @@ export function ArcadeLobby(props: Props) {
                     ["hard", "Candela"],
                   ] as const
                 ).map(([value, label]) => {
-                  const disabled = value !== "easy";
                   return (
                     <button
                       key={value}
                       className={props.difficulty === value ? "active" : ""}
                       aria-pressed={props.difficulty === value}
-                      disabled={disabled}
-                      onClick={() => !disabled && props.onDifficulty(value)}
+                      onClick={() => props.onDifficulty(value)}
                     >
                       {label}
                       {value === "hard" && <PixelIcon kind="bolt" size={11} />}
@@ -706,34 +843,34 @@ export function ArcadeLobby(props: Props) {
                   );
                 })}
               </div>
+              {mode === "story" && (
+                <span className="story-diff-scaling-hint">
+                  Nivel {storyProgress.currentLevel}: CPU{" "}
+                  <strong>{difficultyLabel(effectiveStoryDifficulty)}</strong> (escala con los niveles)
+                </span>
+              )}
             </div>
           )}
           {mode === "online" && (
             <div className="ready-online-status">
               <PixelIcon kind="star" size={14} />
-              <span>MODO HISTORIA · PRÓXIMAMENTE</span>
+              <span>MULTIJUGADOR EN LÍNEA</span>
             </div>
           )}
           <button
             className="arcade-start primary-button fight-button"
-            disabled={mode === "online"}
-            title={
-              mode === "online"
-                ? "Modo historia en desarrollo para la Game Jam"
-                : undefined
-            }
-            onPointerEnter={mode === "online" ? undefined : props.onStartIntent}
-            onPointerDown={mode === "online" ? undefined : props.onStartIntent}
-            onFocus={mode === "online" ? undefined : props.onStartIntent}
-            onClick={mode === "online" ? undefined : props.onStart}
+            onPointerEnter={props.onStartIntent}
+            onPointerDown={props.onStartIntent}
+            onFocus={props.onStartIntent}
+            onClick={props.onStart}
           >
             <PixelIcon
-              kind={mode === "online" ? "star" : "gamepad"}
+              kind={mode === "story" ? "star" : "gamepad"}
               size={20}
             />
             <span>
-              {mode === "online"
-                ? "HISTORIA (PRÓXIMAMENTE)"
+              {mode === "story"
+                ? `¡COMBATIR NIVEL ${storyProgress.currentLevel}!`
                 : "¡A DARLE!"}
             </span>
             <PixelIcon kind="arrow" size={20} />

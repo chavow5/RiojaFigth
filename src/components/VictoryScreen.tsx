@@ -5,7 +5,7 @@ import {
   type RefObject,
 } from "react";
 import { ArrowRight, RotateCcw, Trophy, Zap } from "lucide-react";
-import { fighterById, stageById } from "../../shared/content";
+import { fighterById, stageById, type FighterId } from "../../shared/content";
 import type { MatchState } from "../../shared/engine";
 import type { GameMode } from "./Game";
 import { VenezuelaStars } from "./CriolloArt";
@@ -24,6 +24,10 @@ interface Props {
   rematchWaiting?: boolean;
   onRematch: () => void;
   onExit: () => void;
+  storyLevel?: number;
+  storyNewlyUnlocked?: FighterId | null;
+  storyCompleted?: boolean;
+  onNextStoryLevel?: () => void;
 }
 
 /** The result appears directly after the last impact and brief knockout hold. */
@@ -37,6 +41,10 @@ export function VictoryScreen({
   rematchWaiting,
   onRematch,
   onExit,
+  storyLevel,
+  storyNewlyUnlocked,
+  storyCompleted,
+  onNextStoryLevel,
 }: Props) {
   useLayoutEffect(() => {
     if (!overlayRef.current) {
@@ -90,7 +98,23 @@ export function VictoryScreen({
         </div>
         <div className="victory-screen-copy">
           <h2 id="result-title" className="victory-screen-title">
-            {fighter ? (
+            {mode === "story" ? (
+              localWinner ? (
+                storyCompleted || storyLevel === 10 ? (
+                  <>
+                    <span>¡CAMPEÓN DE LA CHAYA!</span> <strong>¡Victoria total!</strong>
+                  </>
+                ) : (
+                  <>
+                    <span>Nivel {storyLevel}</span> <strong>¡Superado!</strong>
+                  </>
+                )
+              ) : (
+                <>
+                  <span>Nivel {storyLevel}</span> <strong>Derrota</strong>
+                </>
+              )
+            ) : fighter ? (
               <>
                 <span>{fighter.shortName}</span> <strong>ganó.</strong>
               </>
@@ -99,13 +123,19 @@ export function VictoryScreen({
             )}
           </h2>
           <p id="result-description" className="victory-screen-description">
-            {winner
-              ? mode === "local"
-                ? `${winner.config.name} se lleva la victoria.`
-                : localWinner
-                  ? "La victoria es tuya. ¡Tremendo combate!"
-                  : "Esta se la llevó tu rival. La próxima puede ser tuya."
-              : "Nadie se lleva la corona. Esto pide revancha."}
+            {mode === "story"
+              ? localWinner
+                ? storyCompleted || storyLevel === 10
+                  ? "¡Has vencido a todos los contrincantes! La corona chayera es tuya para siempre."
+                  : "¡Gran combate! Derrotaste a tu rival y avanzas en el camino de la Chaya."
+                : `${state.players[1 - localIndex].config.name} te ha frenado en el Nivel ${storyLevel}. ¡Reintenta para avanzar!`
+              : winner
+                ? mode === "local"
+                  ? `${winner.config.name} se lleva la victoria.`
+                  : localWinner
+                    ? "La victoria es tuya. ¡Tremendo combate!"
+                    : "Esta se la llevó tu rival. La próxima puede ser tuya."
+                : "Nadie se lleva la corona. Esto pide revancha."}
           </p>
           <dl
             className="victory-screen-stats"
@@ -124,6 +154,17 @@ export function VictoryScreen({
               <dd>{stats.peakCombo}</dd>
             </div>
           </dl>
+          {mode === "story" && storyNewlyUnlocked && localWinner && (
+            <div className="victory-story-unlock" role="status">
+              <Zap size={22} aria-hidden="true" />
+              <div className="victory-story-unlock-text">
+                <strong>¡NUEVO LUCHADOR DESBLOQUEADO!</strong>
+                <span>
+                  ¡{fighterById(storyNewlyUnlocked).name} ya está disponible para jugar!
+                </span>
+              </div>
+            </div>
+          )}
           {unlocked && (
             <p className="victory-screen-unlock">
               <Zap size={16} aria-hidden="true" />
@@ -131,17 +172,53 @@ export function VictoryScreen({
             </p>
           )}
           <div className="victory-screen-actions">
-            <button
-              className="victory-screen-rematch"
-              disabled={rematchWaiting}
-              onClick={onRematch}
-            >
-              <RotateCcw size={19} aria-hidden="true" />
-              {rematchWaiting ? "Esperando a tu compa…" : "¡Revancha!"}
-            </button>
-            <button className="victory-screen-exit" onClick={onExit}>
-              Volver a la selección <ArrowRight size={17} aria-hidden="true" />
-            </button>
+            {mode === "story" ? (
+              localWinner ? (
+                storyCompleted || (storyLevel ?? 1) >= 10 ? (
+                  <button className="victory-screen-rematch story-next-btn" onClick={onExit}>
+                    <Trophy size={19} aria-hidden="true" />
+                    ¡Gloria Eterna! (Volver al Lobby)
+                  </button>
+                ) : (
+                  <>
+                    <button
+                      className="victory-screen-rematch story-next-btn"
+                      onClick={onNextStoryLevel ?? onRematch}
+                    >
+                      <ArrowRight size={19} aria-hidden="true" />
+                      Siguiente Nivel (Nivel {(storyLevel ?? 1) + 1})
+                    </button>
+                    <button className="victory-screen-exit" onClick={onExit}>
+                      Volver a la selección <ArrowRight size={17} aria-hidden="true" />
+                    </button>
+                  </>
+                )
+              ) : (
+                <>
+                  <button className="victory-screen-rematch" onClick={onRematch}>
+                    <RotateCcw size={19} aria-hidden="true" />
+                    Reintentar Nivel {storyLevel}
+                  </button>
+                  <button className="victory-screen-exit" onClick={onExit}>
+                    Volver a la selección <ArrowRight size={17} aria-hidden="true" />
+                  </button>
+                </>
+              )
+            ) : (
+              <>
+                <button
+                  className="victory-screen-rematch"
+                  disabled={rematchWaiting}
+                  onClick={onRematch}
+                >
+                  <RotateCcw size={19} aria-hidden="true" />
+                  {rematchWaiting ? "Esperando a tu compa…" : "¡Revancha!"}
+                </button>
+                <button className="victory-screen-exit" onClick={onExit}>
+                  Volver a la selección <ArrowRight size={17} aria-hidden="true" />
+                </button>
+              </>
+            )}
             <span className="sr-only" role="status">
               {rematchWaiting
                 ? "Esperando a que tu compa acepte la revancha."
@@ -190,7 +267,9 @@ export function VictoryScreen({
               ? "En línea"
               : mode === "local"
                 ? "Versus local"
-                : "Contra CPU"}
+                : mode === "story"
+                  ? `Modo Historia · Nivel ${storyLevel ?? 1}`
+                  : "Contra CPU"}
           </span>
         </div>
       </div>

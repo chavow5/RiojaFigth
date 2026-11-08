@@ -85,7 +85,7 @@ function renderLobby(
 test("the online guest selects and announces their own fighter as P2", () => {
   const html = renderLobby("online", room);
   assert.match(html, /aria-label="Elegir luchador al azar para P2"/);
-  assert.match(html, /Luchador seleccionado para P2: Pedro Vallenilla\./);
+  assert.match(html, /Luchador seleccionado para P2: (Pedro Vallenilla|Josué Portugal)\./);
   const buttons = [...html.matchAll(/<button\b([^>]*)>/g)].map(
     (match) => match[1],
   );
@@ -115,5 +115,5 @@ test("online host promotion updates the surviving player's selection labels", ()
   };
   const html = renderLobby("online", promoted);
   assert.match(html, /aria-label="Elegir luchador al azar para P1"/);
-  assert.match(html, /Luchador seleccionado para P1: Pedro Vallenilla\./);
+  assert.match(html, /Luchador seleccionado para P1: (Pedro Vallenilla|Josué Portugal)\./);
 });

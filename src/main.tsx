@@ -5,6 +5,16 @@ import { Acknowledgements } from "./components/Acknowledgements";
 import { loadInterfaceFonts } from "./fonts";
 import "./base.css";
 
+if (
+  typeof window !== "undefined" &&
+  "serviceWorker" in navigator &&
+  window.location.protocol.startsWith("http")
+) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("/sw.js").catch(() => {});
+  });
+}
+
 const root = createRoot(document.getElementById("root")!);
 const fontLoading = loadInterfaceFonts();
 const acknowledgements = /^\/agradecimientos\/?$/.test(location.pathname);

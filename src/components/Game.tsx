@@ -20,7 +20,7 @@ import {
   VolumeX,
   Zap,
 } from "lucide-react";
-import { fighterById, stageById } from "../../shared/content";
+import { fighterById, stageById, type FighterId } from "../../shared/content";
 import { INTRO_COUNTDOWN_START, introActor } from "../../shared/presentation";
 import {
   cpuInput,
@@ -74,11 +74,15 @@ import {
   type ArenaCamera,
 } from "../game/arena-camera";
 
-export type GameMode = "practice" | "local" | "online";
+export type GameMode = "practice" | "story" | "local" | "online";
 interface Props {
   initial: MatchState;
   mode: GameMode;
   difficulty: "easy" | "normal" | "hard";
+  storyLevel?: number;
+  storyNewlyUnlocked?: FighterId | null;
+  storyCompleted?: boolean;
+  onNextStoryLevel?: () => void;
   remote?: MutableRefObject<MatchState | null>;
   localIndex?: number;
   onInput?: (input: Input) => void;
@@ -295,7 +299,8 @@ export function Game(props: Props) {
       .then((value) => {
         if (alive) setAssets(value);
       })
-      .catch(() => {
+      .catch((err) => {
+        console.error("Match asset preload error:", err);
         if (alive)
           setAssetError(
             "No se pudieron cargar los personajes. Vuelve a intentar.",
@@ -501,7 +506,7 @@ export function Game(props: Props) {
       } else if (!pausedRef.current && !blockedRef.current && !dialogOpen) {
         accumulator += elapsed;
         while (accumulator >= 1000 / 60) {
-          if (mode === "practice")
+          if (mode === "practice" || mode === "story")
             inputs.current[1] = cpuInput(state, inputs.current[1], difficulty);
           stepMatch(state, inputs.current);
           accumulator -= 1000 / 60;
@@ -1088,6 +1093,10 @@ export function Game(props: Props) {
             rematchWaiting={props.rematchWaiting}
             onRematch={props.onRematch}
             onExit={props.onExit}
+            storyLevel={props.storyLevel}
+            storyNewlyUnlocked={props.storyNewlyUnlocked}
+            storyCompleted={props.storyCompleted}
+            onNextStoryLevel={props.onNextStoryLevel}
           />
         )}
       </div>

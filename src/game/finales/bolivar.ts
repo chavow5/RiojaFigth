@@ -17,11 +17,11 @@ export const BOLIVAR_POSES = [
 ];
 // Source core heights with one shared source pixel scale per generated sheet.
 export const BOLIVAR_BODY_HEIGHTS: Record<string, number> = {
-  draw: 494,
-  slash: 493,
-  cut: 502,
-  thrust: 468,
-  ready: 525,
+  draw: 430,
+  slash: 430,
+  cut: 430,
+  thrust: 430,
+  ready: 430,
   "gallop-a": 516,
   "gallop-b": 476,
   horse: 413,
@@ -62,7 +62,7 @@ export function drawBolivarSpecial(
     pose,
     p.x,
     p.y,
-    (height * BOLIVAR_BODY_HEIGHTS[pose]) / 494,
+    (height * BOLIVAR_BODY_HEIGHTS[pose]) / 430,
     p.facing,
   );
 }

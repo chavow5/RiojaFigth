@@ -71,50 +71,50 @@
           "height": 887,
           "components": [
             {
-              "minX": 128,
+              "minX": 123,
               "minY": 13,
-              "maxX": 337,
-              "maxY": 443
+              "maxX": 343,
+              "maxY": 466
             },
             {
               "minX": 511,
               "minY": 54,
-              "maxX": 860,
-              "maxY": 443
+              "maxX": 853,
+              "maxY": 448
             },
             {
               "minX": 899,
               "minY": 32,
               "maxX": 1269,
-              "maxY": 443
+              "maxY": 454
             },
             {
-              "minX": 1334,
+              "minX": 1347,
               "minY": 36,
               "maxX": 1714,
-              "maxY": 443
+              "maxY": 446
             },
             {
               "minX": 48,
-              "minY": 444,
+              "minY": 481,
               "maxX": 354,
               "maxY": 807
             },
             {
               "minX": 490,
-              "minY": 444,
-              "maxX": 886,
+              "minY": 480,
+              "maxX": 960,
               "maxY": 883
             },
             {
-              "minX": 887,
-              "minY": 444,
+              "minX": 967,
+              "minY": 475,
               "maxX": 1329,
-              "maxY": 881
+              "maxY": 880
             },
             {
               "minX": 1389,
-              "minY": 444,
+              "minY": 484,
               "maxX": 1756,
               "maxY": 880
             }
@@ -200,13 +200,13 @@
             },
             {
               "minX": 532,
-              "minY": 1,
+              "minY": 2,
               "maxX": 836,
               "maxY": 441
             },
             {
               "minX": 959,
-              "minY": 11,
+              "minY": 12,
               "maxX": 1281,
               "maxY": 441
             },

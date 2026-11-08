@@ -61,7 +61,17 @@ import { PixelIcon } from "./components/PixelIcon";
 import { Game, type GameMode } from "./components/Game";
 import { Modal } from "./components/Modal";
 import { Help } from "./components/Help";
+import { InstallModal } from "./components/InstallModal";
 import { beginMobilePlay, leaveLandscape } from "./game/mobile";
+import {
+  readStoryProgress,
+  advanceStoryProgress,
+  resetStoryProgress,
+  getStoryMatch,
+  calculateEffectiveDifficulty,
+  isFighterUnlocked,
+  type StoryProgress,
+} from "./game/story-mode";
 import { assetUrl } from "./asset-url";
 import "./dialog.css";
 import "./styles.css";
@@ -73,6 +83,8 @@ import "./victory-screen.css";
 import "./desktop-controls.css";
 import "./progress.css";
 import "./fighter-moves.css";
+import "./install-modal.css";
+import "./story-mode.css";
 
 function constrainedConnection() {
   const connection = (
@@ -114,7 +126,7 @@ export function warmLobbyArt() {
   warmPortraitBusts(firstPage.map((fighter) => fighter.id));
 }
 
-type ModalName = "help" | "fighters" | "stages" | "progress" | "rooms" | null;
+type ModalName = "help" | "fighters" | "stages" | "progress" | "rooms" | "install" | null;
 const colorStyle = (color: string): React.CSSProperties =>
   ({ "--fighter-color": color }) as React.CSSProperties;
 
@@ -134,6 +146,8 @@ export function App({
   const [progress, setProgress] = useState<Progress>(readProgress);
   const progressRef = useRef(progress);
   progressRef.current = progress;
+  const [storyProgress, setStoryProgress] = useState<StoryProgress>(readStoryProgress);
+  const [storyNewlyUnlocked, setStoryNewlyUnlocked] = useState<FighterId | null>(null);
   const [audio, setAudio] = useState(() => getPreference("sound", true));
   const [modal, setModal] = useState<ModalName>(null);
   const [detail, setDetail] = useState<FighterId | null>(null);
@@ -156,6 +170,12 @@ export function App({
     }
     if (!isFighter(rival)) setRival("javier");
   }, [_communityRevision, network.communityVersion, fighter, rival]);
+
+  useEffect(() => {
+    if (mode === "story" && !isFighterUnlocked(fighter, storyProgress)) {
+      setFighter("simon");
+    }
+  }, [mode, fighter, storyProgress]);
 
   const active = localMatch || network.match?.initial;
   const chosen = fighterById(fighter);
@@ -327,8 +347,8 @@ export function App({
   const handleModeKeys = (event: KeyboardEvent<HTMLDivElement>) => {
     const directions = ["ArrowLeft", "ArrowRight", "Home", "End"];
     if (!directions.includes(event.key)) return;
-    const modes = ["practice", "local", "online"] as const;
-    const current = modes.indexOf(mode);
+    const modes = ["practice", "story", "local"] as const;
+    const current = Math.max(0, modes.indexOf(mode as (typeof modes)[number]));
     const next =
       event.key === "Home"
         ? 0
@@ -400,16 +420,33 @@ export function App({
       ?.querySelector<HTMLButtonElement>(".arcade-start")
       ?.focus({ preventScroll: true });
   };
-  const startLocal = () => {
+  const startLocal = (storyLevelOverride?: number) => {
     initAudio();
     stopReactions();
     preloadReactions();
     setModal(null);
     beginMobilePlay();
     const saved = progressRef.current;
+
+    let matchStage = stage;
+    let matchRival = rival;
+    let p2Name = mode === "practice" ? "CPU" : "Jugador 2";
+
+    if (mode === "story") {
+      const lvl =
+        typeof storyLevelOverride === "number"
+          ? storyLevelOverride
+          : storyProgress.currentLevel;
+      const storyMatch = getStoryMatch(lvl, fighter);
+      matchStage = storyMatch.stage;
+      matchRival = storyMatch.rival;
+      p2Name = `Nivel ${lvl}: ${fighterById(storyMatch.rival).name}`;
+      setStoryNewlyUnlocked(null);
+    }
+
     setLocalMatch(
       createMatch(
-        stage,
+        matchStage,
         [
           {
             name: "Jugador 1",
@@ -417,9 +454,9 @@ export function App({
             wins: Number(saved.wins[fighter]) || 0,
           },
           {
-            name: mode === "practice" ? "CPU" : "Jugador 2",
-            fighter: rival,
-            wins: Number(saved.wins[rival]) || 0,
+            name: p2Name,
+            fighter: matchRival,
+            wins: Number(saved.wins[matchRival]) || 0,
           },
         ],
         crypto.randomUUID(),
@@ -451,6 +488,18 @@ export function App({
     progressRef.current = saved;
     setProgress(saved);
     saveProgress(saved);
+
+    if (mode === "story" && won) {
+      const defeatedRival = state.players[1 - index].config.fighter;
+      const outcome = advanceStoryProgress(
+        defeatedRival,
+        storyProgress.currentLevel,
+      );
+      setStoryProgress(outcome.progress);
+      if (outcome.newlyUnlocked) {
+        setStoryNewlyUnlocked(outcome.unlockedRival);
+      }
+    }
   };
   const exit = () => {
     setLocalMatch(null);
@@ -540,6 +589,23 @@ export function App({
           </button>
           {!active && (
             <button
+              className="header-install-btn"
+              onClick={() => setModal("install")}
+              aria-label="Guardar en celular"
+              title="Guardar en pantalla de inicio de celular"
+            >
+              <img
+                src={assetUrl("/assets/arena-icon.svg")}
+                width="16"
+                height="16"
+                alt=""
+                className="install-btn-logo"
+              />
+              <span>Guardar en celular</span>
+            </button>
+          )}
+          {!active && (
+            <button
               className="icon-button header-progress"
               onClick={() => setModal("progress")}
               aria-label="Mi progreso"
@@ -575,7 +641,18 @@ export function App({
           key={active.id}
           initial={active}
           mode={localMatch ? mode : "online"}
-          difficulty={difficulty}
+          difficulty={
+            mode === "story"
+              ? calculateEffectiveDifficulty(
+                  difficulty,
+                  storyProgress.currentLevel,
+                )
+              : difficulty
+          }
+          storyLevel={mode === "story" ? storyProgress.currentLevel : undefined}
+          storyNewlyUnlocked={storyNewlyUnlocked}
+          storyCompleted={storyProgress.completed}
+          onNextStoryLevel={() => startLocal(storyProgress.currentLevel)}
           remote={network.state}
           localIndex={network.match?.index || 0}
           onInput={(input) =>
@@ -607,6 +684,13 @@ export function App({
           network={network}
           searchInput={fighterSearchInput}
           setupPanel={setupPanel}
+          storyProgress={storyProgress}
+          onResetStory={() => {
+            const fresh = resetStoryProgress();
+            setStoryProgress(fresh);
+            setNotice("Progreso del Modo Historia reiniciado al Nivel 1.");
+          }}
+          onNotice={setNotice}
           onQuery={setFighterQuery}
           onClearQuery={clearFighterSearch}
           onFighter={selectFighter}
@@ -621,7 +705,7 @@ export function App({
           onRosterKeys={handleRosterKeys}
           onDetail={setDetail}
           onModal={setModal}
-          onStart={mode === "online" ? openRooms : startLocal}
+          onStart={mode === "online" ? openRooms : () => startLocal()}
           onStartIntent={warmMatch}
           onReady={(ready) => {
             clickSound();
@@ -676,6 +760,7 @@ export function App({
         </div>
       )}
       {modal === "help" && <Help onClose={() => setModal(null)} />}
+      {modal === "install" && <InstallModal onClose={() => setModal(null)} />}
       {modal === "fighters" && (
         <Modal title="Luchadores" wide onClose={() => setModal(null)}>
           <div className="roster-grid">

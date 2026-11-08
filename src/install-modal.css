@@ -1,0 +1,346 @@
+/* Install PWA Modal & Lobby Banner Styling */
+
+.install-modal .modal-header h2 {
+  font-family: var(--font-display, inherit);
+  letter-spacing: 0.5px;
+}
+
+.install-content {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 16px 20px;
+  color: #cdd9e5;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.install-hero {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 18px;
+  background: linear-gradient(135deg, rgba(230, 57, 70, 0.15), rgba(13, 27, 44, 0.8));
+  border: 1px solid rgba(230, 57, 70, 0.35);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.install-logo-wrapper {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.install-logo {
+  border-radius: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 20px rgba(230, 57, 70, 0.5), 0 4px 8px rgba(0, 0, 0, 0.6);
+  background: #091524;
+  object-fit: contain;
+}
+
+.install-hero-text h3 {
+  margin: 0;
+  font-family: var(--font-display, inherit);
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.install-hero-text p {
+  margin: 3px 0 6px;
+  font-size: 13px;
+  color: #8da4be;
+}
+
+.install-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #ffb703;
+  background: rgba(255, 183, 3, 0.12);
+  border: 1px solid rgba(255, 183, 3, 0.3);
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+.install-action-block {
+  display: flex;
+  justify-content: center;
+}
+
+.install-primary-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: linear-gradient(180deg, #e63946, #c1121f);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(230, 57, 70, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: transform 120ms, filter 120ms;
+}
+
+.install-primary-button:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.install-primary-button:active {
+  transform: translateY(1px);
+}
+
+.install-success-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: rgba(46, 160, 67, 0.15);
+  border: 1px solid rgba(46, 160, 67, 0.4);
+  border-radius: 8px;
+  color: #7ee787;
+}
+
+.install-tabs {
+  display: flex;
+  gap: 8px;
+  background: rgba(14, 25, 41, 0.6);
+  padding: 4px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.install-tabs button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #8da4be;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 140ms;
+}
+
+.install-tabs button.active {
+  color: #ffffff;
+  background: #1b304c;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.install-instructions {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.install-instructions li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 10px 14px;
+  border-radius: 8px;
+}
+
+.step-num {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #e63946;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.install-instructions p {
+  margin: 4px 0 0;
+  color: #8da4be;
+  font-size: 13px;
+}
+
+.inline-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 2px;
+}
+
+.install-benefits {
+  background: rgba(9, 21, 36, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+.install-benefits h4 {
+  margin: 0 0 8px;
+  font-size: 13px;
+  color: #ffb703;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.install-benefits ul {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: #aebed4;
+  font-size: 12px;
+}
+
+/* =========================================================================
+   Lobby Install Banner (Main Page / Inicio)
+   ========================================================================= */
+
+.lobby-install-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin: 10px 0 16px;
+  padding: 12px 16px;
+  background: linear-gradient(90deg, rgba(17, 35, 58, 0.95), rgba(8, 25, 42, 0.95));
+  border: 1px solid rgba(230, 57, 70, 0.4);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.lobby-install-lead {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.lobby-install-logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  border: 1.5px solid rgba(230, 57, 70, 0.5);
+  box-shadow: 0 0 10px rgba(230, 57, 70, 0.3);
+  background: #091524;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.lobby-install-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.lobby-install-text strong {
+  font-size: 14px;
+  color: #ffffff;
+  letter-spacing: 0.3px;
+}
+
+.lobby-install-text span {
+  font-size: 12px;
+  color: #8da4be;
+}
+
+.lobby-install-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: linear-gradient(180deg, #e63946, #c1121f);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(230, 57, 70, 0.35);
+  transition: all 120ms;
+}
+
+.lobby-install-btn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.lobby-install-btn:active {
+  transform: translateY(1px);
+}
+
+/* Header install button */
+.header-install-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 32px;
+  padding: 0 10px;
+  background: rgba(230, 57, 70, 0.16);
+  border: 1px solid rgba(230, 57, 70, 0.35);
+  border-radius: 4px;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 140ms;
+}
+
+.header-install-btn:hover {
+  background: rgba(230, 57, 70, 0.28);
+  border-color: rgba(230, 57, 70, 0.6);
+}
+
+.header-install-btn .install-btn-logo {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+}
+
+@media (max-width: 640px) {
+  .lobby-install-banner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .lobby-install-btn {
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+  }
+  .header-install-btn span {
+    display: none;
+  }
+  .header-install-btn {
+    padding: 0 6px;
+  }
+}

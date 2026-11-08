@@ -316,12 +316,13 @@ export function loadSprite(
   if (!cinematicSprites.has(id)) {
     cinematicSprites.set(
       id,
-      Promise.all([geometry, loadImage(manifest.file, options.priority)]).then(
-        ([sprite, image]) => ({
-          ...sprite,
-          entrance: { ...manifest, image },
-        }),
-      ),
+      Promise.all([
+        geometry,
+        loadImage(manifest.file, options.priority).catch(() => undefined),
+      ]).then(([sprite, image]) => ({
+        ...sprite,
+        entrance: image ? { ...manifest, image } : undefined,
+      })),
     );
     void cinematicSprites.get(id)!.catch(() => cinematicSprites.delete(id));
   }
@@ -493,7 +494,9 @@ export async function preloadAssets(
       ...fighters.map((id) => loadSprite(id, { entrance: options.entrance })),
       ...stages.map((id) => loadImage(id)),
     ]),
-    hasCourier ? loadImage(courierManifest.file) : undefined,
+    hasCourier
+      ? loadImage(courierManifest.file).catch(() => undefined)
+      : undefined,
     // Decorations can retry next fight without blocking the mandatory fighter
     // and stage assets; each cinematic also has a geometry-based fallback.
     Promise.allSettled(decorations.map((file) => loadImage(file))),
